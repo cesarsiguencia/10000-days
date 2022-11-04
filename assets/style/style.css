@@ -28,7 +28,8 @@ p {
 
 h1{
     text-align: center;
-    color: var(--primary-color)
+    /* color: var(--primary-color) */
+    color: white;
 }
 
 h2{
@@ -49,9 +50,9 @@ section, header{
 
 
 .hero{
-    /* width: "100%" */
-    position: relative;
-
+    background-image: url("../media/empire.png");
+    background-size: cover;
+    height: 100%
 }
 
 
@@ -61,6 +62,17 @@ section, header{
 
 
 
+}
+
+.carousel {
+    height: 400px;
+    width: 100%
+}
+
+.carousel-item{
+
+height: 400px;
+width: 100%
 }
 
 /* @keyframes slideInFromL {
@@ -86,20 +98,18 @@ section, header{
      }
 }
   
-    .welcome-box{  
-    /* This section calls the slideInFromLeft animation we defined above */
-    position: absolute;
+.welcome-box{  
     text-align: center;
     width: 100%;
-    top: 0px;    
-    height: 100%;
+
+    /* height: 100%; */
     padding: 25%;
     visibility: hidden;
 }
 
 .hero-menu{
     visibility: hidden;
-    position: absolute;
+    /* position: absolute; */
     bottom: 100px;
     width: 100%;
     margin: 0 auto;
@@ -213,3 +223,4 @@ header{
 .berkshire {
     font-family: 'Rock Salt', cursive
 }
+
