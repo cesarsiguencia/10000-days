@@ -19,23 +19,38 @@ function changeWords(currentIndex) {
     } else {
         return
     }
-
     nextIndex = currentIndex
     setTimeout(changeWords, 4000, nextIndex)
 }
 
 function insertHomeBtn() {
+    welcomeBox.style = 'backdrop-filter: blur(2px)'
     var buttonItem = document.createElement("a")
     buttonItem.className = 'welcome-button'
-    buttonItem.innerHTML = '<p class="welcome-button-font text-center copperplate-font">Click here for awesomeness</p> '
+    buttonItem.innerHTML = '<p class="welcome-button-font text-center copperplate-font">Click here for audio and awesomeness</p> '
     welcomeBox.appendChild(buttonItem)
 }
 
+const introAudio = document.querySelector('#intro-audio')
+
 function appearButton() {
     var button = document.querySelector(".welcome-button")
-    button.setAttribute("href", "/home")
     button.style.opacity = 1
+
+    button.addEventListener("click", ()=>{
+        welcomeBox.style.transition = 'ease-in-out 2s'
+        welcomeBox.style.scale = 5
+        welcomeBox.style.opacity = 0
+        introAudio.play()
+        introAudio.volume = 0.8
+
+        setTimeout((()=>{
+            window.location.href = '/home'
+        }
+        ), 4500)
+    })
 }
+
 
 
 function introParallax(event) {
