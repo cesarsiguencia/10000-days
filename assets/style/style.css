@@ -98,7 +98,9 @@ button{
     margin: 0 auto;
     padding: 10px;
     border-radius: 25px;
-    transition: ease-in-out 0.2s;
+    transition: ease-in-out 1s;
+    scale: 1;
+    border: black 3px solid;
 }
 
 button:hover{
@@ -169,7 +171,8 @@ a {
 }
 
 .welcome-box {
-    backdrop-filter: blur(2px);
+    transition: ease-in-out 1s;
+    backdrop-filter: blur(0px);
 }
 
 .welcome-titles {
@@ -289,10 +292,17 @@ nav {
     overflow: hidden;
 }
 
-.dashboard-posts {
+.dashboard-posts, .albums {
     width: 100%;
     flex-shrink: 0;
     transition: ease-in-out 1s;
+}
+
+.albums > img {
+    display: block;
+    margin: 0 auto;
+    height: 600px;
+    width: 600px;
 }
 
 
@@ -324,9 +334,13 @@ nav {
 }
 
 .equation {
+    width:50%;
+    margin: 0 auto;
     padding: 20px 0;
     border-radius: 25px;
     background-color: var(--fourth-color);
+    transition: ease-in-out 1s;
+    scale: 0.75
 }
 
 .equation>h2 {
@@ -347,6 +361,10 @@ nav {
     font-size: 35px;
 }
 
+.about-story{
+    transition: ease-in-out 1s;
+}
+
 /* Skylark Section Venue */
 
 .venue-imgs-block{
@@ -358,26 +376,38 @@ nav {
     display: block;
     width: 400px;
     height: 400px;
-    transition: ease-in-out 1.5s;
+    transition: ease-in-out 1s;
     border: 5px solid var(--fourth-color)
 }
 
 .skylark-img {
-    background-image: url('../media/lounge.png');
-    background-size: 210%;
-    background-position-x: 50%;
+    background-image: url('../media/lounge.png');   
+    background-size: 100%
+
 }
 
 .skylark-img-2 {
     background-image: url('../media/lounge-2.png');
-    background-size: 180%;
-    background-position-x: 30%;
+    background-size: 100%
+
 }
 
 .skylark-img-3 {
     background-image: url('../media/lounge-3.png');
-    background-size: 180%;
-    background-position-x: 30%;
+    background-size: 100%
+
+}
+
+.skylark-img:hover{
+    scale: 1.1
+}
+
+.skylark-img-2:hover{
+    scale: 1.1
+}
+
+.skylark-img-3:hover{
+    scale: 1.1
 }
 
 .venue-info {
@@ -421,6 +451,10 @@ footer {
     justify-content: space-between;
 }
 
+.footer-right{
+  text-align: right;
+}
+
 /* FORM PAGE --------------------------*/
 /* Fill Out Form */
 
@@ -456,6 +490,11 @@ footer {
 	border-radius: 5px;
 	margin: 50px auto;
 	padding: 15px;
+}
+
+#audio-trigger{
+    display: block; 
+    border: 3px white dotted"
 }
 
 /* Media Queries ------------------------- */
@@ -495,6 +534,13 @@ footer {
     }
 }
 
+@media screen and (max-width: 1200px){
+    .full-width{
+        width: 100%
+    }
+
+}
+
 @media screen and (max-width: 1000px) {
     .venue-split>* {
         width: 100%;
@@ -519,13 +565,25 @@ footer {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px){
+    .intro-div>div {
+        padding: 20px 0px 20px 0px;
+    }
+
     .intro-div {
         width: 95%
     }
 
     .full-width {
         height: 300px;
+    }
+} 
+
+@media screen and (max-width: 768px) {
+
+
+    .equation{
+        width: 100%;
     }
 
 
@@ -579,15 +637,26 @@ footer {
         transition: all 0.5s ease-in-out;
         transform: translateY(-10px) rotate(-45deg);
     }
+
+
 }
 
 @media screen and (max-width: 650px) {
+    .full-width{
+        width: 100%;
+    }
+
+    .intro-div>div {
+        padding: 20px 0px 20px 0px;
+    }
+
     .footer-flex {
         display: block;
     }
 
-    .footer-flex>div {
+    .footer-flex>div , .footer-right {
         text-align: center;
+        margin: 10px auto;
     }
 
     .full-width {
@@ -607,6 +676,11 @@ footer {
         width: 90%;
         margin: 10px auto;
     }
+
+    .albums > img{
+        height: 300px;
+        width: 300px
+    }
 }
 
 @media screen and (max-width: 575px) {
@@ -616,9 +690,7 @@ footer {
         margin-bottom: 20px;
     }
 
-    .full-width{
-        width: 100%;
-    }
+
 
     .venue-info-blocks>iframe {
         height: 200px;
@@ -628,7 +700,10 @@ footer {
         padding: 20px 0;
     }
 
-    .intro-div>div {
-        padding: 20px 0px 20px 0px;
+    .full-width{
+        width: 100%
     }
+
+
+
 }

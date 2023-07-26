@@ -32,7 +32,8 @@ const sess = {
 app.use(session(sess))
 
 
-app.use(express.static(path.join(__dirname, 'assets')))
+// app.use(express.static(path.join(__dirname, './assets')))
+app.use(express.static('assets'))
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 //middleware for json and it's key/values
