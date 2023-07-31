@@ -30,7 +30,7 @@
 
     <link type="text/css" rel="stylesheet" href="/style/flipclock.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript" src="/script/flipclock.js"></script>
+
     <style text="text/css">
         body .flip-clock-wrapper ul li a div div.inn,
         body .flip-clock-small-wrapper ul li a div div.inn {
@@ -48,19 +48,7 @@
             color: #323434;
         }
     </style>
-        <script type="text/javascript">
-        $(function () {
-            FlipClock.Lang.Custom = { days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds' };
-            var opts = {
-                clockFace: 'DailyCounter',
-                countdown: true,
-                language: 'Custom'
-            };
-            var countdown = 1697936400 - ((new Date().getTime()) / 1000); // from: 10/21/2023 09:00 pm +0000
-            countdown = Math.max(1, countdown);
-            $('.clock-builder-output').FlipClock(countdown, opts);
-        });
-    </script>
+
 
 
 
@@ -90,7 +78,7 @@
             </div>
             <div class="footer-right">
                 <p>Did you like this website? I coded it!</p>
-                <p>Check out for more Cezzie made projects <a target="_blank"
+                <p>Check out more of my projects <a target="_blank"
                         href="https://cesarsiguencia.github.io/my-react-portfolio/"
                         style="color: black; font-weight: bold;">HERE!</a></p>
             </div>

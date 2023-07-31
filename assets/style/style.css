@@ -376,9 +376,11 @@ nav {
     display: block;
     width: 400px;
     height: 400px;
+    margin-bottom: 20px;
     transition: ease-in-out 1s;
     border: 5px solid var(--fourth-color)
 }
+
 
 .skylark-img {
     background-image: url('../media/lounge.png');   
@@ -702,6 +704,10 @@ footer {
 
     .full-width{
         width: 100%
+    }
+
+    .addToCalendar{
+        width: 100%;
     }
 
 
