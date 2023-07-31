@@ -517,9 +517,9 @@ footer {
     flex-wrap: wrap;
 }
 
-.posts-box{
-    width: 80%;
-    margin: 0 auto;
+.db-boxes{
+    width: 600px;
+    margin: 15px auto;
     border: solid 3px var(--fourth-color);
     padding: 15px 15px;
     border-radius: 50px
@@ -527,9 +527,23 @@ footer {
 
 .db-posts-page{
     border-top: solid 3px var(--fourth-color);
+    display: flex;
+    justify-content: space-between;
 }
 .db-posts-page:nth-child(odd){
     background-color: var(--secondary-color);
+}
+
+.posts-logos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.posts-logos>img{
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
 }
 
 /* Media Queries ------------------------- */

@@ -7,10 +7,10 @@
         <h2 class="intro-title" style="margin-bottom: 15px;">Welcome! Your 10,000th Dashboard</h2>
 
         <div class="db-components">
-            <div class="posts-box">
-                <h2>Add A Post!</h2>
+            <div class="db-boxes">
+                <h2 style="margin: 30px auto;">Add A Post!</h2>
 
-                <div class="add-post">
+                <form class="add-post">
                     <div class="add-post-components">
                         <input type="text" placeholder="Type Your Thoughts Here!" name="post-text" id="post-text"
                             class="textbox" />
@@ -20,13 +20,76 @@
                         <input type="text" placeholder="(* Include Optional Link *)" name="post-link" id="post-link"
                             class="textbox" />
                     </div>
-                </div>
-                <h2 style="margin-bottom: 15px;">All Posts</h2>
+
+                    <button type="submit" class="highlighted-options text-center margin-center">
+                        <h6>Add Post</h6>
+                    </button>
+                </form>
+                <h2 style="margin: 30px auto;">All Posts from RSVPs</h2>
                 {{#each posts as |post|}}
                 <div class="dashboard-posts db-posts-page">
-                    {{> attendee-posts post}}
+                    <div>
+                        {{> attendee-posts post}}
+                    </div>
+                    <div class="posts-logos">
+                        <img src="/media/icons/love.png" />
+                        <img src="/media/icons/comment.png" />
+                        <img src="/media/icons/edit.png" />
+                    </div>
                 </div>
                 {{/each}}
+            </div>
+
+            <div class="db-boxes">
+                <h2 style="margin: 30px auto;">Change Credentials</h2>
+
+                <form>
+                    <div class="edit-email-components">
+                        <input type="text" placeholder="Change registered email" name="email-text" id="email-text"
+                            class="textbox" />
+                    </div>
+
+                    <div class="edit-username-components">
+                        <input type="text" placeholder="Change Username" name="username-text" id="username-text"
+                            class="textbox" />
+                    </div>
+
+
+                    <div class="edit-password-components">
+                        <input type="text" placeholder="Change Password" name="password-text" id="password-text"
+                            class="textbox" />
+                    </div>
+                    <button type="submit" class="highlighted-options text-center margin-center">
+                        <h6>Submit New Credentials</h6>
+                    </button>
+                </form>
+
+
+
+                <div class="form-components">
+                    <h2 style="margin: 30px auto;">Change Your RSVP</h2>
+                    <div>
+                        <div class="attendance">
+                            <input type="radio" name="form-attend" id="attend-yes" />
+                            <label for="attend-yes"> I will NOW attend event </label>
+                        </div class="attendance">
+                        <br />
+                        <div class="attendance">
+                            <input type="radio" name="form-attend" id="attend-no" />
+                            <label for="attend-no"> I will NO LONGER attend event</label>
+
+                        </div>
+
+                    </div>
+                    <br />
+                    <p>Decide carefully! You will not be able to change your RSVP two weeks before date. </p>
+
+
+
+
+
+                </div>
+
             </div>
         </div>
 
