@@ -499,6 +499,39 @@ footer {
     border: 3px white dotted"
 }
 
+/* Dashboard Page */
+
+.db-body{
+    padding: 20px 20px 20px 20px;
+    background-color: var(--third-color);
+
+}
+
+.db-central{
+    
+    margin: 0 auto
+}
+
+.db-components{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.posts-box{
+    width: 80%;
+    margin: 0 auto;
+    border: solid 3px var(--fourth-color);
+    padding: 15px 15px;
+    border-radius: 50px
+}
+
+.db-posts-page{
+    border-top: solid 3px var(--fourth-color);
+}
+.db-posts-page:nth-child(odd){
+    background-color: var(--secondary-color);
+}
+
 /* Media Queries ------------------------- */
 
 @media screen and (max-width: 1600px) {

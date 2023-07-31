@@ -2,9 +2,38 @@
 
 {{>navbar}}
 
-<div class="body">
-    <div>
-        <h2>You are currently in the dashboard</h2>
+<div class="db-body">
+    <div class="db-central">
+        <h2 class="intro-title" style="margin-bottom: 15px;">Welcome! Your 10,000th Dashboard</h2>
+
+        <div class="db-components">
+            <div class="posts-box">
+                <h2>Add A Post!</h2>
+
+                <div class="add-post">
+                    <div class="add-post-components">
+                        <input type="text" placeholder="Type Your Thoughts Here!" name="post-text" id="post-text"
+                            class="textbox" />
+                    </div>
+
+                    <div class="add-post-components">
+                        <input type="text" placeholder="(* Include Optional Link *)" name="post-link" id="post-link"
+                            class="textbox" />
+                    </div>
+                </div>
+                <h2 style="margin-bottom: 15px;">All Posts</h2>
+                {{#each posts as |post|}}
+                <div class="dashboard-posts db-posts-page">
+                    {{> attendee-posts post}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+
+
+
+
     </div>
 </div>
 
