@@ -30,24 +30,4 @@ router.get('/', (req, res) => {
         })
 });
 
-// router.get('/', (req,res) => {
-
-//     User.findOne(
-//         {
-//             attributes: {exclude: ['password']}
-//         },
-//         {
-//             where: {
-//                 id: req.session.user_id
-//             }
-//         }
-//     ).then(user => {
-//         loggedUser = user.id
-//         res.render(`
-//         <img src="/media/icons/edit.png" />
-//         <img src="/media/icons/trash.png" />`, loggedUser)
-        
-//     })
-// })
-
 module.exports = router

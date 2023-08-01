@@ -29,9 +29,9 @@
 
                 
                 {{#each posts as |post|}}
-                <div class="dashboard-posts db-posts-page">
+                <div class="dashboard-posts db-posts-page" post-id={{post.id}}>
                     <div>
-                        {{> dashboard-posts post}}
+                             {{> dashboard-posts post}}
                     </div>
                     
                     <div class="posts-logos">
@@ -41,8 +41,8 @@
    
                         {{#if (checkUserId post.user_id ../loggedUserId)}}
         
-                            <img src="/media/icons/edit.png" />
-                            <img src="/media/icons/trash.png" />
+                            <img id="edit" src="/media/icons/edit.png"  />
+                            <img id="trash" post-id={{post.id}} src="/media/icons/trash.png" />
                 
                         {{/if}}
          

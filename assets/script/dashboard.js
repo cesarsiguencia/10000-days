@@ -1,6 +1,7 @@
 var addPost = document.querySelector('#add-post')
 var credentialsForm = document.querySelector("#change-credentials")
 var rsvpForm = document.querySelector("#change-attendance")
+var trashBin = document.querySelector('#trash')
 
 async function addPostHandler(event){
     event.preventDefault()
@@ -122,4 +123,27 @@ async function changeRsvp(event){
     }
 }
 rsvpForm.addEventListener("submit", changeRsvp)
+
+async function deletePost(event){
+    var selectedPost = event.target.getAttribute('post-id')
+    console.log(selectedPost)
+
+    if(selectedPost){
+        const responseDelete = await fetch('api/posts/delete', {
+            method: 'delete',
+            body: JSON.stringify({
+                selectedPost
+            }),
+            headers: {'Content-Type': 'application/json'}
+        })
+        if(responseDelete.ok){
+            window.alert("Your post was deleted")
+            document.location.reload()
+        } else {
+            alert(responseDelete.statusText)
+        }
+    }
+
+}
+trashBin.addEventListener("click", deletePost)
 

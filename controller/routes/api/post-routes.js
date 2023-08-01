@@ -16,4 +16,22 @@ router.post('/', (req, res) => {
     })
 })
 
+router.delete('/delete', (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.body.selectedPost
+        }
+    }).then(deletedPost => {
+        if(!deletedPost){
+            res.status(404).json('Post does not exist')
+            return
+        }
+        res.json(deletedPost)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
+
+
+
 module.exports = router
