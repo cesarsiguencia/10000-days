@@ -1,4 +1,6 @@
 var addPost = document.querySelector('#add-post')
+var credentialsForm = document.querySelector("#change-credentials")
+var rsvpForm = document.querySelector("#change-attendance")
 
 async function addPostHandler(event){
     event.preventDefault()
@@ -40,10 +42,7 @@ async function addPostHandler(event){
         
     }
 }
-
 addPost.addEventListener("submit", addPostHandler) 
-
-var credentialsForm = document.querySelector("#change-credentials")
 
 async function changeCredentials(event){
     event.preventDefault()
@@ -54,7 +53,6 @@ async function changeCredentials(event){
     console.log('working')
 
     if(newEmail){
-        console.log('working 2')
         const responseEmail = await fetch('api/users/email', {
             method: 'put',
             body: JSON.stringify({
@@ -63,7 +61,6 @@ async function changeCredentials(event){
             headers: {'Content-Type': 'application/json'}
           
         })
-        console.log('working 3')
         if(responseEmail.ok){
             window.alert('Email successfully changed!')
         } else {
@@ -96,10 +93,33 @@ async function changeCredentials(event){
         })
         if(responsePassword.ok){
             window.alert('Password successfully changed!')
+
         } else {
             alert(responsePassword.statusText)
         }
     }
 }
-
 credentialsForm.addEventListener("submit", changeCredentials)
+
+async function changeRsvp(event){
+    event.preventDefault()
+    const newRSVP = document.querySelector('input[name="form-attend"]:checked').value;
+    console.log(newRSVP)
+
+    if(newRSVP){
+        const responseRSVP = await fetch('api/users/rsvp', {
+            method: 'put',
+            body: JSON.stringify({
+                newRSVP
+            }),
+            headers: {'Content-Type': 'application/json'}
+        })
+        if(responseRSVP.ok){
+            window.alert("You changed your RSVP!")
+            document.location.reload()
+        } else {
+            alert(responseRSVP.statusText)
+        }
+    }
+}
+rsvpForm.addEventListener("submit", changeRsvp)
