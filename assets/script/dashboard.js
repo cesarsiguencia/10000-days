@@ -127,6 +127,10 @@ async function changeRsvp(event) {
 }
 rsvpForm.addEventListener("submit", changeRsvp)
 
+var editModal = document.querySelector('#edit-modal')
+var editForm = document.querySelector('#edit-container')
+var closeModalButton = document.querySelector('#edit-close')
+
 async function deletePost(event) {
     console.log(event.target, 'newww')
     var selectedPost = event.target
@@ -145,8 +149,19 @@ async function deletePost(event) {
             }
         }
     }
+
+    if(selectedPost.matches(".edit")){
+
+        editModal.style.height = "100vh"
+        editForm.addEventListener('submit', editPost)
+
+// editBin.addEventListener("click", editPost)
+    }
 }
 dashboardClick.addEventListener("click", deletePost)
+closeModalButton.addEventListener('click',function(){
+    editModal.style.height = "0px"
+    })
 
 // async function editPost(event){
 //     var selectedPost = event.target.getAttribute('post-id')
@@ -169,9 +184,7 @@ dashboardClick.addEventListener("click", deletePost)
 
 
 
-var editModal = document.querySelector('#edit-modal')
-var editForm = document.querySelector('#edit-container')
-var closeModalButton = document.querySelector('#edit-close')
+
 
 async function editPost(event) {
     event.preventDefault()
@@ -199,14 +212,5 @@ async function editPost(event) {
     // }
 }
 
-// editBtn.addEventListener('click', function(){
-//     editModal.style.height = "100vh"
-// })
 
-// editForm.addEventListener('submit', editPost)
-
-// closeModalButton.addEventListener('click',function(){
-//     editModal.style.height = "0px"
-// })
-// editBin.addEventListener("click", editPost)
 
