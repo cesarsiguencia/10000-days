@@ -7,21 +7,12 @@
 </a>
 {{/if}}
 
-<p class="post-user">- Says {{user.username}}
-
-
-    
-</p>
+<p class="post-user">- Says {{user.username}} | | Posted at {{format_time createdAt}}</p>
 
 {{#if user.rsvp}}
 <p style="color: lightgreen">Vertified Attending</p>
 {{else}}
 <p style="color: red">Not Attending</p>
 {{/if}}
-
-<p>{{createdAt}}</p>
-
-
-
 
 <br/>

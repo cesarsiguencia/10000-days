@@ -1,5 +1,5 @@
 const express = require('express')
-
+const helpers = require('./assets/script/helpers')
 require('dotenv').config()
 
 const path = require('path')
@@ -8,7 +8,7 @@ const sequelize = require ('./controller/config/connections')
 
 const exphbs = require('express-handlebars')
 
-const hbs = exphbs.create({})
+const hbs = exphbs.create({helpers})
 
 const routes = require('./controller/routes')
 
