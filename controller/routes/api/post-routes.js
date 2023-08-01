@@ -16,10 +16,26 @@ router.post('/', (req, res) => {
     })
 })
 
-router.delete('/delete', (req, res) => {
+router.delete('/delete/:selectedPost', (req, res) => {
     Post.destroy({
         where: {
-            id: req.body.selectedPost
+            id: req.params.selectedPost
+        }
+    }).then(deletedPost => {
+        if(!deletedPost){
+            res.status(404).json('Post does not exist')
+            return
+        }
+        res.json(deletedPost)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
+
+router.put('/update/:selectedPost', (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.params.selectedPost
         }
     }).then(deletedPost => {
         if(!deletedPost){

@@ -1,6 +1,6 @@
 var loginBtn = document.querySelector('#login-button')
 var loginModal = document.querySelector('#login-modal')
-var loginForm = document.querySelector('.login-container')
+var loginForm = document.querySelector('#login-container')
 var closeModalButton = document.querySelector('#modal-close')
 
 async function login(event){

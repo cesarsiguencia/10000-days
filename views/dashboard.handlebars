@@ -2,11 +2,13 @@
 
 {{>navbar}}
 
+{{>edit-post}}
+
 <div class="db-body">
     <div class="db-central">
         <h2 class="intro-title" style="margin-bottom: 15px;">Welcome! Your 10,000th Dashboard</h2>
 
-        <div class="db-components">
+        <div class="db-components" id="posts-center">
             <div class="db-boxes">
                 <h2 style="margin: 30px auto;">Add A Post!</h2>
 
@@ -41,8 +43,8 @@
    
                         {{#if (checkUserId post.user_id ../loggedUserId)}}
         
-                            <img id="edit" src="/media/icons/edit.png"  />
-                            <img id="trash" post-id={{post.id}} src="/media/icons/trash.png" />
+                            <img class="edit"  post-id={{post.id}} src="/media/icons/edit.png"  />
+                            <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
                 
                         {{/if}}
          
