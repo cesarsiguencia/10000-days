@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
             res.render('dashboard', {
                 posts,
                 loggedIn: req.session.loggedIn,
-                loggedUser: req.session.user_id
+                loggedUserId: req.session.user_id
             })
         })
         .catch(err => {

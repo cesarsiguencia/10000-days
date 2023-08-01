@@ -36,14 +36,14 @@
                         <img src="/media/icons/comment.png" />
 
                        
-                        {{checkUserId post.user_id}}
-         
-                            <img src="/media/icons/edit.png" />
-                            <img src="/media/icons/trash.png" />
-                     
-                
-           
-
+                    {{#if (checkUserId post.user_id)}}
+       
+                        <img src="/media/icons/edit.png" />
+                        <img src="/media/icons/trash.png" />
+               
+                    {{/if}}
+        
+  
                     </div>
                 </div>
                 {{/each}}

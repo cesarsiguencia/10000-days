@@ -30,9 +30,7 @@ module.exports = {
 
     checkUserId: user_id =>{
         if(user_id == 4){
-            this = true
-        } else {
-            this = false
+            return true
         }
 
     }
