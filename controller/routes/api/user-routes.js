@@ -98,7 +98,8 @@ router.post('/', (req, res) => {
         last_name: req.body.lastName,
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        rsvp: req.body.attendance
     })
         .then((newUser => {
             req.session.save(()=>{

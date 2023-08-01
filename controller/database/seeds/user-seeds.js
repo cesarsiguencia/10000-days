@@ -6,21 +6,24 @@ const userData = [
         last_name:"Siguencia",
         username: "cezzienyc",
         email: "cesar@gmail.com",
-        password: 'abcd1234'
+        password: 'abcd1234',
+        rsvp: true
     },
     {
         first_name:"Paul",
         last_name:"Whits",
         username: "pablo",
         email: "pablo@gmail.com",
-        password: '1234abcd'
+        password: '1234abcd',
+        rsvp: true
     },
     {
         first_name:"John",
         last_name:"Meds",
         username: "johnjes",
         email: "john@gmail.com",
-        password: 'password'
+        password: 'password',
+        rsvp: true
     },
 ]
 

@@ -8,6 +8,8 @@ async function signUpFormHandler(event){
     const email = document.querySelector('#form-email').value.trim();
     const username = document.querySelector('#form-username').value.trim();
     const password = document.querySelector('#form-password').value.trim();
+    const attendance = document.querySelector('input[name="form-attend"]:checked').value;
+
 
     if(firstName && lastName && email && username && password){
         const response = await fetch('api/users', {
@@ -17,7 +19,8 @@ async function signUpFormHandler(event){
                 lastName,
                 email,
                 username,
-                password
+                password,
+                attendance
             }),
             headers: {'Content-Type': 'application/json'}
         })

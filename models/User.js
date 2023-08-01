@@ -39,6 +39,10 @@ User.init(
             validate: {
                 len: [8]
             }
+        },
+        rsvp: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
         // ,
         // password: {

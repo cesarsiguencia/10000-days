@@ -8,12 +8,13 @@
         <form id="form-registration">
             <div class="form-components">
                 <label for="form_first_name">First Name</label>
-                <input type="text" placeholder="First Name" name="form_first_name" id="form-first-name" class="textbox" />
+                <input type="text" placeholder="First Name" name="form_first_name" id="form-first-name"
+                    class="textbox" />
             </div>
 
             <div class="form-components">
                 <label for="form_last_name">Last Name</label>
-                <input type="text" placeholder="Last Name" name="last-name" id="form-last-name" class="textbox"/>
+                <input type="text" placeholder="Last Name" name="last-name" id="form-last-name" class="textbox" />
             </div>
 
             <div class="form-components">
@@ -29,34 +30,27 @@
 
             <div class="form-components">
                 <label for="form_username">Username</label>
-                <input type="text" placeholder="Last Name" name="last-name" id="form-username"class="textbox" />
+                <input type="text" placeholder="Last Name" name="last-name" id="form-username" class="textbox" />
             </div>
 
             <div class="form-components">
                 <label for="form_password">Password</label>
-                <input type="password" placeholder="Last Name" name="last-name" id="form-password"class="textbox" />
+                <input type="password" placeholder="Last Name" name="last-name" id="form-password" class="textbox" />
             </div>
 
             <div class="form-components">
-                <p>Confirm attendance?
-                <div >
+                <p>Confirm attendance?</p>
+                <div>
                     <div class="attendance">
-                                            <input type="radio" name="form-attend" id="attend-yes" />
-                    <label for="attend-yes"> Yes </label>
-                    </div class="attendance">
-
-                    <div class="attendance">
-                                    <input type="radio" name="form-attend" id="attend-no" />
-                    <label for="attend-no"> No </label>
-
+                        <input type="radio" name="form-attend" id="attend-yes" value="true" />
+                        <label for="attend-yes"> Yes </label>
                     </div>
-        
+
+                    <div class="attendance">
+                        <input type="radio" name="form-attend" id="attend-no" value="false"/>
+                        <label for="attend-no"> No </label>
+                    </div>
                 </div>
-
-
-
-                </p>
-
             </div>
             <br />
             <p> "Users will be able to change their attendance choice up to a week before the event. Afterwards, users
@@ -75,7 +69,8 @@
 
 
             <div class="form-components">
-                <label for="form-terms" style="font-weight:bold">I have read the terms above and understand I have the right to change my
+                <label for="form-terms" style="font-weight:bold">I have read the terms above and understand I have the
+                    right to change my
                     attendance answer up to 7 days before the event.</label>
                 <input type="radio" name="agreement" id="form-terms" />
             </div>
@@ -87,4 +82,4 @@
     </section>
 </div>
 
-<script src="/script/register.js"></script> 
+<script src="/script/register.js"></script>
