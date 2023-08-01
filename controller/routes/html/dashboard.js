@@ -7,7 +7,7 @@ router.get('/', (req,res) => {
         include: [
             {
                 model: User,
-                attributes: ['username']
+                attributes: ['username','rsvp']
             }
         ],
         order: [
@@ -30,6 +30,7 @@ router.get('/', (req,res) => {
             res.status(500).json(err)
         })
 
+    
     
     
 });
