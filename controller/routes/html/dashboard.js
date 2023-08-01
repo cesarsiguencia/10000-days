@@ -20,8 +20,9 @@ router.get('/', (req, res) => {
             }));
             res.render('dashboard', {
                 posts,
+                loggedUserId: req.session.user_id,
                 loggedIn: req.session.loggedIn,
-                loggedUserId: req.session.user_id
+                
             })
         })
         .catch(err => {

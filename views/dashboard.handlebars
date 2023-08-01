@@ -26,25 +26,31 @@
                     </button>
                 </form>
                 <h2 style="margin: 30px auto;">All Posts from RSVPs</h2>
+
+                
                 {{#each posts as |post|}}
                 <div class="dashboard-posts db-posts-page">
                     <div>
                         {{> dashboard-posts post}}
                     </div>
+                    
                     <div class="posts-logos">
                         <img src="/media/icons/love.png" />
                         <img src="/media/icons/comment.png" />
 
-                       
-                    {{#if (checkUserId post.user_id)}}
-       
-                        <img src="/media/icons/edit.png" />
-                        <img src="/media/icons/trash.png" />
-               
-                    {{/if}}
+   
+                        {{#if (checkUserId post.user_id ../loggedUserId)}}
+        
+                            <img src="/media/icons/edit.png" />
+                            <img src="/media/icons/trash.png" />
+                
+                        {{/if}}
+         
         
   
                     </div>
+
+                   
                 </div>
                 {{/each}}
             </div>

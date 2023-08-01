@@ -28,8 +28,9 @@ module.exports = {
           .split('?')[0];
     },
 
-    checkUserId: user_id =>{
-        if(user_id == 4){
+    checkUserId: (post_user_id, loggedId) =>{
+        // loggedId = 4
+        if(post_user_id == loggedId){
             return true
         }
 
