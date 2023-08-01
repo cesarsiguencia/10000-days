@@ -1,8 +1,8 @@
 module.exports = {
-    // format_date: (date) => {
-    //   return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
-    //     date).getFullYear()} ${new Date(date).getHours() % 12 || 12 }:${new Date(date).getMinutes()} ${new Date(date.get)}`;
-    // },
+    format_date: (date) => {
+      return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
+        date).getFullYear()}`;
+    },
 
     format_time: (date) => new Intl.DateTimeFormat('default',
     {
@@ -26,5 +26,14 @@ module.exports = {
           .replace('www.', '')
           .split('/')[0]
           .split('?')[0];
+    },
+
+    checkUserId: user_id =>{
+        if(user_id == 4){
+            this = true
+        } else {
+            this = false
+        }
+
     }
 }

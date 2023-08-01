@@ -50,7 +50,6 @@ async function changeCredentials(event){
     const newEmail = document.querySelector("#email-text").value.trim()
     const newUsername = document.querySelector("#username-text").value.trim()
     const newPassword = document.querySelector("#password-text").value.trim()
-    console.log('working')
 
     if(newEmail){
         const responseEmail = await fetch('api/users/email', {
@@ -123,3 +122,4 @@ async function changeRsvp(event){
     }
 }
 rsvpForm.addEventListener("submit", changeRsvp)
+
