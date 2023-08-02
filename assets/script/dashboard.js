@@ -127,7 +127,7 @@ async function changeRsvp(event) {
 }
 rsvpForm.addEventListener("submit", changeRsvp)
 
-var editModal = document.querySelector('#edit-modal')
+
 var editForm = document.querySelector('#edit-container')
 var closeModalButton = document.querySelector('#edit-close')
 
@@ -208,6 +208,7 @@ function managePosts(event) {
     }
 
     if(selectedPost.matches(".edit")){
+        var editModal = document.querySelector(`[modal-id="${postId}"]`)
         editModal.style.height = "100vh"
         currentEditPost = postId
         console.log(currentEditPost)
@@ -268,7 +269,3 @@ closeModalButton.addEventListener('click',function(){
     //         alert(response.statusText)
     //     }
     // }
-
-
-
-

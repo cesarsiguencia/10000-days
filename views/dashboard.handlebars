@@ -2,7 +2,7 @@
 
 {{>navbar}}
 
-{{>edit-post}}
+
 
 <div class="db-body">
     <div class="db-central">
@@ -45,7 +45,7 @@
         
                             <img class="edit"  post-id={{post.id}} src="/media/icons/edit.png"  />
                             <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
-                
+                            {{>edit-post post}}
                         {{/if}}
          
         
