@@ -101,6 +101,7 @@ async function changeCredentials(event) {
             alert(responsePassword.statusText)
         }
     }
+    document.location.reload()
 }
 credentialsForm.addEventListener("submit", changeCredentials)
 
@@ -128,8 +129,7 @@ async function changeRsvp(event) {
 rsvpForm.addEventListener("submit", changeRsvp)
 
 
-var editForm = document.querySelector('#edit-container')
-var closeModalButton = document.querySelector('#edit-close')
+
 
 
 
@@ -149,17 +149,25 @@ async function deletePost(postId){
 
 let currentEditPost
 
+let one
+let two
+
+console.log(one, two)
+
+
 async function editPost(event){
     console.log('working')
     event.preventDefault()
-
-    var updatedText = document.querySelector('#post-modal-text').value.trim()
-    var updatedLink = document.querySelector('#post-modal-link').value.trim()
     var postId = currentEditPost
+    var updatedText = document.querySelector(`[modal-text-id="${postId}"]`).value.trim()
+    var updatedLink = document.querySelector(`[modal-link-id="${postId}"]`).value.trim()
 
-
-
-
+    one = updatedText
+    two = updatedLink
+    console.log(updatedText)
+    console.log(updatedLink)
+    console.log(postId)
+    
     if (postId) {
         if (updatedText) {
             console.log('going through updatedTEXT')
@@ -195,6 +203,7 @@ async function editPost(event){
         }
         document.location.reload()
     }
+    
 }
 
 
@@ -211,20 +220,33 @@ function managePosts(event) {
 
     if(selectedPost.matches(".edit")){
         var editModal = document.querySelector(`[modal-id="${postId}"]`)
+        var editForm = document.querySelector(`[form-id="${postId}"]`)
+        var closeModalButton = document.querySelector(`[close-id="${postId}"]`)
+        var selectedPostText = document.querySelector(`[post-text-id="${postId}"]`).textContent;
+        var selectedPostLink = document.querySelector(`[post-link-id="${postId}"]`).getAttribute("href");
         editModal.style.height = "100vh"
         currentEditPost = postId
+
+        editModal.querySelector("input[name='post-modal-text']").value = selectedPostText;
+        editModal.querySelector("input[name='post-modal-link']").value = selectedPostLink;
+
+        console.log(selectedPostText)
+        console.log(selectedPostLink)
         console.log(currentEditPost)
+        editForm.addEventListener('submit', editPost)
+        closeModalButton.addEventListener('click',function(){
+            editModal.style.height = "0px"
+        })
         return currentEditPost
     }
 }
 
-editForm.addEventListener('submit', editPost)
+
+
+
 
 dashboardClick.addEventListener("click", managePosts)
 
-closeModalButton.addEventListener('click',function(){
-    editModal.style.height = "0px"
-})
 
 // async function editPost(event){
 //     var selectedPost = event.target.getAttribute('post-id')
@@ -271,3 +293,4 @@ closeModalButton.addEventListener('click',function(){
     //         alert(response.statusText)
     //     }
     // }
+

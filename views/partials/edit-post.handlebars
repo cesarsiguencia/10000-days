@@ -1,36 +1,38 @@
 <div class="modal" modal-id={{id}}>
-    <form id="edit-container" class="container">
+    <form class="container" form-id={{id}}>
         <h2 class="intro-title">Edit your post</h2>
         <div class="form-components">
             <label for="form-post">Post Text</label>
-            <input type="text" placeholder="{{post_text}}" name="post-modal-text" id="post-modal-text" class="textbox" />
+            <input type="text"  name="post-modal-text" modal-text-id={{id}} class="textbox"/>
         </div>
 
         <div class="form-components">
             <label for="form-link">Post Link</label>
-            <input type="text" name="post-modal-link" id="post-modal-link" class="textbox" 
-            
+            <input type="text" name="post-modal-link" modal-link-id={{id}} class="textbox" 
+{{!--             
             {{#if post_link}} 
             placeholder="{{post_link}}"
             {{else}}
             placeholder="(* Include Optional Link *)"
-            {{/if}}
+            {{/if}} --}}
 
             />
         </div>
 
         <button type='submit' class="highlighted-options text-center margin-center" id="login-submit">
             <h6>
-                COMPLETE EDITS
+                Complete Edits
             </h6>
         </button>
         <br />
 
         <br />
-        <button class="highlighted-options text-center margin-center" id="edit-close">
+        <button type="button" class="highlighted-options text-center margin-center" close-id={{id}}>
             <h6>
                 Close
             </h6>
         </button>
+
+        <p>POST ID:{{id}}</p>
     </form>
 </div>

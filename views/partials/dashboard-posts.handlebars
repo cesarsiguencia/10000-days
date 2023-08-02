@@ -1,10 +1,10 @@
 
         <br />
-    <p class="post-text center">"{{post_text}}"</p>
+    <p class="post-text center" post-text-id={{id}}>"{{post_text}}"</p>
 
     {{#if post_link}}
-    <a class="post-link" href={{post_link}} target="_blank">
-        <p style="color:#FF9033;">CLICK LINK HERE!</p>
+    <a class="post-link" href={{post_link}} post-link-id={{id}} target="_blank">
+        <p  style="color:#FF9033;">CLICK LINK HERE!</p>
     </a>
     {{/if}}
 
