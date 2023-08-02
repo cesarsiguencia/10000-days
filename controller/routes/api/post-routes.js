@@ -32,17 +32,64 @@ router.delete('/delete/:selectedPost', (req, res) => {
     })
 })
 
-router.put('/update/:selectedPost', (req, res) => {
-    Post.destroy({
-        where: {
-            id: req.params.selectedPost
+router.put('/update/text/:selectedPost', (req, res) => {
+    Post.update(
+        {
+            post_text: req.body.updatedText
+        },
+        {
+            where: {
+                id: req.params.selectedPost
+            }
         }
-    }).then(deletedPost => {
-        if(!deletedPost){
+    ).then(newText => {
+        if(!newText){
             res.status(404).json('Post does not exist')
             return
         }
-        res.json(deletedPost)
+        res.json(newText)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
+
+router.put('/update/link/:selectedPost', (req,res) => {
+    Post.update(
+        {
+            post_link: req.body.updatedLink
+        },
+        {
+            where: {
+                id: req.params.selectedPost
+            }
+        }
+    ).then(newLink => {
+        if(!newLink){
+            res.status(404).json({ message: 'Post does not exist'})
+            return;
+        }
+        res.json(newLink)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
+
+router.put('/rsvp', (req,res) => {
+    User.update(
+        {
+            rsvp: req.body.newRSVP
+        },
+        {
+            where: {
+                id: req.session.user_id
+            }
+        }
+    ).then(userFromDb => {
+        if(!userFromDb){
+            res.status(404).json({ message: 'User does not exist'})
+            return;
+        }
+        res.json(userFromDb)
     }).catch(err => {
         res.status(500).json(err)
     })

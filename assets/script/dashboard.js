@@ -131,37 +131,97 @@ var editModal = document.querySelector('#edit-modal')
 var editForm = document.querySelector('#edit-container')
 var closeModalButton = document.querySelector('#edit-close')
 
-async function deletePost(event) {
-    console.log(event.target, 'newww')
-    var selectedPost = event.target
-    if (selectedPost.matches(".trash")) {
-        var postId = selectedPost.getAttribute("post-id")
 
-        if (postId) {
-            const responseDelete = await fetch(`api/posts/delete/${postId}`, {
-                method: 'delete'
+
+async function deletePost(postId){
+    if (postId) {
+        const responseDelete = await fetch(`api/posts/delete/${postId}`, {
+            method: 'delete'
+        })
+        if (responseDelete.ok) {
+            window.alert("Your post was deleted")
+            document.location.reload()
+        } else {
+            alert(responseDelete.statusText)
+        }
+    }
+}
+
+let currentEditPost
+
+async function editPost(event){
+    console.log('working')
+    event.preventDefault()
+
+    var updatedText = document.querySelector('#post-modal-text').value.trim()
+    var updatedLink = document.querySelector('#post-modal-link').value.trim()
+    var postId = currentEditPost
+
+
+    if (postId) {
+        if (updatedText) {
+            console.log('going through updatedTEXT')
+            const responseText = await fetch(`api/posts/update/text/${postId}`, {
+                method: 'put',
+                body: JSON.stringify({
+                    updatedText
+                }),
+                headers: { 'Content-Type': 'application/json' }
+    
             })
-            if (responseDelete.ok) {
-                window.alert("Your post was deleted")
-                document.location.reload()
+            if (responseText.ok) {
+                window.alert('Post text updated!')
             } else {
-                alert(responseDelete.statusText)
+                alert(responseText.statusText)
             }
         }
+    
+        if (updatedLink) {
+            console.log('going through updatedLINK')
+            const responseLink= await fetch(`api/posts/update/link/${postId}`, {
+                method: 'put',
+                body: JSON.stringify({
+                    updatedLink
+                }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            if (responseLink.ok) {
+                window.alert('Post link updated')
+            } else {
+                alert(responseLink.statusText)
+            }
+        }
+        document.location.reload()
+    }
+}
+
+
+
+
+
+function managePosts(event) {
+    var selectedPost = event.target
+    var postId = selectedPost.getAttribute("post-id")
+    if (selectedPost.matches(".trash")) {
+        deletePost(postId)
+        return
     }
 
     if(selectedPost.matches(".edit")){
-
         editModal.style.height = "100vh"
-        editForm.addEventListener('submit', editPost)
-
-// editBin.addEventListener("click", editPost)
+        currentEditPost = postId
+        console.log(currentEditPost)
+        return currentEditPost
     }
 }
-dashboardClick.addEventListener("click", deletePost)
+
+editForm.addEventListener('submit', editPost)
+
+dashboardClick.addEventListener("click", managePosts)
+
 closeModalButton.addEventListener('click',function(){
     editModal.style.height = "0px"
-    })
+})
 
 // async function editPost(event){
 //     var selectedPost = event.target.getAttribute('post-id')
@@ -186,8 +246,6 @@ closeModalButton.addEventListener('click',function(){
 
 
 
-async function editPost(event) {
-    event.preventDefault()
 
 
 
@@ -210,7 +268,7 @@ async function editPost(event) {
     //         alert(response.statusText)
     //     }
     // }
-}
+
 
 
 
