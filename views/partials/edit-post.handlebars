@@ -3,15 +3,15 @@
         <h2 class="intro-title">Edit your post</h2>
         <div class="form-components">
             <label for="form-post">Post Text</label>
-            <input type="text" placeholder={{post_text}} name="post-modal-text" id="post-modal-text" class="textbox" />
+            <input type="text" placeholder="{{post_text}}" name="post-modal-text" id="post-modal-text" class="textbox" />
         </div>
 
         <div class="form-components">
-            <label for="form-password">Password</label>
+            <label for="form-link">Post Link</label>
             <input type="text" name="post-modal-link" id="post-modal-link" class="textbox" 
             
             {{#if post_link}} 
-            placeholder={{post_link}}
+            placeholder="{{post_link}}"
             {{else}}
             placeholder="(* Include Optional Link *)"
             {{/if}}

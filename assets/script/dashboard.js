@@ -11,7 +11,7 @@ async function addPostHandler(event) {
 
     const postText = document.querySelector('#post-text').value.trim()
     const postLink = document.querySelector('#post-link').value.trim()
-
+    console.log(postText)
     if (postText) {
         if (!postLink) {
             const response = await fetch('api/posts', {
@@ -156,6 +156,8 @@ async function editPost(event){
     var updatedText = document.querySelector('#post-modal-text').value.trim()
     var updatedLink = document.querySelector('#post-modal-link').value.trim()
     var postId = currentEditPost
+
+
 
 
     if (postId) {
