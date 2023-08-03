@@ -1,5 +1,7 @@
 {{#if loggedIn}}
 
+{{>alert}}
+
 {{>navbar}}
 
 
@@ -8,8 +10,8 @@
     <div class="db-central">
         <h2 class="intro-title" style="margin-bottom: 15px;">Welcome! Your 10,000th Dashboard</h2>
 
-        <div class="db-components" id="posts-center">
-            <div class="db-boxes">
+        <div class="db-components" >
+            <div class="db-boxes" id="posts-center">
                 <h2 style="margin: 30px auto;">Add A Post!</h2>
 
                 <form class="add-post" id="add-post">
@@ -107,12 +109,12 @@
                     <h2 style="margin: 30px auto;">Change Your RSVP</h2>
                     <div>
                         <div class="attendance">
-                            <input type="radio" name="form-attend" id="attend-yes" value="true" />
+                            <input type="radio" name="form-attend" value="true" />
                             <label for="attend-yes"> I will NOW attend event </label>
                         </div class="attendance">
                         <br />
                         <div class="attendance">
-                            <input type="radio" name="form-attend" id="attend-no" value="false" />
+                            <input type="radio" name="form-attend" value="false" />
                             <label for="attend-no"> I will NO LONGER attend event</label>
                         </div>
                     </div>
