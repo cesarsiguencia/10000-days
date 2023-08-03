@@ -222,21 +222,21 @@ async function changeCredentials(event) {
     const newEmail = document.querySelector("#email-text").value.trim()
     const newUsername = document.querySelector("#username-text").value.trim()
     const newPassword = document.querySelector("#password-text").value.trim()
+    var changedItems = []
+    var pluraity = ""
 
     if (newEmail) {
         const responseEmail = await fetch('api/users/email', {
             method: 'put',
             body: JSON.stringify({
-                newEmail
+                newEmail,
             }),
             headers: { 'Content-Type': 'application/json' }
-
         })
-        if (responseEmail.ok) {
-            window.alert('Email successfully changed!')
-        } else {
-            alert(responseEmail.statusText)
+        if (!responseEmail.ok) {
+            alert("Please enter an email")
         }
+        changedItems.push("email")
     }
 
     if (newUsername) {
@@ -247,11 +247,10 @@ async function changeCredentials(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         })
-        if (responseUsername.ok) {
-            window.alert('Username successfully changed!')
-        } else {
+        if (!responseUsername.ok) {
             alert(responseUsername.statusText)
         }
+        changedItems.push("username")
     }
 
     if (newPassword) {
@@ -262,14 +261,19 @@ async function changeCredentials(event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         })
-        if (responsePassword.ok) {
-            window.alert('Password successfully changed!')
-
-        } else {
+        if (!responsePassword.ok) {
             alert(responsePassword.statusText)
         }
+        changedItems.push("password")
     }
-    document.location.reload()
+    if(changedItems.length > 1){
+        pluraity = "have"
+        changedItems = changedItems.join(" & ")
+    } else {
+        pluraity = "has"
+    }
+    alertModalAppear(`Your ${changedItems} ${pluraity} been changed`)
+    changedItems = []
 }
 
 async function changeRsvp(event) {

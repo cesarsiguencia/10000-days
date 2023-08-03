@@ -43,23 +43,22 @@ function bringBarBack() {
     }
 }
 
-function smoothScroll(event) {
-    // barHeight = navBar.clientHeight;
+// function smoothScroll(event) {
 
-    var section = event.target.id
 
-    selectedElement = document.querySelector(`${section}`)
-    selectedElement.style.opacity = 0
-    selectedElement.scrollIntoView({
-        block: 'start',
-        behavior: 'smooth',
+//     var section = event.target.id
 
-    });
-    selectedElement.style.transition = "2s"
-    selectedElement.style.opacity = 1
-    // setTimeout(scrollAdjuster, 800)
-}
+//     selectedElement = document.querySelector(`${section}`)
+//     selectedElement.style.opacity = 0
+//     selectedElement.scrollIntoView({
+//         block: 'start',
+//         behavior: 'smooth',
+
+//     });
+//     selectedElement.style.transition = "2s"
+//     selectedElement.style.opacity = 1
+// }
 
 mobileMenu.addEventListener("click", hamburgerMenu)
 window.addEventListener("resize", bringBarBack)
-navBar.addEventListener("click", smoothScroll)
+// navBar.addEventListener("click", smoothScroll)
