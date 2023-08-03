@@ -3,10 +3,25 @@ var credentialsForm = document.querySelector("#change-credentials")
 var rsvpForm = document.querySelector("#change-attendance")
 var dashboardClick = document.querySelector('#posts-center')
 var alertModal = document.querySelector('#alert-modal')
+var changedItems = []
+var pluraity = ""
 
 function alertModalAppear(message){
     alertModal.style.height = "100vh"
-    alertModal.querySelector('#alert-modal-text').textContent = message
+    console.log(changedItems)
+    if(Array.isArray(message)){
+        if(message.length > 1){
+            pluraity = "have"
+            message = message.join(" & ")
+        } else {
+            pluraity = "has"
+        }
+        alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been changed`
+    } else {
+        alertModal.querySelector('#alert-modal-text').textContent = message
+    }
+    changedItems = []
+    pluarity = ""
 
     var alertModalClose = alertModal.querySelector('#alert-modal-close')
     alertModalClose.addEventListener("click", function(){
@@ -222,8 +237,6 @@ async function changeCredentials(event) {
     const newEmail = document.querySelector("#email-text").value.trim()
     const newUsername = document.querySelector("#username-text").value.trim()
     const newPassword = document.querySelector("#password-text").value.trim()
-    var changedItems = []
-    var pluraity = ""
 
     if (newEmail) {
         const responseEmail = await fetch('api/users/email', {
@@ -266,14 +279,7 @@ async function changeCredentials(event) {
         }
         changedItems.push("password")
     }
-    if(changedItems.length > 1){
-        pluraity = "have"
-        changedItems = changedItems.join(" & ")
-    } else {
-        pluraity = "has"
-    }
-    alertModalAppear(`Your ${changedItems} ${pluraity} been changed`)
-    changedItems = []
+    alertModalAppear(changedItems)
 }
 
 async function changeRsvp(event) {
@@ -289,7 +295,8 @@ async function changeRsvp(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if(responseRSVP.ok) {
-            alertModalAppear("You changed your RSVP!")
+            changedItems.push("RSVP")
+            alertModalAppear(changedItems)
         } else {
             alert(responseRSVP.statusText)
         }
