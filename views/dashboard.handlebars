@@ -29,30 +29,54 @@
                 </form>
                 <h2 style="margin: 30px auto;">All Posts from RSVPs</h2>
 
-                
+
                 {{#each posts as |post|}}
                 <div class="dashboard-posts db-posts-page" post-id={{post.id}}>
                     <div>
-                             {{> dashboard-posts post}}
+                        {{> dashboard-posts post}}
                     </div>
-                    
+
                     <div class="posts-logos">
                         <img src="/media/icons/love.png" />
-                        <img src="/media/icons/comment.png" />
+                        <img class="comment" post-id={{post.id}} src="/media/icons/comment.png" />
 
-   
+
                         {{#if (checkUserId post.user_id ../loggedUserId)}}
-        
-                            <img class="edit"  post-id={{post.id}} src="/media/icons/edit.png"  />
-                            <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
-                            {{>edit-post post}}
+
+                        <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
+                        <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
+                        {{>edit-post post}}
                         {{/if}}
-         
-        
-  
+                    </div>
+                </div>
+
+                <div>
+                    {{#each post.comments}}
+                    <div style="margin: 10px auto; background-color: orange">
+                        <p>{{comment_text}} - {{user.username}} - {{user.id}} </p>
+
+               
                     </div>
 
-                   
+                    <div class="posts-logos">
+                             {{#if (checkUserId user.id ../../loggedUserId)}}
+                        <img class="comment-trash" post-id={{post.id}} comment-trash-id={{id}} src="/media/icons/trash.png" />
+                        {{/if}}
+                    </div>
+
+
+        
+
+                    {{/each}} 
+
+                </div>
+
+                <div post-comment-block={{post.id}} class="comments-block">
+                    <form comment-form-id={{post.id}}>
+                        <div>
+                            <input type="text" placeholder="Reply Here!" name="comment-text" post-comment-belongs-to={{post.id}} class="comment-textbox" />
+                        </div>
+                    </form>
                 </div>
                 {{/each}}
             </div>
@@ -70,7 +94,7 @@
                             class="textbox" />
                     </div>
                     <div class="edit-password-components">
-                        <input type="text" placeholder="Change Password" name="password-text" id="password-text"
+                        <input type="password" placeholder="Change Password" name="password-text" id="password-text"
                             class="textbox" />
                     </div>
                     <br />

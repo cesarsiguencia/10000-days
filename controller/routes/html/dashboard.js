@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const { Post, User } = require('../../../models')
+const { Post, Comment, User } = require('../../../models')
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -8,16 +8,26 @@ router.get('/', (req, res) => {
             {
                 model: User,
                 attributes: ['username', 'rsvp']
+            },
+            {
+                model: Comment, 
+                attributes: ['id','comment_text', 'user_id', 'post_id'],
+                include:{
+                    model: User,
+                    attributes: ['username', 'id']
+                }
             }
         ],
         order: [
-            ['createdAt', 'DESC']
+            ['updatedAt', 'DESC']
         ]
     })
         .then(postsFromDb => {
             const posts = postsFromDb.map(post => post.get({
                 plain: true
+                
             }));
+            console.log(posts)
             res.render('dashboard', {
                 posts,
                 loggedUserId: req.session.user_id,

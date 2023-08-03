@@ -1,26 +1,19 @@
+<br />
+<p class="post-text center" post-text-id={{id}}>"{{post_text}}"</p>
 
-        <br />
-    <p class="post-text center" post-text-id={{id}}>"{{post_text}}"</p>
+{{#if post_link}}
+<a class="post-link" href={{post_link}} post-link-id={{id}} target="_blank">
+    <p  style="color:#FF9033;">CLICK LINK HERE!</p>
+</a>
+{{/if}}
 
-    {{#if post_link}}
-    <a class="post-link" href={{post_link}} post-link-id={{id}} target="_blank">
-        <p  style="color:#FF9033;">CLICK LINK HERE!</p>
-    </a>
-    {{/if}}
+<p class="post-user">- Says {{user.username}} | | Posted at {{format_date updatedAt}} {{format_time updatedAt}}</p>
 
-    <p class="post-user">- Says {{user.username}} | | Posted at {{format_date createdAt}} {{format_time createdAt}}</p>
-
-    {{#if user.rsvp}}
-    <p style="color: lightgreen">Vertified Attending</p>
-    {{else}}
-    <p style="color: red">Not Attending</p>
-    {{/if}}
-
-    <br />
-
-
-
-    
-
+{{#if user.rsvp}}
+<p style="color: lightgreen">Vertified Attending</p>
+{{else}}
+<p style="color: red">Not Attending</p>
+{{/if}}
+<br />
 
 

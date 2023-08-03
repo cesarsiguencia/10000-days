@@ -1,3 +1,5 @@
+
+
 module.exports = {
     format_date: (date) => {
       return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
@@ -30,6 +32,7 @@ module.exports = {
 
     checkUserId: (post_user_id, loggedId) =>{
         // loggedId = 4
+        
         if(post_user_id == loggedId){
             return true
         }

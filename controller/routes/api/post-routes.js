@@ -3,8 +3,6 @@ const router = require("express").Router()
 const { Post } = require("../../../models/index")
 
 router.post('/', (req, res) => {
-    console.log(req.body)
-
     Post.create({
         post_text: req.body.postText,
         post_link: req.body.postLink,
@@ -94,7 +92,5 @@ router.put('/rsvp', (req,res) => {
         res.status(500).json(err)
     })
 })
-
-
 
 module.exports = router

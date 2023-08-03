@@ -22,4 +22,4 @@ const commentSeeds = () => Comment.bulkCreate(commentData);
 
 module.exports = {
     commentSeeds
-} 
+}

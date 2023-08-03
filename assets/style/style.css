@@ -546,6 +546,17 @@ footer {
     margin: 0 5px;
 }
 
+.comments-block{
+    background-color: black;
+    height: 0px;
+}
+
+.comment-textbox{
+    display: block;
+    /* padding: 25px 25px; */
+    height: 0px;
+    width: 100%;
+}
 /* Media Queries ------------------------- */
 
 @media screen and (max-width: 1600px) {
