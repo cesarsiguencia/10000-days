@@ -1,12 +1,13 @@
-var addPost = document.querySelector('#add-post')
+var addPostForm = document.querySelector('#add-post')
 var credentialsForm = document.querySelector("#change-credentials")
 var rsvpForm = document.querySelector("#change-attendance")
 var dashboardClick = document.querySelector('#posts-center')
 var alertModal = document.querySelector('#alert-modal')
 var changedItems = []
+var failedItems = []
 var pluraity = ""
 
-function alertModalAppear(message){
+function alertModalAppear(message, failedItems){
     alertModal.style.height = "100vh"
     if(Array.isArray(message)){
         if(message.length > 1){
@@ -15,24 +16,33 @@ function alertModalAppear(message){
         } else {
             pluraity = "has"
         }
-        alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been changed`
+        alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been changed!`
     } else {
         alertModal.querySelector('#alert-modal-text').textContent = message
     }
+
+    if(failedItems){
+        if(failedItems.length > 1){
+            failedItems = failed.join(" || ")
+        }
+        alertModal.querySelector('#alert-modal-text-2').textContent = failedItems
+    }
     changedItems = []
     pluarity = ""
+    failedItems = []
 
     var alertModalClose = alertModal.querySelector('#alert-modal-close')
     alertModalClose.addEventListener("click", function(){
         window.location.reload()
     })
+
 }
 
 async function addPostHandler(event) {
     event.preventDefault()
 
-    const postText = document.querySelector('#post-text').value.trim()
-    const postLink = document.querySelector('#post-link').value.trim()
+    const postText = addPostForm.querySelector('#post-text').value.trim()
+    const postLink = addPostForm.querySelector('#post-link').value.trim()
     if (postText) {
         if (!postLink) {
             const response = await fetch('api/posts', {
@@ -46,7 +56,7 @@ async function addPostHandler(event) {
             if (response.ok) {
                 document.location.reload()
             } else {
-                alert(response.statusText)
+                alertModalAppear(response.statusText)
             }
         } else {
             const response = await fetch('api/posts', {
@@ -61,7 +71,7 @@ async function addPostHandler(event) {
             if (response.ok) {
                 document.location.reload()
             } else {
-                alert(response.statusText)
+                alertModalAppear(response.statusText)
             }
         }
     }
@@ -73,10 +83,9 @@ async function deletePost(postId) {
             method: 'delete'
         })
         if (responseDelete.ok) {
-            window.alert("Your post was deleted")
-            document.location.reload()
+            alertModalAppear("Your post was deleted")
         } else {
-            alert(responseDelete.statusText)
+            alertModalAppear(responseDelete.statusText)
         }
     }
 }
@@ -99,11 +108,11 @@ async function editPost(event) {
                 headers: { 'Content-Type': 'application/json' }
 
             })
-            if (responseText.ok) {
-                window.alert('Post text updated!')
-            } else {
-                alert(responseText.statusText)
-            }
+            if(!responseText.ok) {
+                alertModalAppear(responseText.statusText)
+                return 
+            } 
+            changedItems.push("post text")
         }
 
         if (updatedLink) {
@@ -114,13 +123,13 @@ async function editPost(event) {
                 }),
                 headers: { 'Content-Type': 'application/json' }
             })
-            if (responseLink.ok) {
-                window.alert('Post link updated')
-            } else {
-                alert(responseLink.statusText)
+            if (!responseLink.ok) {
+                alertModalAppear(responseLink.statusText)
+                return
             }
+            changedItems.push("post link")
         }
-        document.location.reload()
+        alertModalAppear(changedItems)
     }
 }
 
@@ -224,7 +233,6 @@ async function submitComment(event) {
         } else {
             alert(responseComment.statusText)
         }
-
     }
 }
 
@@ -246,10 +254,10 @@ async function changeCredentials(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if (!responseEmail.ok) {
-            alert("Please enter an email")
-            return
+            failedItems.push("Please enter an email.")
+        } else {
+            changedItems.push("email")
         }
-        changedItems.push("email")
     }
 
     if (newUsername) {
@@ -261,9 +269,10 @@ async function changeCredentials(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if (!responseUsername.ok) {
-            alert(responseUsername.statusText)
+            failedItems.push("Username already taken. Please enter a different username.")
+        } else {
+            changedItems.push("username")
         }
-        changedItems.push("username")
     }
 
     if (newPassword) {
@@ -275,11 +284,12 @@ async function changeCredentials(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if (!responsePassword.ok) {
-            alert(responsePassword.statusText)
+            failedItems.push(`Password returns an ${responsePassword.statusText}`)
+        } else {
+            changedItems.push("password")
         }
-        changedItems.push("password")
-    }
-    alertModalAppear(changedItems)
+    } 
+    alertModalAppear(changedItems, failedItems)
 }
 
 async function changeRsvp(event) {
@@ -298,12 +308,12 @@ async function changeRsvp(event) {
             changedItems.push("RSVP")
             alertModalAppear(changedItems)
         } else {
-            alert(responseRSVP.statusText)
+            failedItems(responseRSVP.statusText)
         }
     }
 }
 
-addPost.addEventListener("submit", addPostHandler)
+addPostForm.addEventListener("submit", addPostHandler)
 credentialsForm.addEventListener("submit", changeCredentials)
 rsvpForm.addEventListener("submit", changeRsvp)
 dashboardClick.addEventListener("click", managePosts)
