@@ -180,35 +180,7 @@ function albumCarousel() {
             z = 1
             return
         }
-        // setInterval(timeCarousel, 4000)
-
-    
 }
-
-// function smoothScroll(event) {
-//     // barHeight = navBar.clientHeight;
-
-//     var section = event.target.id
-
-//     selectedElement = document.querySelector(`${section}`)
-//     selectedElement.style.opacity = 0
-//     selectedElement.scrollIntoView({
-//         block: 'start',
-//         behavior: 'smooth',
-
-//     });
-//     selectedElement.style.transition = "2s"
-//     selectedElement.style.opacity = 1
-//     // setTimeout(scrollAdjuster, 800)
-// }
-
-// function scrollAdjuster() {
-//     window.scrollBy({
-//         behavior: 'smooth',
-//         top: -`${barHeight + 20}`
-//     })
-// }
-
 
 // Home Page Function calls
 window.onload = loadParallax
@@ -217,7 +189,6 @@ document.addEventListener("scroll", homeParallax);
 document.addEventListener("scroll", welcomeTitlesParallax)
 document.addEventListener("scroll", venueImgsParallax)
 setInterval(timeCarousel, 40)
-// navBar.addEventListener("click", smoothScroll)
 audioButton.addEventListener("click", playSinCara)
 document.addEventListener("scroll", equationParallax)
 document.addEventListener("scroll", storyParallax)
