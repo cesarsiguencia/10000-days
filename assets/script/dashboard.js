@@ -8,7 +8,6 @@ var pluraity = ""
 
 function alertModalAppear(message){
     alertModal.style.height = "100vh"
-    console.log(changedItems)
     if(Array.isArray(message)){
         if(message.length > 1){
             pluraity = "have"
@@ -248,6 +247,7 @@ async function changeCredentials(event) {
         })
         if (!responseEmail.ok) {
             alert("Please enter an email")
+            return
         }
         changedItems.push("email")
     }

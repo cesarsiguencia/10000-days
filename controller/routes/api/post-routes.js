@@ -72,25 +72,4 @@ router.put('/update/link/:selectedPost', (req,res) => {
     })
 })
 
-router.put('/rsvp', (req,res) => {
-    User.update(
-        {
-            rsvp: req.body.newRSVP
-        },
-        {
-            where: {
-                id: req.session.user_id
-            }
-        }
-    ).then(userFromDb => {
-        if(!userFromDb){
-            res.status(404).json({ message: 'User does not exist'})
-            return;
-        }
-        res.json(userFromDb)
-    }).catch(err => {
-        res.status(500).json(err)
-    })
-})
-
 module.exports = router
