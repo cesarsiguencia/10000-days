@@ -7,7 +7,7 @@ router.post('/', (req, res)=>{
     Comment.create({
         comment_text: req.body.newComment,
         user_id: req.session.user_id,
-        post_id: req.body.currentEditPost
+        post_id: req.body.currentEditPostId
     }).then(createdComment=> {
         res.json('success')
     }).catch(err => {

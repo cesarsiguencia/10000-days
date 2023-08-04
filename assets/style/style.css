@@ -520,19 +520,29 @@ footer {
 .db-boxes{
     width: 600px;
     margin: 15px auto;
-    border: solid 3px var(--fourth-color);
+    /* border: solid 3px var(white); */
     padding: 15px 15px;
     border-radius: 50px
 }
 
-.db-posts-page{
-    border-top: solid 3px var(--fourth-color);
+.db-posts{
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 0 10px;
+    border-bottom: 3px white solid;
+} 
+
+/* .db-posts:nth-child(odd){
+    background-color: var(--secondary-color)
+} */
+
+
+.db-posts-display{
+    /* border-top: solid 3px var(--fourth-color); */
     display: flex;
     justify-content: space-between;
 }
-.db-posts-page:nth-child(odd){
-    background-color: var(--secondary-color);
-}
+
 
 .posts-logos{
     display: flex;
@@ -546,17 +556,31 @@ footer {
     margin: 0 5px;
 }
 
+.comment-section{
+    margin: 10px auto; 
+    width: 90%;
+    padding: 10px 10px;
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
 .comments-block{
-    background-color: black;
-    height: 0px;
 }
 
 .comment-textbox{
     display: block;
-    /* padding: 25px 25px; */
     height: 0px;
+    opacity: 0;
     width: 100%;
+    border-radius: 10px;
 }
+
+/* .comment-blocks{
+    width: 50%
+} */
+
 /* Media Queries ------------------------- */
 
 @media screen and (max-width: 1600px) {

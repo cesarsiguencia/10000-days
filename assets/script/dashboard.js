@@ -37,9 +37,8 @@ function alertModalAppear(message, failedItems){
     })
 }
 
-async function addPostHandler(event) {
+async function submitPost(event) {
     event.preventDefault()
-
     const postText = addPostForm.querySelector('#post-text').value.trim()
     const postLink = addPostForm.querySelector('#post-link').value.trim()
     if (postText) {
@@ -51,7 +50,6 @@ async function addPostHandler(event) {
                 }),
                 headers: { 'Content-Type': 'application/json' }
             })
-
             if (response.ok) {
                 document.location.reload()
             } else {
@@ -77,7 +75,6 @@ async function addPostHandler(event) {
 }
 
 let currentEditPostId
-var commentClicked = true
 
 function managePosts(event) {
     var selectedPost = event.target
@@ -86,63 +83,20 @@ function managePosts(event) {
         deletePost(postId)
         return
     }
-
     if (selectedPost.matches(".edit")) {
         currentEditPostId = postId
-
-        //Grab Element Texts to Edit
-        var editModal = document.querySelector(`[modal-id="${postId}"]`)
-        var editForm = document.querySelector(`[form-id="${postId}"]`)
-        var closeModalButton = document.querySelector(`[close-id="${postId}"]`)
-        var selectedPostText = document.querySelector(`[post-text-id="${postId}"]`).textContent;
-        let selectedPostLink
-        if (!document.querySelector(`[post-link-id="${postId}"]`)) {
-            selectedPostLink = null
-        } else {
-            selectedPostLink = document.querySelector(`[post-link-id="${postId}"]`).getAttribute("href");
-        }
-        editModal.style.height = "100vh"
-
-        //Split quotes from selected post text to edit in modal
-        var arr = selectedPostText.split("")
-        arr = arr.slice(1)
-        arr.pop()
-        selectedPostText = arr.join("")
-        editModal.querySelector("input[name='post-modal-text']").value = selectedPostText;
-        editModal.querySelector("input[name='post-modal-link']").value = selectedPostLink;
-        editForm.addEventListener('submit', submitEditedPost)
-        closeModalButton.addEventListener('click', function(){
-            editModal.style.height = "0px"
-        })
-        return currentEditPostId
+        loadEditPostModal(postId)
+        return 
     }
-
     if (selectedPost.matches(".comment")) {
-        currentEditPostId = postId
-        var editComment = document.querySelector(`[post-comment-block="${postId}"]`)
-        var editCommentInput = document.querySelector(`[post-comment-belongs-to="${postId}"]`)
-        var editCommentForm = document.querySelector(`[comment-form-id="${postId}"]`)
-        
-        if (commentClicked == true) {
-            editComment.style.height = "30px"
-            editCommentInput.style.height = "25px"
-            editCommentForm.addEventListener("submit", addComment)
-            return commentClicked = false
-        }
-
-        if (commentClicked == false) {
-            editComment.style.height = "0px"
-            editCommentInput.style.height = "0px"
-            return commentClicked = true
-        }
+        loadCommentBlock(postId)
+        return
     }
-
     if (selectedPost.matches(".comment-trash")) {
         var commentTrashId = event.target.getAttribute("comment-trash-id")
         deleteComment(commentTrashId)
         return
     }
-    
 }
 
 async function deletePost(postId) {
@@ -156,6 +110,34 @@ async function deletePost(postId) {
             alertModalAppear(responseDelete.statusText)
         }
     }
+}
+
+function loadEditPostModal(postId){
+    //Grab Element Texts to Edit
+    var editModal = document.querySelector(`[modal-id="${postId}"]`)
+    var editForm = document.querySelector(`[form-id="${postId}"]`)
+    var closeModalButton = document.querySelector(`[close-id="${postId}"]`)
+    var selectedPostText = document.querySelector(`[post-text-id="${postId}"]`).textContent;
+    let selectedPostLink
+
+    if (!document.querySelector(`[post-link-id="${postId}"]`)) {
+        selectedPostLink = null
+    } else {
+        selectedPostLink = document.querySelector(`[post-link-id="${postId}"]`).getAttribute("href");
+    }
+
+    //Split quotes from selected post text to edit in modal
+    var arr = selectedPostText.split("")
+    arr = arr.slice(1)
+    arr.pop()
+    selectedPostText = arr.join("")
+    editModal.style.height = "100vh"
+    editModal.querySelector("input[name='post-modal-text']").value = selectedPostText;
+    editModal.querySelector("input[name='post-modal-link']").value = selectedPostLink;
+    editForm.addEventListener('submit', submitEditedPost)
+    closeModalButton.addEventListener('click', function(){
+        editModal.style.height = "0px"
+    })
 }
 
 async function submitEditedPost(event) {
@@ -197,7 +179,31 @@ async function submitEditedPost(event) {
     }
 }
 
-async function addComment(event) {
+var commentBtnClicked = true
+
+function loadCommentBlock(postId){
+    // var editComment = document.querySelector(`[post-comment-input-block="${postId}"]`)
+    var editCommentInput = document.querySelector(`[post-comment-belongs-to="${postId}"]`)
+    var editCommentForm = document.querySelector(`[comment-form-id="${postId}"]`)
+    currentEditPostId = postId
+    
+    if (commentBtnClicked == true) {
+        editCommentForm.style.height = "70px"
+        editCommentInput.style.height = "55px"
+        editCommentInput.style.opacity = 1
+        editCommentForm.addEventListener("submit", submitComment)
+        return commentBtnClicked = false
+    }
+
+    if (commentBtnClicked == false) {
+        editCommentForm.style.height = "0px"
+        editCommentInput.style.height = "0px"
+        editCommentInput.style.opacity = 0
+        return commentBtnClicked = true
+    }
+}
+
+async function submitComment(event) {
     event.preventDefault()
     var postId = currentEditPostId
     const newComment = document.querySelector(`[post-comment-belongs-to="${postId}"]`).value.trim()
@@ -211,10 +217,9 @@ async function addComment(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if (responseComment.ok) {
-            window.alert('Comment link updated')
-            window.location.reload()
+            document.location.reload()
         } else {
-            alert(responseComment.statusText)
+            alertModalAppear(responseComment.statusText)
         }
     }
 }
@@ -232,9 +237,7 @@ async function deleteComment(commentId) {
     }
 }
 
-
-
-// User Setting Changes
+// User Account Changes =============
 
 async function changeCredentials(event) {
     event.preventDefault()
@@ -311,7 +314,7 @@ async function changeRsvp(event) {
     }
 }
 
-addPostForm.addEventListener("submit", addPostHandler)
+addPostForm.addEventListener("submit", submitPost)
 credentialsForm.addEventListener("submit", changeCredentials)
 rsvpForm.addEventListener("submit", changeRsvp)
 dashboardClick.addEventListener("click", managePosts)

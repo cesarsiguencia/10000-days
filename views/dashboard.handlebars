@@ -29,53 +29,51 @@
 
 
                 {{#each posts as |post|}}
-                <div class="dashboard-posts db-posts-page" post-id={{post.id}}>
-                    <div>
-                        {{> dashboard-posts post}}
-                    </div>
+                    <div class="db-posts" post-id={{post.id}}>
+                        <div class="db-posts-display">
+                            <div>
+                            {{> dashboard-posts post}}
+                            </div>
 
-                    <div class="posts-logos">
-                        <img src="/media/icons/love.png" />
-                        <img class="comment" post-id={{post.id}} src="/media/icons/comment.png" />
-
-
-                        {{#if (checkUserId post.user_id ../loggedUserId)}}
-
-                        <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
-                        <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
-                        {{>edit-post post}}
-                        {{/if}}
-                    </div>
-                </div>
-
-                <div>
-                    {{#each post.comments}}
-                    <div style="margin: 10px auto; background-color: orange">
-                        <p>{{comment_text}} - {{user.username}} - {{user.id}} </p>
-
-               
-                    </div>
-
-                    <div class="posts-logos">
-                             {{#if (checkUserId user.id ../../loggedUserId)}}
-                        <img class="comment-trash" post-id={{post.id}} comment-trash-id={{id}} src="/media/icons/trash.png" />
-                        {{/if}}
-                    </div>
+                            <div class="posts-logos">
+                                {{!-- <img src="/media/icons/love.png" /> --}}
+                                <img class="comment" post-id={{post.id}} src="/media/icons/comment.png" />
 
 
-        
+                                {{#if (checkUserId post.user_id ../loggedUserId)}}
 
-                    {{/each}} 
-
-                </div>
-
-                <div post-comment-block={{post.id}} class="comments-block">
-                    <form comment-form-id={{post.id}}>
-                        <div>
-                            <input type="text" placeholder="Reply Here!" name="comment-text" post-comment-belongs-to={{post.id}} class="comment-textbox" />
+                                    <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
+                                    <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
+                                    {{>edit-post post}}
+                                {{/if}}
+                            </div>
                         </div>
-                    </form>
-                </div>
+                        
+                         <div>
+                            {{#each post.comments}}
+                                <div class="comment-section">
+                                    <div style="comment-blocks">
+                                        <p>{{comment_text}} </p>
+                                        <p>By - {{user.username}}</p>
+                                    </div>
+
+                                    <div class="posts-logos comment-blocks">
+                                        {{#if (checkUserId user.id ../../loggedUserId)}}
+                                            <img class="comment-trash" post-id={{post.id}} comment-trash-id={{id}} src="/media/icons/trash.png" />
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            {{/each}} 
+                        </div>
+
+                        {{!-- <div > --}}
+                            <form comment-form-id={{post.id}} post-comment-input-block={{post.id}} class="comments-block">
+                                
+                                <input type="text" placeholder="Reply Here!" name="comment-text" post-comment-belongs-to={{post.id}} class="comment-textbox" />
+                                
+                            </form>
+                        {{!-- </div> --}}
+                    </div>
                 {{/each}}
             </div>
 
