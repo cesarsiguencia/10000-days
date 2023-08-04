@@ -16,7 +16,7 @@ function alertModalAppear(message, failedItems){
         } else {
             pluraity = "has"
         }
-        alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been changed!`
+        alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been updated!`
     } else {
         alertModal.querySelector('#alert-modal-text').textContent = message
     }
@@ -35,7 +35,6 @@ function alertModalAppear(message, failedItems){
     alertModalClose.addEventListener("click", function(){
         window.location.reload()
     })
-
 }
 
 async function addPostHandler(event) {
@@ -106,15 +105,13 @@ async function editPost(event) {
                     updatedText
                 }),
                 headers: { 'Content-Type': 'application/json' }
-
             })
             if(!responseText.ok) {
-                alertModalAppear(responseText.statusText)
-                return 
-            } 
-            changedItems.push("post text")
+                failedItems.push(responseText.statusText)
+            } else {
+                changedItems.push("post text")
+            }
         }
-
         if (updatedLink) {
             const responseLink = await fetch(`api/posts/update/link/${postId}`, {
                 method: 'put',
@@ -124,12 +121,12 @@ async function editPost(event) {
                 headers: { 'Content-Type': 'application/json' }
             })
             if (!responseLink.ok) {
-                alertModalAppear(responseLink.statusText)
-                return
+                failedItems(responseLink.statusText)
+            } else {
+                changedItems.push("post link")
             }
-            changedItems.push("post link")
         }
-        alertModalAppear(changedItems)
+        alertModalAppear(changedItems, failedItems)
     }
 }
 
