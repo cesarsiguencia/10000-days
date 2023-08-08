@@ -32,26 +32,22 @@ router.get('/', (req, res) => {
                 })
             );
 
-            const newPostBatch = posts.map(fetchedPost => {
-                if(fetchedPost.post_link){
-                    
-                    fetchOG(fetchedPost.post_link).then((result)=>{
-                        if(!result){
-                            console.log('nothing was returned with website lacking OG')
-                            fetchedPost.openGraphMaterial = undefined
-                            return
-                        } else {
-                            console.log("this site has OF")
-                            fetchedPost.openGraphMaterial = result
-                        }
-                        
+            
 
-                    })
-              
+            posts.forEach(fetchedPost => {
+
+                if(fetchedPost.post_link){
+                    var returned = fetchOG(fetchedPost.post_link)
+                    console.log(returned)
+                    if(!returned){
+                        console.log('nothing was returned')
+                    } else {
+                        fetchedPost.openGraphMaterial = returned
+                    }
+                    
                 }
                 
             })
-            posts = newPostBatch
             console.log(posts)
             res.render('dashboard', {
                 posts,
@@ -74,15 +70,19 @@ async function fetchOG(website){
     // var link = String(website)
     // console.log(link, 'this is a string')
 
-    var urls = await getLinkPreview(website).then((data)=>{
+    var urls = await getLinkPreview("https://www.dinosaurbarbque.com").then((data)=>{
         return data
     }).catch(err => {
         console.log("no OG available for picked website, return undefined")
-        return
     })
 
-    console.log(urls, 'after the catch')
+    // if(!urls){
+    //     urls = website
+    // }
+    console.log(urls, 'this is what we are waiting')
     return urls
+
+    
 }
 
 module.exports = router
