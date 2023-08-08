@@ -7,7 +7,7 @@ const postData = [
     },
     {
         post_text: "Any in NYC wanna meet up before hand at this location?",
-        post_link: "https://www.dinosaurbarbque.com/harlem/",
+        post_link: "https://www.serafinarestaurant.com/location/serafina-upper-west/",
         user_id: 2
     },
     {

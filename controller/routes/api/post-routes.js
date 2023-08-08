@@ -72,4 +72,12 @@ router.put('/update/link/:selectedPost', (req,res) => {
     })
 })
 
+// router.get('/fetchOG', (req, res) =>{
+//     var url = getLinkPreview("https://www.youtube.com/watch?v=69tG3hUouqk")
+//     console.log(url, 'this is the url we are waiting for')
+//     res.json(url)
+// })
+
+
+
 module.exports = router

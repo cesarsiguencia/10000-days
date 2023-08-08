@@ -2,6 +2,8 @@ const router = require('express').Router()
 
 const { Post, Comment, User } = require('../../../models')
 
+const { getLinkPreview, getPreviewFromContent } = require("link-preview-js")
+
 router.get('/', (req, res) => {
     Post.findAll({
         include: [
@@ -23,10 +25,25 @@ router.get('/', (req, res) => {
         ]
     })
         .then(postsFromDb => {
-            const posts = postsFromDb.map(post => post.get({
-                plain: true
+
+
+            
+            const posts = postsFromDb.map(post => 
                 
-            }));
+                post.get({
+                plain: true
+                })
+        
+            
+            );
+
+            posts.forEach(fetchedPost => {
+
+                if(fetchedPost.post_link){
+                    fetchOG(fetchedPost.post_link)
+                }
+                
+            })
             console.log(posts)
             res.render('dashboard', {
                 posts,
@@ -39,5 +56,28 @@ router.get('/', (req, res) => {
             res.status(500).json(err)
         })
 });
+
+async function fetchOG(website){
+    // // const url = document.querySelector("a[post-link-id='2']")
+    // console.log(url)
+
+    console.log(website, "we should have a website here")
+
+    // var link = String(website)
+    // console.log(link, 'this is a string')
+
+    var urls = await getLinkPreview(website).then((data)=>{
+        console.log(data)
+    }).catch(err => {
+        console.log("no OG available for picked website, return undefined")
+        return website
+    })
+
+    if(!urls){
+        urls = website
+    }
+
+    console.log(urls, 'this is what we are waiting')
+}
 
 module.exports = router

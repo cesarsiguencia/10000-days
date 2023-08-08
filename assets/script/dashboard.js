@@ -7,6 +7,8 @@ var changedItems = []
 var failedItems = []
 var pluraity = ""
 
+
+
 function alertModalAppear(message, failedItems){
     alertModal.style.height = "100vh"
     if(Array.isArray(message)){
@@ -313,6 +315,11 @@ async function changeRsvp(event) {
         }
     }
 }
+
+
+
+
+
 
 addPostForm.addEventListener("submit", submitPost)
 credentialsForm.addEventListener("submit", changeCredentials)
