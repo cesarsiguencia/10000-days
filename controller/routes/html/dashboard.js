@@ -25,25 +25,33 @@ router.get('/', (req, res) => {
         ]
     })
         .then(postsFromDb => {
-
-
-            
             const posts = postsFromDb.map(post => 
                 
                 post.get({
                 plain: true
                 })
-        
-            
             );
 
-            posts.forEach(fetchedPost => {
-
+            const newPostBatch = posts.map(fetchedPost => {
                 if(fetchedPost.post_link){
-                    fetchOG(fetchedPost.post_link)
+                    
+                    fetchOG(fetchedPost.post_link).then((result)=>{
+                        if(!result){
+                            console.log('nothing was returned with website lacking OG')
+                            fetchedPost.openGraphMaterial = undefined
+                            return
+                        } else {
+                            console.log("this site has OF")
+                            fetchedPost.openGraphMaterial = result
+                        }
+                        
+
+                    })
+              
                 }
                 
             })
+            posts = newPostBatch
             console.log(posts)
             res.render('dashboard', {
                 posts,
@@ -67,17 +75,14 @@ async function fetchOG(website){
     // console.log(link, 'this is a string')
 
     var urls = await getLinkPreview(website).then((data)=>{
-        console.log(data)
+        return data
     }).catch(err => {
         console.log("no OG available for picked website, return undefined")
-        return website
+        return
     })
 
-    if(!urls){
-        urls = website
-    }
-
-    console.log(urls, 'this is what we are waiting')
+    console.log(urls, 'after the catch')
+    return urls
 }
 
 module.exports = router
