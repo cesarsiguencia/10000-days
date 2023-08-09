@@ -27,6 +27,7 @@ router.delete('/delete/:selectedPost', (req, res) => {
         res.json(deletedPost)
     }).catch(err => {
         res.status(500).json(err)
+        console.log('whyyyyyyy')
     })
 })
 
@@ -72,11 +73,6 @@ router.put('/update/link/:selectedPost', (req,res) => {
     })
 })
 
-// router.get('/fetchOG', (req, res) =>{
-//     var url = getLinkPreview("https://www.youtube.com/watch?v=69tG3hUouqk")
-//     console.log(url, 'this is the url we are waiting for')
-//     res.json(url)
-// })
 
 
 

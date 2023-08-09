@@ -102,6 +102,7 @@ function managePosts(event) {
 }
 
 async function deletePost(postId) {
+    console.log(postId)
     if (postId) {
         const responseDelete = await fetch(`api/posts/delete/${postId}`, {
             method: 'delete'

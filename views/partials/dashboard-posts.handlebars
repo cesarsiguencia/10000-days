@@ -1,21 +1,7 @@
 <br />
 <p class="post-text center" post-text-id={{id}}>"{{post_text}}"</p>
 
-{{#if post_link}}
 
-    {{#if openGraphMaterial}}
-        <h1> I have OG</h1>
-        <h1>{{openGraphMaterial.description}}</h1>
-
-         
-    {{else}}
-          <a class="post-link" href={{post_link}} post-link-id={{id}} target="_blank">
-        <p  style="color:#FF9033;">CLICK LINK HERE!</p>
-        </a>
-
-    {{/if}}
-
-{{/if}}
 
 <p class="post-user">- Says {{user.username}} | | Posted at {{format_date updatedAt}},
     

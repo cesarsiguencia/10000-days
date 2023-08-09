@@ -6,7 +6,7 @@
     <div class="db-central">
         <h2 class="intro-title" style="margin-bottom: 15px;">Welcome! Your 10,000th Dashboard</h2>
 
-        <div class="db-components" >
+        <div class="db-components">
             <div class="db-boxes" id="posts-center">
                 <h2 style="margin: 30px auto;">Add A Post!</h2>
 
@@ -29,51 +29,77 @@
 
 
                 {{#each posts as |post|}}
-                    <div class="db-posts" post-id={{post.id}}>
-                        <div class="db-posts-display">
-                            <div>
+                <div class="db-posts" post-id={{post.id}}>
+                    <div class="db-posts-display">
+                        <div>
                             {{> dashboard-posts post}}
-                            </div>
 
-                            <div class="posts-logos">
+                            
+                        </div>
+
+                        <div class="posts-logos">
                                 {{!-- <img src="/media/icons/love.png" /> --}}
                                 <img class="comment" post-id={{post.id}} src="/media/icons/comment.png" />
 
 
                                 {{#if (checkUserId post.user_id ../loggedUserId)}}
 
-                                    <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
-                                    <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
-                                    {{>edit-post post}}
+                                <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
+                                <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
+                                {{>edit-post post}}
+                                {{/if}}
+                            </div>
+
+            
+
+
+                    </div>
+
+                    <div>
+                        {{#if post.post_link}}
+
+                            {{#if post.openGraphMaterial}}
+                                {{>og post.openGraphMaterial}}
+                            {{else}}
+                                <a class="post-link" href={{post.post_link}} post-link-id={{post.id}} target="_blank">
+                                    <p style="color:#FF9033;">No info displayed, CLICK LINK HERE!</p>
+                                </a>
+
+                            {{/if}}
+                        {{/if}}
+
+                    </div>
+
+                    
+
+                    <div>
+                        {{#each post.comments}}
+                        <div class="comment-section">
+                            <div style="comment-blocks">
+                                <p>{{comment_text}} </p>
+                                <p>By - {{user.username}}</p>
+                            </div>
+
+                            <div class="posts-logos comment-blocks">
+                                {{#if (checkUserId user.id ../../loggedUserId)}}
+                                <img class="comment-trash" post-id={{post.id}} comment-trash-id={{id}}
+                                    src="/media/icons/trash.png" />
                                 {{/if}}
                             </div>
                         </div>
-                        
-                         <div>
-                            {{#each post.comments}}
-                                <div class="comment-section">
-                                    <div style="comment-blocks">
-                                        <p>{{comment_text}} </p>
-                                        <p>By - {{user.username}}</p>
-                                    </div>
-
-                                    <div class="posts-logos comment-blocks">
-                                        {{#if (checkUserId user.id ../../loggedUserId)}}
-                                            <img class="comment-trash" post-id={{post.id}} comment-trash-id={{id}} src="/media/icons/trash.png" />
-                                        {{/if}}
-                                    </div>
-                                </div>
-                            {{/each}} 
-                        </div>
-
-                        {{!-- <div > --}}
-                            <form comment-form-id={{post.id}} post-comment-input-block={{post.id}} class="comments-block">
-                                
-                                <input type="text" placeholder="Reply Here!" name="comment-text" post-comment-belongs-to={{post.id}} class="comment-textbox" />
-                                
-                            </form>
-                        {{!-- </div> --}}
+                        {{/each}}
                     </div>
+
+                    {{!-- <div> --}}
+                        <form comment-form-id={{post.id}} post-comment-input-block={{post.id}} class="comments-block">
+
+                            <input type="text" placeholder="Reply Here!" name="comment-text"
+                                post-comment-belongs-to={{post.id}} class="comment-textbox" />
+
+                        </form>
+                        {{!--
+                    </div> --}}
+                </div>
                 {{/each}}
             </div>
 
@@ -125,7 +151,8 @@
 </div>
 
 <script src="/script/dashboard.js"></script>
-{{!-- <script type="module" src="/script/getOg.js"></script> --}}
+{{!--
+<script type="module" src="/script/getOg.js"></script> --}}
 
 
 {{/if}}

@@ -581,6 +581,22 @@ footer {
     width: 50%
 } */
 
+.og-style{
+    display: flex;
+    padding: 10px 10px;
+    margin: 5px 0;
+    background-color: rgb(120, 176, 195);
+    border-radius: 10px;
+    width: fit-content
+
+}
+
+.og-style > img {
+    height: 125px;
+    width: fit-content;
+    margin-right: 15px;
+}
+
 /* Media Queries ------------------------- */
 
 @media screen and (max-width: 1600px) {
