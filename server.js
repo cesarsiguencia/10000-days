@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 4000
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
-    secret:process.env.SESSION_SECRET,
+    secret: 'super secret password' || process.env.SESSION_SECRET,
     cookie: {},
     resave: false,
     saveUninitialized: true,
