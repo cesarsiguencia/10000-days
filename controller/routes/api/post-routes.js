@@ -68,8 +68,6 @@ router.delete('/delete/:selectedPost', (req, res) => {
         }
     }))
     .then(deletedPost => {
-        console.log(req.params.selectedPost)
-        console.log(deletedPost, 'idk what this is then')
         if(!deletedPost){
             res.json("Post deleted")
             return
