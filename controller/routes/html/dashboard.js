@@ -39,6 +39,7 @@ router.get('/', (req, res) => {
                         posts,
                         loggedUserId: req.session.user_id,
                         loggedIn: req.session.loggedIn,
+                        loggedUsername: req.session.username
                     })
                 },250)
             }
