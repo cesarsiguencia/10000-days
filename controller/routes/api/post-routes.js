@@ -61,15 +61,17 @@ router.delete('/delete/:selectedPost', (req, res) => {
         where:{
             post_id: req.params.selectedPost
         }
-    }).then( Post.destroy({
+    }).then
+    (Post.destroy({
         where: {
             id: req.params.selectedPost,
         }
     }))
     .then(deletedPost => {
         console.log(req.params.selectedPost)
+        console.log(deletedPost, 'idk what this is then')
         if(!deletedPost){
-            res.status(404).json('Post does not exist')
+            res.json("Post deleted")
             return
         }
         res.json(deletedPost)
