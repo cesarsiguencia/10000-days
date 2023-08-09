@@ -1,6 +1,6 @@
 const router = require("express").Router()
 
-const { Post } = require("../../../models/index")
+const { Post, Comment } = require("../../../models/index")
 
 router.post('/', (req, res) => {
     Post.create({
@@ -11,23 +11,6 @@ router.post('/', (req, res) => {
         res.json( 'success')
     }).catch(err => {
         res.status(500).json(err)
-    })
-})
-
-router.delete('/delete/:selectedPost', (req, res) => {
-    Post.destroy({
-        where: {
-            id: req.params.selectedPost
-        }
-    }).then(deletedPost => {
-        if(!deletedPost){
-            res.status(404).json('Post does not exist')
-            return
-        }
-        res.json(deletedPost)
-    }).catch(err => {
-        res.status(500).json(err)
-        console.log('whyyyyyyy')
     })
 })
 
@@ -68,6 +51,28 @@ router.put('/update/link/:selectedPost', (req,res) => {
             return;
         }
         res.json(newLink)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
+
+router.delete('/delete/:selectedPost', (req, res) => {
+   Comment.destroy({
+        where:{
+            post_id: req.params.selectedPost
+        }
+    }).then( Post.destroy({
+        where: {
+            id: req.params.selectedPost,
+        }
+    }))
+    .then(deletedPost => {
+        console.log(req.params.selectedPost)
+        if(!deletedPost){
+            res.status(404).json('Post does not exist')
+            return
+        }
+        res.json(deletedPost)
     }).catch(err => {
         res.status(500).json(err)
     })

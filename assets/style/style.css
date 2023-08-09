@@ -98,10 +98,14 @@ button{
     margin: 0 auto;
     padding: 10px;
     border-radius: 25px;
-    transition: ease-in-out 1s;
-    scale: 1;
     border: black 3px solid;
 }
+
+.animated-btns{
+    transition: ease-in-out 1s;
+    scale: 1;
+}
+
 
 button:hover{
     border: white 3px solid;
@@ -587,14 +591,29 @@ footer {
     margin: 5px 0;
     background-color: rgb(120, 176, 195);
     border-radius: 10px;
-    width: fit-content
+    width: fit-content;
+}
+
+.og-style > div{
+    width: 50%;
+}
+
+.og-image{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.og-image > img {
+    width: 90%;
+    margin: 0 auto
 
 }
 
-.og-style > img {
-    height: 125px;
-    width: fit-content;
-    margin-right: 15px;
+.party-gif{
+    width: 50%;
+    margin: 0 auto
 }
 
 /* Media Queries ------------------------- */
@@ -639,6 +658,22 @@ footer {
         width: 100%
     }
 
+    .og-style{
+        flex-wrap:wrap;
+        flex-direction: column;
+        justify-content: center
+    }
+
+    .og-style > div{
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .party-gif{
+        width: 80%;
+    }
+
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -667,7 +702,7 @@ footer {
 
 @media screen and (max-width: 850px){
     .intro-div>div {
-        padding: 20px 0px 20px 0px;
+        padding: 20px;
     }
 
     .intro-div {
@@ -681,7 +716,6 @@ footer {
 
 @media screen and (max-width: 768px) {
 
-
     .equation{
         width: 100%;
     }
@@ -689,7 +723,7 @@ footer {
 
     .mobile-toggle {
         width: 100%;
-        height: 35px;
+        height: 100%;
     }
 
     #mobileMenu {

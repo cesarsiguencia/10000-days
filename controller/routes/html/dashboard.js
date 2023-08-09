@@ -40,7 +40,7 @@ router.get('/', (req, res) => {
                         loggedUserId: req.session.user_id,
                         loggedIn: req.session.loggedIn,
                     })
-                },100)
+                },250)
             }
             renderingComplete()
         })

@@ -12,7 +12,7 @@ const postData = [
     },
     {
         post_text: "Here is the venue for the event",
-        post_link: "https://www.theskylarknyc.com/",
+        post_link: "https://meauxspace.com/",
         user_id: 1
     }
 ]

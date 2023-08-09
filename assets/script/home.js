@@ -104,7 +104,7 @@ function storyParallax() {
     }
 }
 
-var buttons = document.querySelectorAll('button')
+var buttons = document.querySelectorAll('.animated-btns')
 
 function buttonScale (){
     setInterval(() => {

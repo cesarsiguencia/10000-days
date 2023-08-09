@@ -235,7 +235,7 @@ async function deleteComment(commentId) {
         if (responseDeleteComment.ok) {
             alertModalAppear('Comment deleted!')
         } else {
-            alertModalAppear(responseDeleteComment.statusText)
+            alertModalAppear('You are not allowed to delete posts with comments')
         }
     }
 }
