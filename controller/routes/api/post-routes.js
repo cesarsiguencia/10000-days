@@ -71,7 +71,7 @@ router.delete('/delete/:selectedPost', (req, res) => {
         if(!deletedPost){
             res.json("Post deleted")
             return
-        }
+        }n
         res.json(deletedPost)
     }).catch(err => {
         res.status(500).json(err)
