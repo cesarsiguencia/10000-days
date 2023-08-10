@@ -18,28 +18,32 @@ The purpose of this application is for attendes to learn more about why I am hos
 - Posts
 - Comments 
 
+### Link to Live App
+https://cs-10000-days-33ee2045b3a6.herokuapp.com 
+
+### Screenshots
+
+![screenshot-1](./screenshots/1.png)
+
+![screenshot-2](./screenshots/2.png)
+
 ### Installation with Accompanying Data (Seeds)
 1. Git clone or download the application and load on VSCode
 2. Open your command line, go to the application directory, and run 'npm install'.
     - If this is your first time installing MySQL, please navigate to their documentation for proper installation into your computer and credential creation.
 3. Change your package.json scripts to your chosing, preferred to include "start" : "node server.js" as one of your scripts.
 4. Create an .env file at the root of the app for Dotenv to run your MySQL credentials for the database. Then in the .env file, type the following and save:
-    DB_NAME='just_tech_news_db'
-    DB_USER='(YOUR MYSQL USERNAME)'
-    DB_PW='(YOUR MYSQL PASSWORD)'
+    MYSQLDATABASENAME='just_tech_news_db'
+    MYSQLUSER='(YOUR MYSQL USERNAME)'
+    MYSQLPASSWORD='(YOUR MYSQL PASSWORD)'
 5. Load the MySQL shell in the command line and type the following command to download the original database. Then quit the shell.
-    - SOURCE db/schema.sql
+    - SOURCE controller/database/db.sql
 6. Navigate to server.js and change the value of 'force: false' under the sequelize.sync function to 'force: true'. Save the file.
 7. Run 'npm run seeds' in the command line for the database to be synced with its stock data.
-8. Revert the value of 'force: true' back to 'force: false' in serber.js. Save the file.
+8. Revert the value of 'force: true' back to 'force: false' in server.js. Save the file.
 9. Run 'npm start' in the command line, then navigate to browser and go to http://localhost:4000
-
-### Screenshots
-
-![screenshot-1]('./screenshots/1.png)
-
-![screenshot-2]('./screenshots/2.png)
 
 ### Future Plans for this Project
 1. Switch from a MySQL database to a PostgreSQL database
 2. Add Hearts to the database so users can 'heart' posts, similar to Instagram.
+3. Convert app into a PWA for users to download to their mobile devices.
