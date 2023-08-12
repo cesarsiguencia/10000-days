@@ -10,6 +10,42 @@ var dummyForm = document.querySelector('.registration')
 const hero = document.querySelector(".hero")
 hero.style.height = "120vh";
 
+var alertModal = document.querySelector('#alert-modal')
+var changedItems = []
+var failedItems = []
+var pluraity = ""
+
+function alertModalAppear(message, failedItems){
+    alertModal.style.height = "100vh"
+    if(Array.isArray(message)){
+        if(message.length > 1){
+            pluraity = "have"
+            message = message.join(" & ")
+        } else {
+            pluraity = "has"
+        }
+        alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been updated!`
+    } else {
+        alertModal.querySelector('#alert-modal-text').textContent = message
+    }
+
+    if(failedItems){
+        if(failedItems.length > 1){
+            failedItems = failed.join(" || ")
+        }
+        alertModal.querySelector('#alert-modal-text-2').textContent = failedItems
+    }
+
+    changedItems = []
+    pluraity = ""
+    failedItems = []
+
+    var alertModalClose = alertModal.querySelector('#alert-modal-close')
+    alertModalClose.addEventListener("click", function(){
+        alertModal.style.height = "0px"
+    })
+}
+
 function homeParallax(event) {
     const hero = document.querySelector(".hero")
     const scrollPosition = event.target.scrollingElement.scrollTop;

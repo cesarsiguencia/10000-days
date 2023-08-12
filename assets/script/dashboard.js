@@ -2,12 +2,11 @@ var addPostForm = document.querySelector('#add-post')
 var credentialsForm = document.querySelector("#change-credentials")
 var rsvpForm = document.querySelector("#change-attendance")
 var dashboardClick = document.querySelector('#posts-center')
+
 var alertModal = document.querySelector('#alert-modal')
 var changedItems = []
 var failedItems = []
 var pluraity = ""
-
-
 
 function alertModalAppear(message, failedItems){
     alertModal.style.height = "100vh"
@@ -29,8 +28,9 @@ function alertModalAppear(message, failedItems){
         }
         alertModal.querySelector('#alert-modal-text-2').textContent = failedItems
     }
+
     changedItems = []
-    pluarity = ""
+    pluraity = ""
     failedItems = []
 
     var alertModalClose = alertModal.querySelector('#alert-modal-close')

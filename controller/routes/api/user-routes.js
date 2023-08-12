@@ -159,6 +159,8 @@ router.post('/login', (req,res) => {
             req.session.loggedIn = true
             res.json({ user: loggedUser, message: 'Logged In'})
         })
+    }).catch(err =>{
+        res.status(500).json(err)
     })
 })
 

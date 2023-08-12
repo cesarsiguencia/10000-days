@@ -5,7 +5,7 @@
 <div class="db-body">
     <div class="db-central">
         <h2 class="intro-title" style="margin-bottom: 15px;">Welcome To Your Dashboard, {{loggedUsername}}!</h2>
-        
+
 
         <div class="db-components">
             <div class="db-boxes" id="posts-center">
@@ -35,23 +35,23 @@
                         <div>
                             {{> dashboard-posts post}}
 
-                            
+
                         </div>
 
                         <div class="posts-logos">
-                                {{!-- <img src="/media/icons/love.png" /> --}}
-                                <img class="comment" post-id={{post.id}} src="/media/icons/comment.png" />
+                            {{!-- <img src="/media/icons/love.png" /> --}}
+                            <img class="comment" post-id={{post.id}} src="/media/icons/comment.png" />
 
 
-                                {{#if (checkUserId post.user_id ../loggedUserId)}}
+                            {{#if (checkUserId post.user_id ../loggedUserId)}}
 
-                                <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
-                                <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
-                                {{>edit-post post}}
-                                {{/if}}
-                            </div>
+                            <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
+                            <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
+                            {{>edit-post post}}
+                            {{/if}}
+                        </div>
 
-            
+
 
 
                     </div>
@@ -59,21 +59,24 @@
                     <div>
                         {{#if post.post_link}}
 
-                            {{#if post.openGraphMaterial}}
-                                {{>og post.openGraphMaterial}}
-                            {{else}}
-                                <a class="post-link" href={{post.post_link}} post-link-id={{post.id}} target="_blank">
-                                    <p style="color:#FF9033;">No info displayed, CLICK LINK HERE!</p>
-                                </a>
+                        {{#if post.openGraphMaterial}}
+                        <a class="og-style" href={{post.post_link}} post-link-id={{post.id}} target="_blank">
+                             {{>og post.openGraphMaterial}}
+                        </a>
+                       
+                        {{else}}
+                        <a class="post-link" href={{post.post_link}} post-link-id={{post.id}} target="_blank">
+                            <p style="color:#FF9033;">No info displayed, CLICK LINK HERE!</p>
+                        </a>
 
-                            {{/if}}
+                        {{/if}}
                         {{/if}}
 
                     </div>
 
-                    
 
-                   <div>
+
+                    <div>
                         {{#each post.comments}}
                         <div class="comment-section">
                             <div style="comment-blocks">
@@ -83,22 +86,21 @@
 
                             <div class="posts-logos comment-blocks">
                                 {{#if (checkUserId user.id ../../loggedUserId)}}
-                                <img class="comment-trash" comment-trash-id={{id}}
-                                    src="/media/icons/trash.png" />
+                                <img class="comment-trash" comment-trash-id={{id}} src="/media/icons/trash.png" />
                                 {{/if}}
                             </div>
                         </div>
                         {{/each}}
                     </div>
 
-                    
+
                     <form comment-form-id={{post.id}} post-comment-input-block={{post.id}} class="comments-block">
 
                         <input type="text" placeholder="Reply Here!" name="comment-text"
                             post-comment-belongs-to={{post.id}} class="comment-textbox" />
 
-                    </form> 
-                 
+                    </form>
+
                 </div>
                 {{/each}}
             </div>
@@ -151,8 +153,6 @@
 </div>
 
 <script src="/script/dashboard.js"></script>
-{{!--
-<script type="module" src="/script/getOg.js"></script> --}}
 
 
 {{/if}}
