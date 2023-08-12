@@ -57,20 +57,16 @@ router.put('/update/link/:selectedPost', (req,res) => {
 })
 
 router.delete('/delete/:selectedPost', (req, res) => {
-   Comment.destroy({
-        where:{
-            post_id: req.params.selectedPost
-        }
-    }).then
-    (Post.destroy({
+
+    Post.destroy({
         where: {
             id: req.params.selectedPost,
         }
-    }))
+    })
     .then(deletedPost => {
         console.log(deletedPost)
         if(!deletedPost){
-            res.json("Post deleted")
+            res.json("Post doesnt exist")
             return
         }
         res.json(deletedPost)
