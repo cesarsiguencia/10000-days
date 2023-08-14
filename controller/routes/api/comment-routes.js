@@ -3,7 +3,6 @@ const router = require("express").Router()
 const { Comment } = require("../../../models/index")
 
 router.post('/', (req, res)=>{
-    console.log("I am working for comments")
     Comment.create({
         comment_text: req.body.newComment,
         user_id: req.session.user_id,

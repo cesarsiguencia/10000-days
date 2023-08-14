@@ -128,8 +128,6 @@ router.post('/', (req, res) => {
                 req.session.username = newUser.username;
                 req.session.loggedIn = true 
                 res.json(newUser)
-                console.log(newUser)
-                console.log(req.session.loggedIn, ' =session from me')
             })
 
         }))

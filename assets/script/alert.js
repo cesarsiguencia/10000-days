@@ -1,9 +1,7 @@
 var alertModal = document.querySelector('#alert-modal')
 var pluraity = ""
 
-
 function alertFunction(message, failedItems){
-    console.log(message)
     alertModal.style.height = "100vh"
     if(message.length > 0){
         if(Array.isArray(message)){

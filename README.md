@@ -4,6 +4,8 @@ A full stack application all about my special event I'm hosting soon; A classy p
 
 The purpose of this application is for attendes to learn more about why I am hosting this event and the venue I chose to host it at. Attendes will have a chance to RSVP on the site while creating an account at the same time. The account will allow the guests to change their RSVP info in case plans change and will also be allowed to interact with other attendes through posts, hyping the event amongst each other until the day of the party arrives.
 
+Optimized for mobile too.
+
 ### Technologies Used
 
 - Express

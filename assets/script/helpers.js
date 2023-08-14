@@ -15,7 +15,6 @@ module.exports = {
         if (amount !== 1) {
           return `${word}s`;
         }
-        console.log(word)
         return word;
     },
 
