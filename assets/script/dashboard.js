@@ -3,41 +3,13 @@ var credentialsForm = document.querySelector("#change-credentials")
 var rsvpForm = document.querySelector("#change-attendance")
 var dashboardClick = document.querySelector('#posts-center')
 
-// var alertModal = document.querySelector('#alert-modal')
 var changedItems = []
 var failedItems = []
-// var pluraity = ""
 
 function alertModalAppear(message, failedItems){
     alertFunction(message, failedItems)
-    // alertModal.style.height = "100vh"
-    // if(Array.isArray(message)){
-    //     if(message.length > 1){
-    //         pluraity = "have"
-    //         message = message.join(" & ")
-    //     } else {
-    //         pluraity = "has"
-    //     }
-    //     alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been updated!`
-    // } else {
-    //     alertModal.querySelector('#alert-modal-text').textContent = message
-    // }
-
-    // if(failedItems){
-    //     if(failedItems.length > 1){
-    //         failedItems = failed.join(" || ")
-    //     }
-    //     alertModal.querySelector('#alert-modal-text-2').textContent = failedItems
-    // }
-
     changedItems = []
-    // pluraity = ""
     failedItems = []
-
-    // var alertModalClose = alertModal.querySelector('#alert-modal-close')
-    // alertModalClose.addEventListener("click", function(){
-    //     window.location.reload()
-    // })
 }
 
 async function submitPost(event) {
@@ -317,11 +289,6 @@ async function changeRsvp(event) {
         }
     }
 }
-
-
-
-
-
 
 addPostForm.addEventListener("submit", submitPost)
 credentialsForm.addEventListener("submit", changeCredentials)
