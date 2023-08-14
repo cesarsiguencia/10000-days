@@ -1,34 +1,9 @@
 var signUpForm = document.querySelector('#form-registration')
-
 var alertModal = document.querySelector('#alert-modal')
-var changedItems = []
-var failedItems = []
-var pluraity = ""
 
-function alertModalAppear(message, failedItems){
+function alertModalAppear(message){
     alertModal.style.height = "100vh"
-    if(Array.isArray(message)){
-        if(message.length > 1){
-            pluraity = "have"
-            message = message.join(" & ")
-        } else {
-            pluraity = "has"
-        }
-        alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been updated!`
-    } else {
-        alertModal.querySelector('#alert-modal-text').textContent = message
-    }
-
-    if(failedItems){
-        if(failedItems.length > 1){
-            failedItems = failed.join(" || ")
-        }
-        alertModal.querySelector('#alert-modal-text-2').textContent = failedItems
-    }
-
-    changedItems = []
-    pluraity = ""
-    failedItems = []
+    alertModal.querySelector('#alert-modal-text').textContent = message
 
     var alertModalClose = alertModal.querySelector('#alert-modal-close')
     alertModalClose.addEventListener("click", function(){
@@ -44,10 +19,15 @@ async function signUpFormHandler(event){
     const email = document.querySelector('#form-email').value.trim();
     const username = document.querySelector('#form-username').value.trim();
     const password = document.querySelector('#form-password').value.trim();
-    const attendance = document.querySelector('input[name="form-attend"]:checked').value;
+    var attendance = document.querySelector('input[name="form-attend"]:checked')
 
+    if(!attendance){
+        alertModalAppear("Please check all boxes")
+        return
+    }
+    attendance = attendance.value
 
-    if(firstName && lastName && email && username && password){
+    if(firstName && lastName && email && username && password && attendance){
         const response = await fetch('api/users', {
             method: 'post',
             body: JSON.stringify({
@@ -61,13 +41,15 @@ async function signUpFormHandler(event){
             headers: {'Content-Type': 'application/json'}
         })
 
-        if(response.ok){
-            document.location.replace('/dashboard')
+        if(!response.ok){
+            alertModalAppear(response.statusText, "failed sign up")
+            
         } else {
-            alertModalAppear(response.statusText)
+            document.location.replace('/dashboard')
         }
+    } else {
+        alertModalAppear('Please fill out all form fields!')
     }
 }
-
 
 signUpForm.addEventListener("submit", signUpFormHandler)

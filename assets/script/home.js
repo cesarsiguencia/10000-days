@@ -219,6 +219,8 @@ function albumCarousel() {
 }
 
 // Home Page Function calls
+
+console.log("page reloaded")
 window.onload = loadParallax
 window.onload = buttonScale
 document.addEventListener("scroll", homeParallax);

@@ -41,7 +41,7 @@ router.get('/', (req, res) => {
                         loggedIn: req.session.loggedIn,
                         loggedUsername: req.session.username
                     })
-                },250)
+                },500)
             }
             renderingComplete()
         })
