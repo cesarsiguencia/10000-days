@@ -302,6 +302,13 @@ nav {
     transition: ease-in-out 1s;
 }
 
+.dashboard-previews > *{
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .albums > img {
     display: block;
     margin: 0 auto;
