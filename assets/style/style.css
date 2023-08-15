@@ -604,7 +604,7 @@ footer {
 }
 
 .og-style > div{
-    width: 50%;
+    width: 45%;
 }
 
 .og-image{
@@ -624,6 +624,11 @@ footer {
 .party-gif{
     width: 85%;
     margin: 0 auto
+}
+
+.centered-element {
+    display: flex;
+    align-items: center;
 }
 
 /* Media Queries ------------------------- */
