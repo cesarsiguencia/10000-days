@@ -626,11 +626,6 @@ footer {
     margin: 0 auto
 }
 
-.centered-element {
-    display: flex;
-    align-items: center;
-}
-
 /* Media Queries ------------------------- */
 
 @media screen and (max-width: 1600px) {
