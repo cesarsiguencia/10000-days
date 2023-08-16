@@ -25,7 +25,7 @@ if (process.env.JAWSDB_URL) {
         username: process.env.MYSQLUSER,
         password: process.env.MYSQLPASSWORD,
         database: process.env.MYSQLDATABASE,
-        dialect: 'postgres',
+        dialect: 'mysql',
         port: process.env.MYSQLPORT,
         host: process.env.MYSQLHOST
     }

@@ -6,7 +6,8 @@
     "express-handlebars": "^7.0.4",
     "express-session": "^1.17.3",
     "link-preview-js": "^3.0.4",
-    "pg": "^8.11.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.0",
     "sequelize": "^6.30.0",
     "uniq": "^1.0.1"
   },
