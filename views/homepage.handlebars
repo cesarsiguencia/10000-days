@@ -68,14 +68,21 @@
                     <div class="dashboard-posts">
                         {{> attendee-posts post}}
 
-                        <div style="font-size: 15px;">
-                            {{#if post.openGraphMaterial}}
-                            <p style="text-align: center">Click To See Link</p>
-                            {{> og post.openGraphMaterial}}
-                            {{else}}
-                            <img src="/media/icons/peanuts-dancing.gif" class="og-style party-gif"></img>
-                            {{/if}}
+                        <div>
+                                <div class="dashboard-previews" style="font-size: 15px;">
+                                {{#if post.openGraphMaterial}}
+                                    <a class="og-style" href={{post.openGraphMaterial.url}} target="_blank">
+                                        <p style="text-align: center">Click To See Link</p>
+                                        {{> og post.openGraphMaterial}}
+                                    </a>
+                        
+                                {{else}}
+                                    <img src="/media/icons/peanuts-dancing.gif" class="og-style party-gif"></img>
+                                {{/if}}
+                            </div>
                         </div>
+
+                        
                     </div>
 
                     {{/each}}
