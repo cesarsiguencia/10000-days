@@ -10,7 +10,7 @@ Optimized for mobile too.
 
 - Express
 - Sequelize
-- MySQL
+- PostgreSQL
 - Bcrypt
 - Handlebars
 - Dotenv
@@ -29,6 +29,7 @@ https://cs-10000-days-33ee2045b3a6.herokuapp.com
 
 ![screenshot-2](./screenshots/2.png)
 
+![screenshot-3](./screenshots/3.png)
 ### Installation with Accompanying Data (Seeds)
 1. Git clone or download the application and load on VSCode
 2. Open your command line, go to the application directory, and run 'npm install'.
