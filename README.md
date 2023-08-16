@@ -10,8 +10,7 @@ Optimized for mobile too.
 
 - Express
 - Sequelize
-- PostgreSQL
-- Bcrypt
+- PostgreSQL (Main branch reverted to MySQL for Heroku purposes. PostgreSQL version available under branch titled 'postgres')
 - Handlebars
 - Dotenv
 
@@ -47,6 +46,6 @@ https://cs-10000-days-33ee2045b3a6.herokuapp.com
 9. Run 'npm start' in the command line, then navigate to browser and go to http://localhost:4000
 
 ### Future Plans for this Project
-1. Switch from a MySQL database to a PostgreSQL database
+1. |COMPLETED| - Switch from a MySQL database to a PostgreSQL database
 2. Add Hearts to the database so users can 'heart' posts, similar to Instagram.
 3. Convert app into a PWA for users to download to their mobile devices.
