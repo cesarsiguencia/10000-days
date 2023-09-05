@@ -8,11 +8,14 @@ Optimized for mobile too.
 
 ### Technologies Used
 
+- Node
 - Express
-- Sequelize
-- PostgreSQL (Main branch reverted to MySQL for Heroku purposes. PostgreSQL version available under branch titled 'postgres')
 - Handlebars
+- Sequelize
+- MySQL ('Main' branch)
+- PostgreSQL ('PostgreSQL' branch, free heroku add on for PostgreSQL not available at this time)
 - Dotenv
+- JavaScript
 
 ### Tables/Models in Database
 - Users
