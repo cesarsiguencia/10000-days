@@ -13,6 +13,10 @@
 * {
     margin: 0;
     padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
 }
 
 .videoWrapper {
@@ -526,15 +530,6 @@ footer {
     margin: 15px auto
 }
 
-.trial-vid{
-    display: block;
-    margin: 0 auto;
-    width: 1200px;
-    height: 720px
-}
-
-
-
 #audio-trigger{
     display: block; 
     border: 3px white dotted"
@@ -628,7 +623,7 @@ footer {
     margin: 5px 0;
     background-color: rgb(120, 176, 195);
     border-radius: 10px;
-    width: fit-content;
+    /* width: fit-content; */
     height: auto
 }
 
@@ -871,11 +866,18 @@ footer {
     }
 }
 
+
+
 @media screen and (max-width: 575px) {
     .imgs {
-        width: 250px;
-        height: 250px;
+        width: 220px;
+        height: 220px;
         margin-bottom: 20px;
+    }
+
+    .albums > img{
+        height: 220px;
+        width: 220px
     }
 
     .party-gif{
@@ -902,4 +904,15 @@ footer {
         width: 95%;
     }
 
+    
+    input{
+        display: inline-block;
+        width: 85%
+    }
+    
+    .db-boxes{
+        width: 100%;
+
+    }
 }
+    
