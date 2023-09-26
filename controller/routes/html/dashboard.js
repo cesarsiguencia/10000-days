@@ -34,14 +34,23 @@ router.get('/', (req, res) => {
             );
             async function renderingComplete() {
                 const posts = await creatingOGPosts(uneditedPosts)
-                setTimeout(()=>{
-                    res.render('dashboard', {
-                        posts,
-                        loggedUserId: req.session.user_id,
-                        loggedIn: req.session.loggedIn,
-                        loggedUsername: req.session.username
-                    })
-                },500)
+                // setTimeout(()=>{
+                //     res.render('dashboard', {
+                //         posts,
+                //         loggedUserId: req.session.user_id,
+                //         loggedIn: req.session.loggedIn,
+                //         loggedUsername: req.session.username
+                //     })
+                // },50)
+
+                await res.render('dashboard', {
+                    posts,
+                    loggedUserId: req.session.user_id,
+                    loggedIn: req.session.loggedIn,
+                    loggedUsername: req.session.username
+                })
+
+                
             }
             renderingComplete()
         })
