@@ -6,6 +6,17 @@ The purpose of this application is for attendes to learn more about why I am hos
 
 Optimized for mobile too.
 
+### Credentials
+To use ALL features of the app, you need credentials, create a new user or use the sample credentials below:
+
+Email: testbot@gmail.com
+Password: password
+
+Instructions are given to the visitor when they visit site!
+
+### Link to Live App
+https://cs-10000-days-33ee2045b3a6.herokuapp.com 
+
 ### Technologies Used
 
 - Node
@@ -22,8 +33,7 @@ Optimized for mobile too.
 - Posts
 - Comments 
 
-### Link to Live App
-https://cs-10000-days-33ee2045b3a6.herokuapp.com 
+
 
 ### Screenshots
 
