@@ -218,6 +218,10 @@ function albumCarousel() {
         }
 }
 
+function trialModal(){
+    var trial = document.querySelector('.trial-modal')
+}
+
 // Home Page Function calls
 
 window.onload = loadParallax
@@ -230,3 +234,4 @@ audioButton.addEventListener("click", playSinCara)
 document.addEventListener("scroll", equationParallax)
 document.addEventListener("scroll", storyParallax)
 setInterval(albumCarousel, 2000)
+.addEventListener("click", playSinCara)

@@ -4,8 +4,6 @@ const { Post, Comment, User } = require('../../../models')
 
 const { getLinkPreview, getPreviewFromContent } = require("link-preview-js")
 
-
-
 router.get('/', (req, res) => {
     Post.findAll({
         include: [
@@ -34,21 +32,21 @@ router.get('/', (req, res) => {
             );
             async function renderingComplete() {
                 const posts = await creatingOGPosts(uneditedPosts)
-                // setTimeout(()=>{
-                //     res.render('dashboard', {
-                //         posts,
-                //         loggedUserId: req.session.user_id,
-                //         loggedIn: req.session.loggedIn,
-                //         loggedUsername: req.session.username
-                //     })
-                // },50)
+                setTimeout(()=>{
+                    res.render('dashboard', {
+                        posts,
+                        loggedUserId: req.session.user_id,
+                        loggedIn: req.session.loggedIn,
+                        loggedUsername: req.session.username
+                    })
+                },500)
 
-                await res.render('dashboard', {
-                    posts,
-                    loggedUserId: req.session.user_id,
-                    loggedIn: req.session.loggedIn,
-                    loggedUsername: req.session.username
-                })
+                // await res.render('dashboard', {
+                //     posts,
+                //     loggedUserId: req.session.user_id,
+                //     loggedIn: req.session.loggedIn,
+                //     loggedUsername: req.session.username
+                // })
 
                 
             }

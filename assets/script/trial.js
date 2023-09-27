@@ -23,3 +23,17 @@ closeTrial.addEventListener("click", function(){
     trialModal.style.height="0px"
 })
 
+function onIntroPg(){
+    if(document.URL = 'https://cs-10000-days-33ee2045b3a6.herokuapp.com/)'){
+        setTimeout(function(){
+            trialModal.style.height="100vh"
+        }, 1000)
+        
+    }
+
+}
+
+onIntroPg()
+
+
+
