@@ -70,9 +70,26 @@ function loadParallax(event) {
     event.target.scrollingElement.scrollTop = 0
 }
 
+var trialModal = document.querySelector('#trial-modal')
+var closeTrial = document.querySelector('#close-trial')
+
+function onIntroPg(){
+    if(document.URL = 'https://cs-10000-days-33ee2045b3a6.herokuapp.com/)'){
+        setTimeout(function(){
+            trialModal.style.height="100vh"
+        }, 1000)
+        
+    }
+}
+
+
 // Intro Page Function calls
 window.onload = loadParallax
 document.addEventListener("scroll", introParallax);
 setTimeout(changeWords, 1000, 0)
 setTimeout("insertHomeBtn()", 1000)
 setTimeout("appearButton()", 12000)
+onIntroPg()
+closeTrial.addEventListener("click", function(){
+    trialModal.style.height="100vh"
+})
