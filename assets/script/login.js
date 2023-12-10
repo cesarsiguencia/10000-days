@@ -1,4 +1,5 @@
 var loginBtn = document.querySelector('#login-button')
+var loginBtnHome = document.querySelector('#login-button-body')
 var loginModal = document.querySelector('#login-modal')
 var loginForm = document.querySelector('#login-container')
 var closeModalButton = document.querySelector('#modal-close')
@@ -41,6 +42,10 @@ async function login(event){
 }
 
 loginBtn.addEventListener('click', function(){
+    loginModal.style.height = "100vh"
+})
+
+loginBtnHome.addEventListener('click', function(){
     loginModal.style.height = "100vh"
 })
 

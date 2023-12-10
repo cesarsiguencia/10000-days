@@ -2,6 +2,7 @@ var welcomeBox = document.querySelector(".welcome-box")
 var welcomeCarousel = document.querySelector("#welcome-carousel")
 var welcomeTitleHolder = ''
 
+
 function changeWords(currentIndex) {
     var welcomeWords = ["You're Invited!", "On my 10,000th day of life", "Saturday, October 21st, 2023"]
 
@@ -17,10 +18,11 @@ function changeWords(currentIndex) {
     if (currentIndex < welcomeWords.length - 1) {
         currentIndex++
     } else {
-        return
+        return setTimeout("appearButton()", 2000)
+
     }
     nextIndex = currentIndex
-    setTimeout(changeWords, 4000, nextIndex)
+    setTimeout(changeWords, 3000, nextIndex)
 }
 
 function insertHomeBtn() {
@@ -38,16 +40,16 @@ function appearButton() {
     button.style.opacity = 1
 
     button.addEventListener("click", ()=>{
-        welcomeBox.style.transition = 'ease-in-out 2s'
-        welcomeBox.style.scale = 5
-        welcomeBox.style.opacity = 0
+        button.style.transition = 'ease-in-out 2s'
+        button.style.scale = 5
+        button.style.opacity = 0
         introAudio.play()
         introAudio.volume = 0.8
 
-        setTimeout((()=>{
-            window.location.href = '/home'
-        }
-        ), 4500)
+        // setTimeout((()=>{
+        //     window.location.href = '/home'
+        // }
+        // ), 4500)
     })
 }
 
@@ -88,8 +90,8 @@ window.onload = loadParallax
 document.addEventListener("scroll", introParallax);
 setTimeout(changeWords, 1000, 0)
 setTimeout("insertHomeBtn()", 1000)
-setTimeout("appearButton()", 12000)
-onIntroPg()
-closeTrial.addEventListener("click", function(){
-    trialModal.style.height="100vh"
-})
+// setTimeout("appearButton()", 12000)
+// onIntroPg()
+// closeTrial.addEventListener("click", function(){
+//     trialModal.style.height="100vh"
+// })

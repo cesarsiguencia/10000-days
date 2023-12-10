@@ -33,19 +33,77 @@
     height: 100%;
   }
 
+
+  .intro-sub-btns {
+    background-color: rgba(40, 40, 40);
+    margin: 5px auto 20px auto;
+    width: 250px;
+    text-align: center;
+    border-radius: 28px;
+    display: block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 16px;
+    padding: 15px 30px;
+    margin-top: 25px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+    transition: ease-in-out 0.5s;
+}
+
+.primary-btn{
+    width: 100%;
+    background-color: var(--third-color);
+    padding: 10px 10px 10px 10px ;
+    border-radius: 10px
+}
+
+
+.intro-sub-btns:hover {
+    background-color: #1e8339;
+}
+
+.intro-visuals{
+
+    /* background-color: var(--third-color); */
+}
+
+
+/* .addToCalendar:active {
+    position: relative;
+    top: 1px;
+} */
+
 /* Global-------------------------*/
 
-section:nth-child(odd) {
+/* section:nth-child(odd) {
     background-color: var(--third-color)
 }
 
 section:nth-child(even) {
     background-color: var(--secondary-color);
     background-image: var(--linear)
-}
+} */
 
 section {
-    padding: 20px 20px 20px 20px
+    padding: 20px 20px 20px 20px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+article{
+    width:60%
+}
+
+aside{
+    width: 37%;
+    background-color: #ffffffd2;
+    border-radius: 10px;
+
 }
 
 section>div {
@@ -53,9 +111,27 @@ section>div {
     margin: 0 auto;
 }
 
+.intro-div-sub-btns{
+    display: flex;
+    background-color:  #e07c2b;
+    border-radius: 10px;
+}
+
+.intro-div-sub-btns> div{
+    width: 40%;
+    /* text-align: center; */
+    /* justify-content: center; */
+    margin: 0 auto
+
+}
+
 p {
     color: white;
     font-family: "Euclid Circular A", "Poppins";
+}
+
+.p-strong{
+    font-size: 18px;
 }
 
 h1 {
@@ -84,6 +160,22 @@ h6 {
     text-align: center;
     font-size: 22px;
     display: block
+}
+
+title{
+    color: var(--primary-color);
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-weight: 100;
+    font-size: 20px
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-left{
+    text-align: left;
 }
 
 .flex-row{
@@ -116,6 +208,7 @@ button{
     margin: 0 auto;
     padding: 10px;
     border-radius: 25px;
+    background-color: rgba(40, 40, 40);
     border: black 3px solid;
 }
 
@@ -159,6 +252,15 @@ a {
     color: white;
     text-decoration: none;
 }
+
+.a-fix{
+    display: block;
+    font-family: "Euclid Circular A", "Poppins";
+}
+
+
+
+
 
 .hero {
     height: 100vh;
@@ -283,8 +385,13 @@ nav {
     transition: ease-in-out 1.5s
 }
 
+.homepg-content{
+    width:1500px;
+    margin: 0 auto
+}
+
 .intro-div>div {
-    padding: 20px 20px 20px 20px
+    padding: 30px 0px
 }
 
 .intro-title {
@@ -306,9 +413,12 @@ nav {
 .dashboard {
     font-size: 25px;
     color: white;
-    width: 60%;
-    background-color: var(--third-color);
+    width: 80%;
     border-radius: 25px;
+    margin: 25px auto;
+    background-color: rgb(120, 176, 195);
+    border-radius: 10px;
+    padding: 10px 10px;
 }
 
 .dashboard-carousel {
@@ -321,12 +431,20 @@ nav {
     transition: ease-in-out 1s;
 }
 
-.dashboard-previews > *{
-    margin: 0 auto;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    /* background-color:  */
+.dashboard-previews{
+    font-size: 15px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-previews-content{
+    display: block;
+    
+}
+
+.post-text{
+    font-size: 20px
 }
 
 .albums > img {
@@ -364,6 +482,7 @@ nav {
     transition: ease-in-out;
 }
 
+
 .equation {
     width:50%;
     margin: 0 auto;
@@ -396,6 +515,8 @@ nav {
     transition: ease-in-out 1s;
 }
 
+
+
 /* Skylark Section Venue */
 
 .venue-imgs-block{
@@ -409,7 +530,7 @@ nav {
     height: 400px;
     margin-bottom: 20px;
     transition: ease-in-out 1s;
-    border: 5px solid var(--fourth-color)
+    border: 5px solid var(--third-color)
 }
 
 
@@ -604,8 +725,7 @@ footer {
     border-radius: 10px;
 }
 
-.comments-block{
-}
+
 
 .comment-textbox{
     display: block;
@@ -623,14 +743,15 @@ footer {
     display: flex;
     padding: 10px 10px;
     margin: 5px 0;
-    background-color: rgb(120, 176, 195);
-    border-radius: 10px;
+    
+
     /* width: fit-content; */
     height: auto
 }
 
+
 .og-style > div{
-    width: 45%;
+    width: 80%;
 }
 
 .og-image{

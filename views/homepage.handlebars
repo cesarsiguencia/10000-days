@@ -2,107 +2,245 @@
 {{> alert}}
 {{> trial-modal}}
 
+<audio id="intro-audio">
+    <source src="media/audio/Got To Be Real - Intro.mp3">
+
+</audio>
 <audio id="bottom-audio">
     <source src="media/audio/Corazon Sin Cara.mp3">
 
 </audio>
-<div class="body">
+<main class="body">
     <div class="hero flex-row justify-center">
-        <div id="hero-2" class="text-center">
-            <p class="welcome-titles">Saturday,</p>
-            <p class="welcome-titles">October 21st, 2023</p>
+        <div class="welcome-box">
+            <div id="welcome-carousel">
+
+            </div>
         </div>
     </div>
 
-    <section id="introduction">
+    <div class="homepg-content">
+        <section id="introduction">
+            <article>
+                <h2 class="intro-title text-left">Welcome To My 10,000 Days Of Life!</h2>
 
-        <div class="intro-div flex-column">
-            <h2 class="intro-title">Welcome To My 10,000 Days Of Life!</h2>
-            <br/>
-            {{!-- <h2 style="margin: 10px auto">AND THE COUNTDOWN TO THE DAY BEGINS! </h2> --}}
-            {{!-- <div class="clock-builder-output"></div> --}}
+                <div class="intro-div flex-column">
+                    <h2></h2>
+                    <br />
+                    {{!-- <h2 style="margin: 10px auto">AND THE COUNTDOWN TO THE DAY BEGINS! </h2> --}}
+                    {{!-- <div class="clock-builder-output"></div> --}}
 
-          
+                    <p>Celebrate with me on this unique and historic day as I reach a huge milestone in my life. Create
+                        memories, dance to great music, and enjoy this festivity that happens once in a lifetime!</p>
+                        <br/>
 
-            <div class="dashboard margin-center">
-                <h6>Here Are What Attendees Are Already Saying!</h6>
-                <div class="dashboard-carousel flex-row">
-                    {{#each posts as |post|}}
-                    <div class="dashboard-posts">
-                        {{> attendee-posts post}}
-
+                    <div class="intro-div-sub-btns">
                         <div>
-                                <div class="dashboard-previews" style="font-size: 15px;">
-                                {{#if post.openGraphMaterial}}
-                                    <a class="og-style" href={{post.openGraphMaterial.url}} target="_blank">
-                                        <p style="text-align: center">Click To See Link</p>
-                                        {{> og post.openGraphMaterial}}
-                                    </a>
-                        
-                                {{else}}
-                                    <img src="/media/icons/peanuts-dancing.gif" class="og-style party-gif"></img>
-                                {{/if}}
+                            <p class="p-strong"><strong>Save The Date!</strong></p>
+                            <br/>
+                            <p>Click here to add this event to your default system calendar!</p>
+
+                            <div  class="intro-sub-btns">
+                                <a class="a-fix"target="_blank"
+                                    href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231022T010000Z%2F20231022T040000Z&location=305%20West%207th%20Avenue&text=Cezzie%27s%2010%2C000th%20Day%20B-Day%20Bash"
+                                >Add to Calendar</a> 
+
                             </div>
+
                         </div>
 
+                        <div>
+                            <p class="p-strong"><strong>RSVP already?</strong></p>
+                            <br/>
+                            <p> Login in to change your info, RSVP status, or to interact with other invited guests</p>
+                            <div class="intro-sub-btns" id="login-button-body">
+                                <p>Login In</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br/>
+                    <br/>
+                    
+                    <p><strong>If you haven't RSVP'ed yet, click to immediately save a spot!</strong></p>
+
+                    
+                    {{!-- <button>
+                        <a type="submit" href="/register">
+                            <h6>Reserve Your Spot TODAY!</h6>
+                        </a>
+                    </button> --}}
+
+                     <div class="intro-div flex-column ">
+                        <div class="primary-btn margin-center">
+                            <button type="submit" class="highlighted-options text-center margin-center animated-btns">
+                                <a type="submit" href="/register">
+                                    <h6>Reserve Your Spot TODAY!</h6>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <aside>
+                <br/>
+                <h2 style="color:black; font-size: 25px" >Here Are What Attendees Are Already Saying!</h2>
+                <div class="intro-visuals">
+                    <div class="dashboard margin-center">
+
+                    <div class="dashboard-carousel flex-row">
+                        {{#each posts as |post|}}
+                        <div class="dashboard-posts">
+                            
+
+                            <div class="dashboard-previews">   
+                                <div>
+                                    {{> attendee-posts post}}
+
+                                    
+                                        {{#if post.openGraphMaterial}}
+                                            <a href={{post.openGraphMaterial.url}} target="_blank">
+                                                <p style="text-align: center">Click To See Link</p>
+                                            {{> og post.openGraphMaterial}}
+                                            </a>
+
+                                        {{else}}
+                                            <img src="/media/icons/peanuts-dancing.gif" class="og-style party-gif"></img>
+                                        {{/if}}
                         
+                                </div>
+                                    
+                              
+                            </div>
+
+
+                        </div>
+
+                        {{/each}}
                     </div>
 
-                    {{/each}}
+                    <div class="timer-bar">
+                        <div class="timer-progress">
+
+                        </div>
+                    </div>
+
+
+                    {{!-- <button type="submit" class="highlighted-options text-center margin-center animated-btns">
+                        <a type="submit" href="/register">
+                            <h6>Join the conversation by registering today!</h6>
+                        </a>
+                    </button> --}}
+
                 </div>
+                </div>
+                
 
-                <div class="timer-bar">
-                    <div class="timer-progress">
+            </aside>
 
+
+        </section>
+
+        <section class="section-venue" id="venue">
+            <div>
+                <h3>Meaux Space: A Venue of it's own class</h3>
+                <div class="venue-split">
+                    <div class="venue-imgs-block flex-row">
+                        <a class="imgs skylark-img margin-center" href="https://meauxspace.com" target="_blank">
+                        </a>
+
+                        <a class="imgs skylark-img-2 margin-center" href="https://meauxspace.com" target="_blank">
+                        </a>
+
+                        <a class="imgs skylark-img-3 margin-center" href="https://meauxspace.com" target="_blank">
+                        </a>
+                    </div>
+
+                    <div class="venue-info">
+
+                        <div class="venue-info-blocks margin-center">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6045.368314461362!2d-73.99814753169113!3d40.74697487178898!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a55ff1ff8b%3A0x53ea09811ae57911!2s305%207th%20Ave%2C%20New%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1689811181454!5m2!1sen!2sus"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade" style="border:0;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <div class="venue-info-blocks margin-center">
+                            <p>We will unite at the Meaux Space in New York City, footsteps away from the Empire State
+                                Building and Madison Square Garden with a view of Hudson Yards, a full size kitchen, and
+                                balcony. </p>
+                            <br>
+                            <p>A 5 minute walk from New York Penn Station and a 12 minute walk from Port Authority Bus
+                                Terminal. One could even come to town for the party and leave on the same day!</p>
+                            <br />
+                            <p>Want to see the venue, click on the images!</p>
+                        </div>
                     </div>
                 </div>
-
-
-                <button type="submit" class="highlighted-options text-center margin-center animated-btns">
-                    <a type="submit" href="/register">
-                        <h6>Join the conversation by registering today!</h6>
-                    </a>
-                </button>
-
             </div>
+        </section>
 
-              <style>
-                .addToCalendar {
-                    background-color: #249b43;
-                    margin: 5px auto 20px auto;
-                    width: 200px;
-                    text-align: center;
-                    border-radius: 28px;
-                    display: inline-block;
-                    cursor: pointer;
-                    color: #ffffff;
-                    font-family: Arial;
-                    font-size: 16px;
-                    padding: 15px 30px;
-                    margin-top: 25px;
-                    text-decoration: none;
-                    text-shadow: 0px 1px 0px #2f6627;
-                    transition: ease-in-out 0.5s;
-                }
+        <section class="section-signup" id="signUp">
+            <div>
+                <div>
+                    <h3>Now that I've convinced you, a few disclaimers before you commit!</h3>
+                </div>
 
-                .addToCalendar:hover {
-                    background-color: #15ec23;
-                }
+                <div>
+                    <div style='text-align: center'>
+                        <br />
+                        <p style="font-weight: bold; color: pink">* YOU MUST MAKE A RESERVATION THROUGH THIS LINK TO
+                            CLAIM YOUR SLOT. RSVP until 3 days before event. WALK-INS WILL NOT BE
+                            ACCEPTED.*</p>
+                        <br />
+                        <br />
 
-                .addToCalendar:active {
-                    position: relative;
-                    top: 1px;
-                }
-            </style><a target="_blank"
-                href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231022T010000Z%2F20231022T040000Z&location=305%20West%207th%20Avenue&text=Cezzie%27s%2010%2C000th%20Day%20B-Day%20Bash"
-                class="addToCalendar">Add to Calendar</a>
+                        <p style="font-weight: bold; color: lightblue"> ** All invited guests MUST fill out an RSVP form
+                            EACH **</p>
+                        <br />
+                        <br />
+
+                        <p style="font-weight: bold; color: greenyellow"> ** Due to a maximum occupancy at the space,
+                            only
+                            invited guests are accepted. **
+                        </p>
+                        <br />
+                        <br />
+
+                        <p style="font-weight: bold; color: yellow">*** There is a $30.00 NON REFUNDABLE Entrance Fee
+                            per person to be paid in advance by RSVP date, not at door ***</p>
+                        <br />
+                        <br />
+
+                        <h2 style="font-weight: bold" class="text-center">MUST BRING ID
+                        </h2>
+
+                        <br />
+
+                    </div>
+                    <div class="intro-div flex-column">
+
+                        <div class="dashboard margin-center">
+                            <button type="submit" class="highlighted-options text-center margin-center animated-btns">
+                                <a type="submit" href="/register">
+                                    <h6>Reserve Your Spot TODAY!</h6>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
-        </div>
-    </section>
+    </div>
 
-    <section class="section-about" id="story">
+
+
+    {{!-- <section class="section-about" id="story">
         <div class="about-story">
             <h3>Why?... How?... Really?... The True Story</h3>
             <p>
@@ -154,20 +292,21 @@
                 I cannot wait to see you there!
             </p>
         </div>
-    </section>
-
+    </section> --}}
+    {{!--
     <div id="albums" style="background-color: #FF9033;">
         <br />
         <h3>Featuring my favorites hits</h3>
         <h2>Including RnB, Hip Hop, Disco, 2000s, </h2>
         <br />
-          <h2  style="color:red; font-weight: bold"> * CLICK BUTTON FOR A QUICK DANCE! *
+        <h2 style="color:red; font-weight: bold"> * CLICK BUTTON FOR A QUICK DANCE! *
         </h2>
-        <br/>
-        <div >
-            <img id="audio-trigger" width="50px" height= "50px"  style="margin: 0 auto; border-radius: 35px" src="/media/icons/music-btn.png">
+        <br />
+        <div>
+            <img id="audio-trigger" width="50px" height="50px" style="margin: 0 auto; border-radius: 35px"
+                src="/media/icons/music-btn.png">
         </div>
-      
+
         <br />
         <div class="dashboard-carousel flex-row ">
 
@@ -202,106 +341,17 @@
             </div>
         </div>
         <br />
-    </div>
+    </div> --}}
 
-    <div style="background-color: rgba(40, 40, 40); padding: 25px 0">
+    {{!-- <div style="background-color: rgba(40, 40, 40); padding: 25px 0">
         <h3>GET READY TO DANCE YOUR FEET OFF!!!</h3>
-    </div>
-
-    <section class="section-venue" id="venue">
-        <div>
-            <h3>Meaux Space: A Venue of it's own class</h3>
-            <div class="venue-split">
-                <div class="venue-imgs-block flex-row">
-                    <a class="imgs skylark-img margin-center" href="https://meauxspace.com" target="_blank">
-                    </a>
-
-                    <a class="imgs skylark-img-2 margin-center" href="https://meauxspace.com" target="_blank">
-                    </a>
-
-                    <a class="imgs skylark-img-3 margin-center" href="https://meauxspace.com" target="_blank">
-                    </a>
-                </div>
-
-                <div class="venue-info">
-
-                    <div class="venue-info-blocks margin-center">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6045.368314461362!2d-73.99814753169113!3d40.74697487178898!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a55ff1ff8b%3A0x53ea09811ae57911!2s305%207th%20Ave%2C%20New%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1689811181454!5m2!1sen!2sus"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade" style="border:0;" allowfullscreen=""
-                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-
-                    <div class="venue-info-blocks margin-center">
-                        <p>We will unite at the Meaux Space in New York City, footsteps away from the Empire State
-                            Building and Madison Square Garden with a view of Hudson Yards, a full size kitchen, and
-                            balcony. </p>
-                        <br>
-                        <p>A 5 minute walk from New York Penn Station and a 12 minute walk from Port Authority Bus
-                            Terminal. One could even come to town for the party and leave on the same day!</p>
-                        <br />
-                        <p>Want to see the venue, click on the images!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-signup" id="signUp">
-        <div>
-            <div>
-                <h3>Now that I've convinced you, a few disclaimers before you commit!</h3>
-            </div>
-
-            <div>
-                <div style='text-align: center'>
-                    <br />
-                    <p style="font-weight: bold; color: pink">* YOU MUST MAKE A RESERVATION THROUGH THIS LINK TO
-                        CLAIM YOUR SLOT. RSVP until 3 days before event. WALK-INS WILL NOT BE
-                        ACCEPTED.*</p>
-                    <br />
-                    <br />
-
-                    <p style="font-weight: bold; color: lightblue"> ** All invited guests MUST fill out an RSVP form
-                        EACH **</p>
-                    <br />
-                    <br />
-
-                    <p style="font-weight: bold; color: greenyellow"> ** Due to a maximum occupancy at the space, only
-                        invited guests are accepted. **
-                    </p>
-                    <br />
-                    <br />
-
-                    <p style="font-weight: bold; color: yellow">*** There is a $30.00 NON REFUNDABLE Entrance Fee
-                        per person to be paid in advance by RSVP date, not at door ***</p>
-                    <br />
-                    <br />
-
-                    <h2 style="font-weight: bold" class="text-center">MUST BRING ID
-                    </h2>
-
-                    <br />
-
-                </div>
-                <div class="intro-div flex-column">
-
-                    <div class="dashboard margin-center">
-                        <button type="submit" class="highlighted-options text-center margin-center animated-btns">
-                            <a type="submit" href="/register">
-                                <h6>Reserve Your Spot TODAY!</h6>
-                            </a>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div> --}}
 
 
-</div>
 
+
+</main>
+<script src="/script/intro.js"></script>
 <script src="/script/home.js"></script>
 <script type="text/javascript" src="/script/flipclock.js"></script>
 <script type="text/javascript">
