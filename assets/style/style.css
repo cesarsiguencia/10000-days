@@ -1,9 +1,9 @@
 :root {
     --primary-color: white;
-    --secondary-color: #8B4513;
+    --secondary-color: #9c4e16;
     --third-color: rgba(40, 40, 40);
-    --fourth-color: #FF9033;
-    --linear: linear-gradient(#8B4513, #b86d38);
+    --fourth-color: #e07a26;
+    --linear: linear-gradient( #9c4e16, #b86d38);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -87,13 +87,24 @@ section:nth-child(even) {
 } */
 
 section {
+
+}
+
+section:nth-child(odd){ 
+    background-color: #e07a26;
+}
+
+
+.section-content{
+    width:1500px;
+    margin: 0 auto;
     padding: 20px 20px 20px 20px;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
 
+}
 
 article{
     width:60%
@@ -132,6 +143,10 @@ p {
 
 .p-strong{
     font-size: 18px;
+}
+
+.p-color{
+    color: rgb(242, 255, 0)
 }
 
 h1 {
@@ -385,11 +400,6 @@ nav {
     transition: ease-in-out 1.5s
 }
 
-.homepg-content{
-    width:1500px;
-    margin: 0 auto
-}
-
 .intro-div>div {
     padding: 30px 0px
 }
@@ -450,8 +460,8 @@ nav {
 .albums > img {
     display: block;
     margin: 0 auto;
-    height: 600px;
-    width: 600px;
+    height: 550px;
+    width: 550px;
     background-size: 100%
 }
 
@@ -533,6 +543,9 @@ nav {
 
 .venue-info-blocks {
     width: 45%;
+    display: flex;
+    align-items: center; 
+    
 }
 
 
