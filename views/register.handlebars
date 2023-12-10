@@ -1,86 +1,158 @@
 {{>navbar }}
 {{>alert}}
 
-<div class="body">
-    <section class="form-page">
+<main class="body">
+    <section>
 
-        <h3>Please fill out all the fields in this form!</h3>
-
-        <form id="form-registration">
-            <div class="form-components">
-                <label for="form_first_name">First Name</label>
-                <input type="text" placeholder="First Name" name="form_first_name" id="form-first-name"
-                    class="textbox" />
-            </div>
-
-            <div class="form-components">
-                <label for="form_last_name">Last Name</label>
-                <input type="text" placeholder="Last Name" name="last-name" id="form-last-name" class="textbox" />
-            </div>
-
-            <div class="form-components">
-                <label for="form_confirm_age">I am at least 21 years old and am aware I must bring a government issued
-                    ID to the venue on the day of the event.</label>
-                <input type="radio" name="age-consent" id="form-confirm-age" />
-            </div>
-
-            <div class="form-components">
-                <label for="form_email">Enter your email</label>
-                <input type="email" placeholder="Email" name="email" id="form-email" class="textbox" />
-            </div>
-
-            <div class="form-components">
-                <label for="form_username">Username</label>
-                <input type="text" placeholder="Last Name" name="last-name" id="form-username" class="textbox" />
-            </div>
-
-            <div class="form-components">
-                <label for="form_password">Password</label>
-                <input type="password" placeholder="Last Name" name="last-name" id="form-password" class="textbox" />
-            </div>
-
-            <div class="form-components">
-                <p>Confirm attendance?</p>
-                <div>
-                    <div class="attendance">
-                        <input type="radio" name="form-attend" id="attend-yes" value="true" />
-                        <label for="attend-yes"> Yes </label>
-                    </div>
-
-                    <div class="attendance">
-                        <input type="radio" name="form-attend" id="attend-no" value="false"/>
-                        <label for="attend-no"> No </label>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <p> "Users will be able to change their attendance choice up to a week before the event. Afterwards, users
-                will NOT be able to change their answer on this form. If a user decides they cannot attend after the
-                registration deadline, they must call the venue place directly and may be charged a cancellation fee."
-            </p>
-
-            <br />
-
-            <p> "Guests that originally notated their attendance as 'Not Sure' will automatically be placed as will not
-                attend. Any guests who RSVPs two weeks before the day of the event will be given a courtsey email
-                reminding them of their selected attendance choice, therefore, giving all guests at that time an
-                opportunity to make a last minute reservation change if they choose to do so before there are 7 days
-                prior to the event."</p>
-            <br />
-
-
-            <div class="form-components">
-                <label for="form-terms" style="font-weight:bold">I have read the terms above and understand I have the
-                    right to change my
-                    attendance answer up to 7 days before the event.</label>
-                <input type="radio" name="agreement" id="form-terms" />
-            </div>
-
-            <button type="submit" class="highlighted-options text-center margin-center">
-                <h6>Complete RSVP</h6>
-            </button>
-        </form>
     </section>
-</div>
+    <section>
+        <div class="section-content">
+            <article>
+
+                <h2 class="intro-title text-left">Please fill out all the fields in this form!</h2>
+
+                <form id="form-registration">
+                    <div class="form-components">
+                        <label for="form_first_name">First Name</label>
+                        <input type="text" placeholder="First Name" name="form_first_name" id="form-first-name"
+                            class="textbox" />
+                    </div>
+
+                    <div class="form-components">
+                        <label for="form_last_name">Last Name</label>
+                        <input type="text" placeholder="Last Name" name="last-name" id="form-last-name"
+                            class="textbox" />
+                    </div>
+
+                    <div class="form-components">
+                        <label for="form_confirm_age">I am at least 21 years old and am aware I must bring a government
+                            issued
+                            ID to the venue on the day of the event.</label>
+                        <input type="radio" name="age-consent" id="form-confirm-age" />
+                    </div>
+
+                    <div class="form-components">
+                        <label for="form_email">Enter your email</label>
+                        <input type="email" placeholder="Email" name="email" id="form-email" class="textbox" />
+                    </div>
+
+                    <div class="form-components">
+                        <label for="form_username">Username</label>
+                        <input type="text" placeholder="Last Name" name="last-name" id="form-username"
+                            class="textbox" />
+                    </div>
+
+                    <div class="form-components">
+                        <label for="form_password">Password</label>
+                        <input type="password" placeholder="Last Name" name="last-name" id="form-password"
+                            class="textbox" />
+                    </div>
+
+                    <div class="form-components">
+                        <p>Confirm attendance?</p>
+                        <div>
+                            <div class="attendance">
+                                <input type="radio" name="form-attend" id="attend-yes" value="true" />
+                                <label for="attend-yes"> Yes </label>
+                            </div>
+
+                            <div class="attendance">
+                                <input type="radio" name="form-attend" id="attend-no" value="false" />
+                                <label for="attend-no"> No </label>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <p> "Users will be able to change their attendance choice up to a week before the event. Afterwards,
+                        users
+                        will NOT be able to change their answer on this form. If a user decides they cannot attend after
+                        the
+                        registration deadline, they must call the venue place directly and may be charged a cancellation
+                        fee."
+                    </p>
+
+                    <br />
+
+                    <p> "Guests that originally notated their attendance as 'Not Sure' will automatically be placed as
+                        will not
+                        attend. Any guests who RSVPs two weeks before the day of the event will be given a courtsey
+                        email
+                        reminding them of their selected attendance choice, therefore, giving all guests at that time an
+                        opportunity to make a last minute reservation change if they choose to do so before there are 7
+                        days
+                        prior to the event."</p>
+                    <br />
+
+
+                    <div class="form-components">
+                        <label for="form-terms" style="font-weight:bold">I have read the terms above and understand I
+                            have the
+                            right to change my
+                            attendance answer up to 7 days before the event.</label>
+                        <input type="radio" name="agreement" id="form-terms" />
+                    </div>
+
+                    <button type="submit" class="highlighted-options text-center margin-center">
+                        <h6>Complete RSVP</h6>
+                    </button>
+                </form>
+            </article>
+
+            <aside>
+
+
+
+                    <div class="rules">
+                                            <h3 class="intro-title">Rules for RSVP
+                    </h3>
+                        <br />
+                        <p><strong class="p-color">* YOU MUST MAKE A RESERVATION THROUGH THIS LINK TO
+                            CLAIM YOUR SLOT. RSVP until 3 days before event. WALK-INS WILL NOT BE
+                            ACCEPTED.*</strong></p>
+                        <br />
+                        <br />
+
+                        <p><strong class="p-color"> ** All invited guests MUST fill out an RSVP form EACH **</strong></p>
+                        <br />
+                        <br />
+
+                        <p><strong class="p-color">
+                            ** Due to a maximum occupancy at the space,
+                            only
+                            invited guests are accepted. **
+                        </strong>
+                        </p>
+                        <br />
+                        <br />
+
+                        <p style="font-weight: bold; color: yellow"><strong class="p-color">
+                            *** There is a $30.00 NON REFUNDABLE Entrance Fee
+                            per person to be paid in advance by RSVP date, not at door ***
+                        </strong></p>
+                        <br />
+                        <br />
+
+                        <h2 style="font-weight: bold" class="text-center">MUST BRING ID
+                        </h2>
+
+                        <br />
+
+                    </div>
+
+
+
+
+
+            </aside>
+
+        </div>
+
+
+
+
+
+    </section>
+
+</main>
 
 <script src="/script/register.js"></script>
