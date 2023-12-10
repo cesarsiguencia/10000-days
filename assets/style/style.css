@@ -452,7 +452,20 @@ nav {
     margin: 0 auto;
     height: 600px;
     width: 600px;
+    background-size: 100%
 }
+
+.map-holder{
+   overflow: hidden;
+}
+
+.map-holder > iframe {
+    display: block;
+    margin: 0 auto;
+    width:400px;
+    height: 400px;
+}
+
 
 
 .post-link {
@@ -482,48 +495,13 @@ nav {
     transition: ease-in-out;
 }
 
-
-.equation {
-    width:50%;
-    margin: 0 auto;
-    padding: 20px 0;
-    border-radius: 25px;
-    background-color: var(--fourth-color);
-    transition: ease-in-out 1s;
-    scale: 0.75
-}
-
-.equation>h2 {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.equation>h2:nth-child(odd) {
-    color: black
-}
-
-.equation>h2:nth-child(even) {
-    color: var(--secondary-color)
-}
-
-.equation>h2:last-child {
-    color: var(--primary-color);
-    font-size: 35px;
-}
-
-.about-story{
-    transition: ease-in-out 1s;
-}
-
-
-
 /* Skylark Section Venue */
 
 .venue-imgs-block{
     justify-content: space-between;
     margin: 30px auto;
 }
-
+/* 
 .imgs{
     display: block;
     width: 400px;
@@ -531,38 +509,22 @@ nav {
     margin-bottom: 20px;
     transition: ease-in-out 1s;
     border: 5px solid var(--third-color)
-}
+} */
+
 
 
 .skylark-img {
-    background-image: url('../media/lounge.png');   
-    background-size: 100%
+  background-size: 100%;
+  transition: ease-in-out 1s;
+  scale: 1
 
 }
 
-.skylark-img-2 {
-    background-image: url('../media/lounge-2.png');
-    background-size: 100%
-
-}
-
-.skylark-img-3 {
-    background-image: url('../media/lounge-3.png');
-    background-size: 100%
-
-}
 
 .skylark-img:hover{
-    scale: 1.1
+    scale: 1.2
 }
 
-.skylark-img-2:hover{
-    scale: 1.1
-}
-
-.skylark-img-3:hover{
-    scale: 1.1
-}
 
 .venue-info {
     display: flex;
@@ -573,12 +535,15 @@ nav {
     width: 45%;
 }
 
-.venue-info-blocks>iframe {
+
+
+/* .map-holder>iframe {
     display: block;
     height: 400px;
     width: 100%;
-    margin: 0 auto;
-}
+    
+} */
+
 
 /* Section Sign Up */
 

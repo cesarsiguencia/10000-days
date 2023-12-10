@@ -200,7 +200,7 @@ function timeCarousel() {
 var z = 1
 
 function albumCarousel() {
-        if (z < 7) {
+        if (z < 3) {
             albums.forEach((album) => {
                 album.style.transform = `translate(-${z}00%)`
             })
@@ -209,7 +209,7 @@ function albumCarousel() {
         }
 
     
-        if (z == 7) {
+        if (z == 3) {
             albums.forEach((album) => {
                 album.style.transform = "translate(0%)"
             })
@@ -229,9 +229,8 @@ window.onload = buttonScale
 document.addEventListener("scroll", homeParallax);
 document.addEventListener("scroll", welcomeTitlesParallax)
 document.addEventListener("scroll", venueImgsParallax)
+setInterval(albumCarousel, 4000)
 setInterval(timeCarousel, 40)
-audioButton.addEventListener("click", playSinCara)
-document.addEventListener("scroll", equationParallax)
-document.addEventListener("scroll", storyParallax)
-setInterval(albumCarousel, 2000)
-.addEventListener("click", playSinCara)
+// audioButton.addEventListener("click", playSinCara)
+// document.addEventListener("scroll", equationParallax)
+// document.addEventListener("scroll", storyParallax)

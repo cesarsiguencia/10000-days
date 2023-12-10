@@ -6,10 +6,10 @@
     <source src="media/audio/Got To Be Real - Intro.mp3">
 
 </audio>
-<audio id="bottom-audio">
+{{!-- <audio id="bottom-audio">
     <source src="media/audio/Corazon Sin Cara.mp3">
 
-</audio>
+</audio> --}}
 <main class="body">
     <div class="hero flex-row justify-center">
         <div class="welcome-box">
@@ -32,18 +32,18 @@
 
                     <p>Celebrate with me on this unique and historic day as I reach a huge milestone in my life. Create
                         memories, dance to great music, and enjoy this festivity that happens once in a lifetime!</p>
-                        <br/>
+                    <br />
 
                     <div class="intro-div-sub-btns">
                         <div>
                             <p class="p-strong"><strong>Save The Date!</strong></p>
-                            <br/>
+                            <br />
                             <p>Click here to add this event to your default system calendar!</p>
 
-                            <div  class="intro-sub-btns">
-                                <a class="a-fix"target="_blank"
-                                    href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231022T010000Z%2F20231022T040000Z&location=305%20West%207th%20Avenue&text=Cezzie%27s%2010%2C000th%20Day%20B-Day%20Bash"
-                                >Add to Calendar</a> 
+                            <div class="intro-sub-btns">
+                                <a class="a-fix" target="_blank"
+                                    href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231022T010000Z%2F20231022T040000Z&location=305%20West%207th%20Avenue&text=Cezzie%27s%2010%2C000th%20Day%20B-Day%20Bash">Add
+                                    to Calendar</a>
 
                             </div>
 
@@ -51,7 +51,7 @@
 
                         <div>
                             <p class="p-strong"><strong>RSVP already?</strong></p>
-                            <br/>
+                            <br />
                             <p> Login in to change your info, RSVP status, or to interact with other invited guests</p>
                             <div class="intro-sub-btns" id="login-button-body">
                                 <p>Login In</p>
@@ -59,19 +59,20 @@
                         </div>
                     </div>
 
-                    <br/>
-                    <br/>
-                    
-                    <p><strong>If you haven't RSVP'ed yet, click to immediately save a spot!</strong></p>
+                    <br />
+                    <br />
 
-                    
+                    <p class="p-strong"><strong>If you haven't RSVP'ed yet, click to immediately save a spot!</strong>
+                    </p>
+
+
                     {{!-- <button>
                         <a type="submit" href="/register">
                             <h6>Reserve Your Spot TODAY!</h6>
                         </a>
                     </button> --}}
 
-                     <div class="intro-div flex-column ">
+                    <div class="intro-div flex-column ">
                         <div class="primary-btn margin-center">
                             <button type="submit" class="highlighted-options text-center margin-center animated-btns">
                                 <a type="submit" href="/register">
@@ -84,58 +85,59 @@
             </article>
 
             <aside>
-                <br/>
-                <h2 style="color:black; font-size: 25px" >Here Are What Attendees Are Already Saying!</h2>
+                <br />
+                <h2 style="color:black; font-size: 25px">Checkout posts from registered guests. Join the conversation
+                    when you RSVP!</h2>
                 <div class="intro-visuals">
                     <div class="dashboard margin-center">
 
-                    <div class="dashboard-carousel flex-row">
-                        {{#each posts as |post|}}
-                        <div class="dashboard-posts">
-                            
+                        <div class="dashboard-carousel flex-row">
+                            {{#each posts as |post|}}
+                            <div class="dashboard-posts">
 
-                            <div class="dashboard-previews">   
-                                <div>
-                                    {{> attendee-posts post}}
 
-                                    
+                                <div class="dashboard-previews">
+                                    <div>
+                                        {{> attendee-posts post}}
+
+
                                         {{#if post.openGraphMaterial}}
-                                            <a href={{post.openGraphMaterial.url}} target="_blank">
-                                                <p style="text-align: center">Click To See Link</p>
+                                        <a href={{post.openGraphMaterial.url}} target="_blank">
+                                            <p style="text-align: center">Click To See Link</p>
                                             {{> og post.openGraphMaterial}}
-                                            </a>
+                                        </a>
 
                                         {{else}}
-                                            <img src="/media/icons/peanuts-dancing.gif" class="og-style party-gif"></img>
+                                        <img src="/media/icons/peanuts-dancing.gif" class="og-style party-gif"></img>
                                         {{/if}}
-                        
+
+                                    </div>
+
+
                                 </div>
-                                    
-                              
+
+
                             </div>
 
-
+                            {{/each}}
                         </div>
 
-                        {{/each}}
-                    </div>
+                        <div class="timer-bar">
+                            <div class="timer-progress">
 
-                    <div class="timer-bar">
-                        <div class="timer-progress">
-
+                            </div>
                         </div>
+
+
+                        {{!-- <button type="submit" class="highlighted-options text-center margin-center animated-btns">
+                            <a type="submit" href="/register">
+                                <h6>Join the conversation by registering today!</h6>
+                            </a>
+                        </button> --}}
+
                     </div>
-
-
-                    {{!-- <button type="submit" class="highlighted-options text-center margin-center animated-btns">
-                        <a type="submit" href="/register">
-                            <h6>Join the conversation by registering today!</h6>
-                        </a>
-                    </button> --}}
-
                 </div>
-                </div>
-                
+
 
             </aside>
 
@@ -143,8 +145,60 @@
         </section>
 
         <section class="section-venue" id="venue">
-            <div>
-                <h3>Meaux Space: A Venue of it's own class</h3>
+
+            <aside>
+                <div class="dashboard-carousel flex-row">
+                    <a class="albums" href="https://meauxspace.com" target="_blank">
+                        <img class="skylark-img" src="/media/lounge.png">
+
+                    </a>
+            
+            
+                    <a class="albums" href="https://meauxspace.com" target="_blank">
+                        <img  class="skylark-img" src="/media/lounge-2.png">
+                    </a>
+                
+                    <a class="albums" href="https://meauxspace.com" target="_blank">
+                        <img  class="skylark-img" src="/media/lounge-3.png">
+                    </a>
+    
+                </div>
+
+            </aside>
+
+            <article>
+                <h2 class="intro-title text-left">Meaux Space: A Venue of it's own class</h2>
+
+                <div class="venue-info">
+
+                    <div class="venue-info-blocks margin-center">
+                        <p>We will unite at the Meaux Space in New York City, footsteps away from the Empire State
+                            Building and Madison Square Garden with a view of Hudson Yards, a full size kitchen, and
+                            balcony. </p>
+                        <br>
+                        <p>A 5 minute walk from New York Penn Station and a 12 minute walk from Port Authority Bus
+                            Terminal. One could even come to town for the party and leave on the same day!</p>
+                        <br />
+                        <p>Want to see the venue, click on the images!</p>
+                    </div>
+
+                    <div class="venue-info-blocks margin-center">
+                        <div class="map-holder">
+                            <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6045.368314461362!2d-73.99814753169113!3d40.74697487178898!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a55ff1ff8b%3A0x53ea09811ae57911!2s305%207th%20Ave%2C%20New%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1689811181454!5m2!1sen!2sus"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" style="border:0;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="skylark-img"></iframe>
+                        </div>
+                        
+                    </div>
+
+
+                </div>
+            </article>
+
+            {{!-- <div>
+                <h2 class="intro-title text-left"></h2>Meaux Space: A Venue of it's own class</h2>
                 <div class="venue-split">
                     <div class="venue-imgs-block flex-row">
                         <a class="imgs skylark-img margin-center" href="https://meauxspace.com" target="_blank">
@@ -178,7 +232,7 @@
                             <p>Want to see the venue, click on the images!</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
 
@@ -293,8 +347,8 @@
             </p>
         </div>
     </section> --}}
-    {{!--
-    <div id="albums" style="background-color: #FF9033;">
+    
+    {{!-- <div id="albums" style="background-color: #FF9033;">
         <br />
         <h3>Featuring my favorites hits</h3>
         <h2>Including RnB, Hip Hop, Disco, 2000s, </h2>
@@ -341,7 +395,7 @@
             </div>
         </div>
         <br />
-    </div> --}}
+    </div>  --}}
 
     {{!-- <div style="background-color: rgba(40, 40, 40); padding: 25px 0">
         <h3>GET READY TO DANCE YOUR FEET OFF!!!</h3>
