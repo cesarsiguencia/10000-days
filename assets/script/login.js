@@ -45,12 +45,12 @@ loginBtn.addEventListener('click', function(){
     loginModal.style.height = "100vh"
 })
 
-loginBtnHome.addEventListener('click', function(){
-    loginModal.style.height = "100vh"
-})
-
 loginForm.addEventListener('submit', login)
 
 closeModalButton.addEventListener('click',function(){
     loginModal.style.height = "0px"
+})
+
+loginBtnHome.addEventListener('click', function(){
+    loginModal.style.height = "100vh"
 })

@@ -46,6 +46,9 @@ function bringBarBack() {
 function smoothScroll(event) {
     var section = event.target.id
 
+     console.log('should work')
+    var selectedElement = ""
+
     selectedElement = document.querySelector(`${section}`)
     selectedElement.style.opacity = 0
     selectedElement.scrollIntoView({

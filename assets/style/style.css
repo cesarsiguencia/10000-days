@@ -85,7 +85,9 @@ section:nth-child(even) {
     background-color: var(--secondary-color);
     background-image: var(--linear)
 } */
-
+/* section{
+    transition: ease-in-out 2s
+} */
 
 section:nth-child(odd){ 
     background-color: #e07a26;
@@ -96,7 +98,7 @@ section:nth-child(odd){
     width:1500px;
     margin: 0 auto;
     padding: 20px 20px 20px 20px;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -282,6 +284,10 @@ a {
     background-repeat: no-repeat;
     overflow: hidden;
     transition: ease-in-out 2s;
+}
+
+#welcome-carousel{
+    transition: ease-in-out 1.5s
 }
 
 @keyframes slide-down {
@@ -624,7 +630,8 @@ footer {
 .container{
 	border-radius: 5px;
 	margin: 50px auto;
-	padding: 15px 15px;
+	width: 700px;
+    
 }
 
 .user-icon{

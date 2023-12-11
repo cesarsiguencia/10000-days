@@ -1,6 +1,6 @@
 {{> navbar }}
 {{> alert}}
-{{> trial-modal}}
+{{!-- {{> trial-modal}} --}}
 
 <audio id="intro-audio">
     <source src="media/audio/Got To Be Real - Intro.mp3">
@@ -12,11 +12,14 @@
 </audio> --}}
 <main>
     <section class="hero flex-row justify-center">
-        <div class="welcome-box">
+   
+            <div class="welcome-box">
             <div id="welcome-carousel">
 
             </div>
         </div>
+
+        
     </section>
 
 
@@ -462,17 +465,4 @@
 </main>
 <script src="/script/intro.js"></script>
 <script src="/script/home.js"></script>
-<script type="text/javascript" src="/script/flipclock.js"></script>
-<script type="text/javascript">
-    $(function () {
-        FlipClock.Lang.Custom = { days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds' };
-        var opts = {
-            clockFace: 'DailyCounter',
-            countdown: true,
-            language: 'Custom'
-        };
-        var countdown = 1697936400 - ((new Date().getTime()) / 1000); // from: 10/21/2023 09:00 pm +0000
-        countdown = Math.max(1, countdown);
-        $('.clock-builder-output').FlipClock(countdown, opts);
-    });
-</script>
+{{!-- <script type="text/javascript" src="/script/flipclock.js"></script> --}}

@@ -64,51 +64,51 @@ function loadParallax(event) {
 }
 
 function welcomeTitlesParallax(event) {
-    const hero2 = document.querySelector("#hero-2")
+    const hero = document.querySelector(".welcome-box")
     const scrollPosition = event.target.scrollingElement.scrollTop;
     if (scrollPosition > 350) {
-        hero2.style.opacity = 0;
-        hero2.style.translate = "0 -50px";
-        hero2.style.scale = "0.9";
+        hero.style.opacity = 0;
+        hero.style.translate = "0 -50px";
+        hero.style.scale = "0.9";
     } else {
-        hero2.style.opacity = 1;
-        hero2.style.translate = 0;
-        hero2.style.scale = 1;
+        hero.style.opacity = 1;
+        hero.style.translate = 0;
+        hero.style.scale = 1;
     }
 }
 
 
-function venueImgsParallax() {
-    const skylark1 = document.querySelector(".skylark-img")
-    const skylark2 = document.querySelector(".skylark-img-2")
-    const skylark3 = document.querySelector(".skylark-img-3")
-    const venueBox = document.querySelector(".venue-split")
+// function venueImgsParallax() {
+//     const skylark1 = document.querySelector(".skylark-img")
+//     const skylark2 = document.querySelector(".skylark-img-2")
+//     const skylark3 = document.querySelector(".skylark-img-3")
+//     const venueBox = document.querySelector(".venue-split")
 
-    const imgsArray = [skylark1, skylark2, skylark3] 
-    const position = venueBox.getBoundingClientRect()
+//     const imgsArray = [skylark1, skylark2, skylark3] 
+//     const position = venueBox.getBoundingClientRect()
 
-    if (position.top >= window.innerHeight ) {
+//     if (position.top >= window.innerHeight ) {
 
-        imgsArray.forEach((image)=>{
-            image.style.backgroundSize = "140%"
-        })
-    } else {
-        imgsArray.forEach((image)=>{
-            image.style.backgroundSize = "115%"
-        })
-    }
-}
+//         imgsArray.forEach((image)=>{
+//             image.style.backgroundSize = "140%"
+//         })
+//     } else {
+//         imgsArray.forEach((image)=>{
+//             image.style.backgroundSize = "115%"
+//         })
+//     }
+// }
 
 
-function equationParallax() {
-    const equationDiv = document.querySelector(".equation")
-    const position = equationDiv.getBoundingClientRect()
-    if (position.top >= 0 && position.bottom <= window.innerHeight) {
-        equationDiv.style.scale = 1
-    } else {
-        equationDiv.style.scale = 0.75
-    }
-}
+// function equationParallax() {
+//     const equationDiv = document.querySelector(".equation")
+//     const position = equationDiv.getBoundingClientRect()
+//     if (position.top >= 0 && position.bottom <= window.innerHeight) {
+//         equationDiv.style.scale = 1
+//     } else {
+//         equationDiv.style.scale = 0.75
+//     }
+// }
 
 var playerOn = true
 const audioButton = document.querySelector('#audio-trigger')
@@ -218,9 +218,9 @@ function albumCarousel() {
         }
 }
 
-function trialModal(){
-    var trial = document.querySelector('.trial-modal')
-}
+// function trialModal(){
+//     var trial = document.querySelector('.trial-modal')
+// }
 
 // Home Page Function calls
 
@@ -228,7 +228,7 @@ window.onload = loadParallax
 window.onload = buttonScale
 document.addEventListener("scroll", homeParallax);
 document.addEventListener("scroll", welcomeTitlesParallax)
-document.addEventListener("scroll", venueImgsParallax)
+// document.addEventListener("scroll", venueImgsParallax)
 setInterval(albumCarousel, 4000)
 setInterval(timeCarousel, 40)
 // audioButton.addEventListener("click", playSinCara)
