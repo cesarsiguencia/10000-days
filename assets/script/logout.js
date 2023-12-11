@@ -20,5 +20,5 @@ async function logout(){
 logoutBtn.addEventListener("click", logout)
 
 closeModalButton.addEventListener("click",function(){
-    document.location.replace('/home')
+    document.location.replace('/')
 })
