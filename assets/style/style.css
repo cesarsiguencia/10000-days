@@ -690,6 +690,15 @@ footer {
     justify-content: space-between;
 }
 
+.db-post-link-scale{
+    scale: 1;
+    transition: ease-in-out 0.5s
+}
+
+.db-post-link-scale:hover{
+    scale: 1.05
+}
+
 
 .posts-logos{
     display: flex;
@@ -701,6 +710,12 @@ footer {
     width: 30px;
     height: 30px;
     margin: 0 5px;
+    transition: ease-in-out 0.2s;
+    scale: 1
+}
+
+.posts-logos>img:hover{
+    scale: 1.2
 }
 
 .comment-section{
@@ -747,6 +762,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 20px;
     margin: 10px auto;
 }
 
