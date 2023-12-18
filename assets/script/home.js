@@ -1,9 +1,9 @@
 var navBar = document.querySelector("#nav")
 var navBarLinks = document.querySelectorAll(".nav-links")
-var posts = document.querySelectorAll('.dashboard-posts')
+var posts = document.querySelectorAll('.post-slides')
 var timerProgress = document.querySelector(".timer-progress")
 var dashboard = document.querySelector('.dashboard-carousel')
-var albums = document.querySelectorAll('.albums')
+var venueImgs = document.querySelectorAll('.venue-slides')
 var barHeight = ""
 var selectedElement = ""
 var dummyForm = document.querySelector('.registration')
@@ -114,7 +114,6 @@ var playerOn = true
 const audioButton = document.querySelector('#audio-trigger')
 const audioSinCara = document.querySelector('#bottom-audio')
 function playSinCara(){
-    
 
     if (playerOn === true){
         audioSinCara.play()
@@ -128,17 +127,17 @@ function playSinCara(){
     }
 }
 
-function storyParallax() {
-    const storyDiv = document.querySelector(".about-story")
-    const position = storyDiv.getBoundingClientRect()
-    if (position.top <= window.innerHeight) {
-        storyDiv.style.scale = 1
-        storyDiv.style.opacity = 1
-    } else {
-        storyDiv.style.scale = 0.75
-        storyDiv.style.opacity = 0.2
-    }
-}
+// function storyParallax() {
+//     const storyDiv = document.querySelector(".about-story")
+//     const position = storyDiv.getBoundingClientRect()
+//     if (position.top <= window.innerHeight) {
+//         storyDiv.style.scale = 1
+//         storyDiv.style.opacity = 1
+//     } else {
+//         storyDiv.style.scale = 0.75
+//         storyDiv.style.opacity = 0.2
+//     }
+// }
 
 var buttons = document.querySelectorAll('.animated-btns')
 
@@ -199,10 +198,10 @@ function timeCarousel() {
 
 var z = 1
 
-function albumCarousel() {
+function venueCarousel() {
         if (z < 3) {
-            albums.forEach((album) => {
-                album.style.transform = `translate(-${z}00%)`
+            venueImgs.forEach((img) => {
+                img.style.transform = `translate(-${z}00%)`
             })
             z = z + 1
             return
@@ -210,8 +209,8 @@ function albumCarousel() {
 
     
         if (z == 3) {
-            albums.forEach((album) => {
-                album.style.transform = "translate(0%)"
+            venueImgs.forEach((img) => {
+                img.style.transform = "translate(0%)"
             })
             z = 1
             return
@@ -229,7 +228,7 @@ window.onload = buttonScale
 document.addEventListener("scroll", homeParallax);
 document.addEventListener("scroll", welcomeTitlesParallax)
 // document.addEventListener("scroll", venueImgsParallax)
-setInterval(albumCarousel, 4000)
+setInterval(venueCarousel, 4000)
 setInterval(timeCarousel, 40)
 // audioButton.addEventListener("click", playSinCara)
 // document.addEventListener("scroll", equationParallax)
