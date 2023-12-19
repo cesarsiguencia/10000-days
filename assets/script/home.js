@@ -230,6 +230,9 @@ document.addEventListener("scroll", welcomeTitlesParallax)
 // document.addEventListener("scroll", venueImgsParallax)
 setInterval(venueCarousel, 4000)
 setInterval(timeCarousel, 40)
+// closeTrial.addEventListener("click", function(){
+//     trialModal.style.height="100vh"
+// })
 // audioButton.addEventListener("click", playSinCara)
 // document.addEventListener("scroll", equationParallax)
 // document.addEventListener("scroll", storyParallax)

@@ -2,7 +2,6 @@ var welcomeBox = document.querySelector(".welcome-box")
 var welcomeCarousel = document.querySelector("#welcome-carousel")
 var welcomeTitleHolder = ''
 
-
 function changeWords(currentIndex) {
     var welcomeWords = ["You're Invited!", "On my 10,000th day of life", "Saturday, October 21st, 2023"]
 
@@ -45,15 +44,8 @@ function appearButton() {
         button.style.opacity = 0
         introAudio.play()
         introAudio.volume = 0.8
-
-        // setTimeout((()=>{
-        //     window.location.href = '/home'
-        // }
-        // ), 4500)
     })
 }
-
-
 
 function introParallax(event) {
     const hero = document.querySelector(".hero")
@@ -80,18 +72,10 @@ function onIntroPg(){
         setTimeout(function(){
             trialModal.style.height="100vh"
         }, 2000)
-        
     }
 }
 
-
-// Intro Page Function calls
 window.onload = loadParallax
 document.addEventListener("scroll", introParallax);
 setTimeout(changeWords, 1000, 0)
 setTimeout("insertHomeBtn()", 1000)
-// setTimeout("appearButton()", 12000)
-// onIntroPg()
-// closeTrial.addEventListener("click", function(){
-//     trialModal.style.height="100vh"
-// })

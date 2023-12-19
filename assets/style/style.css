@@ -7,14 +7,16 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
     background-color: var(--secondary-color);
 }
 
+html
+{overflow-x: hidden;}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 /* =============================================== */
@@ -53,6 +55,14 @@ h3 {
     margin-bottom: 20px;
 }
 
+h4{
+    color: var(--primary-color);
+    font-size: 25px;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-weight: 100;
+}
+
 h6 {
     font-family: copperplate;
     text-align: center;
@@ -82,6 +92,11 @@ a {
     font-size: 40px;
 }
 
+.welcome-titles {
+    display: inline;
+    font-size: 60px;
+}
+
 
 /* ------------ Flex & Container Props ------------- */
 
@@ -90,10 +105,9 @@ a {
     flex-direction: row;
 }
 
-/* .flex-column {
+.flex{
     display: flex;
-    flex-direction: column;
-} */
+}
 
 .margin-center {
     margin: 0 auto
@@ -169,6 +183,28 @@ button:hover {
     border-radius: 10px
 }
 
+.welcome-button {
+    display: block;
+    margin: 25px auto;
+    padding: 25px 25px;
+    border: 2px solid #FFC133;
+    border-radius: 30px;
+    width: 75%;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: 1.5s
+}
+
+.welcome-button:hover {
+    background-color: #c7834b;
+    transition: 500ms ease-in-out
+}
+
+.welcome-button-font {
+    font-size: 25px;
+}
+
 /* -------------------------Login In Partial ------------------- */
 
 .modal {
@@ -186,7 +222,7 @@ button:hover {
 .container {
     border-radius: 5px;
     margin: 50px auto;
-    width: 700px;
+    width: 1px;
 }
 
 .user-icon {
@@ -222,7 +258,7 @@ button:hover {
     height: 100%;
 }
 
-/* ---------------------- header ------------------------- */
+/* ---------------------- Header ------------------------- */
 
 nav {
     display: flex;
@@ -264,7 +300,15 @@ nav {
 
 /* ------------------- Body --------------------*/
 
-section:nth-child(odd) {
+main{
+    width: 100%;
+}
+
+.sec:nth-child(odd){
+    background-color: var(--secondary-color);
+}
+
+.sec:nth-child(even) {
     background-color: #e07a26;
 }
 
@@ -283,8 +327,8 @@ article {
 
 aside {
     width: 37%;
-    background-color: #ffffffd2;
     border-radius: 10px;
+    height: auto
 }
 
 /* --------------------------- Footer ------------------------ */
@@ -355,33 +399,6 @@ footer {
     animation-fill-mode: forwards;
 }
 
-.welcome-titles {
-    display: inline;
-    font-size: 60px;
-}
-
-.welcome-button {
-    display: block;
-    margin: 25px auto;
-    padding: 25px 25px;
-    border: 2px solid #FFC133;
-    border-radius: 30px;
-    width: 75%;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    opacity: 0;
-    transition: 1.5s
-}
-
-.welcome-button:hover {
-    background-color: #c7834b;
-    transition: 500ms ease-in-out
-}
-
-.welcome-button-font {
-    font-size: 25px;
-}
-
 /* ----------------------- Intro Sec ------------------------ */
 
 .content-divs>div {
@@ -405,15 +422,40 @@ footer {
     transition: ease-in-out 1s;
 }
 
-.homepg-post-previews {
-    font-size: 15px;
-    height: 450px;
+.post-slides{
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.party-gif {
-    width: 85%;
+.homepg-post-previews {
+    font-size: 15px;
+    height: auto;
+    display: flex;
+}
+
+.homepg-post-link{
+    display: flex;
+    background-color: none;
+    border: 3px solid white;
+    border-radius: 10px;
+    transition: ease-in-out 0.5s;
+    margin: 1px;
+    height: auto;
+}
+
+.homepg-post-link:hover{
+    background-color: var(--fourth-color);
+}
+
+.party-gif-block{
+    display: flex;
+}
+
+.party-gif{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 .timer-bar {
@@ -470,6 +512,8 @@ footer {
     scale: 1.1
 }
 
+/* ------------------ Ameneties Section ----------------- */
+
 /* ========================== Register PG ========================== */
 
 .textbox {
@@ -514,23 +558,8 @@ input[type="radio"] {
 
 /* ========================== Dashboard PG =======================*/
 
-.db-body {
-    padding: 20px 20px 20px 20px;
-    background-color: var(--third-color);
-
-}
-
-.db-components {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.db-boxes {
-    width: 600px;
-    margin: 15px auto;
-    /* border: solid 3px var(white); */
-    padding: 15px 15px;
-    border-radius: 50px
+.db-content{
+    align-items: normal
 }
 
 .db-posts {
@@ -540,13 +569,7 @@ input[type="radio"] {
     border-bottom: 3px white solid;
 }
 
-/* .db-posts:nth-child(odd){
-    background-color: var(--secondary-color)
-} */
-
-
 .db-posts-display {
-    /* border-top: solid 3px var(--fourth-color); */
     display: flex;
     justify-content: space-between;
 }
@@ -571,7 +594,6 @@ input[type="radio"] {
     text-decoration: underline;
     margin: 10px auto
 }
-
 
 .posts-logos {
     display: flex;
@@ -636,87 +658,72 @@ input[type="radio"] {
 /* Media Queries ------------------------- */
 
 @media screen and (max-width: 1600px) {
-    /* .venue-split {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
+    .section-content{
+        width: 1200px;
+        justify-content: space-between;
     }
 
-    .venue-imgs-block {
-        display: block;
-        width: 50%
+    article{
+        width: 55%;
     }
 
-    .venue-imgs-block>* {
-        display: block;
+    aside{
+        width: 44%
     }
-
-    .venue-info {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
-
-    .venue-info-blocks {
-        width: 80%
-    }
-
-    .venue-info-blocks>iframe {
-        display: block;
-        height: 800px;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .trial-vid {
-        width: 800px;
-        height: 550px
-    } */
-
 }
 
 @media screen and (max-width: 1200px) {
-    /* .og-style {
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center
+    .section-content{
+        width: 1000px;
     }
 
-    .og-style>div {
+    .intro-sub-btns-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .intro-sub-btns-container>div{
         width: 90%;
-        margin: 10px auto;
-    } */
+        margin: 0 auto
+    }
 
+    article, aside{
+        width: 49%;
+    }
 
+    .venue-info{
+        display: flex;
+        flex-wrap:wrap;
+    }
+
+    .venue-info>div{
+        width: 100%;
+    }
+
+    .map-holder{
+        margin: 10px auto
+    }
 }
 
 @media screen and (max-width: 1000px) {
-    /* .venue-split>* {
-        width: 100%;
+    .section-content{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%
     }
 
-    .venue-info-blocks>iframe {
-        display: block;
-        height: 400px;
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 20px;
+    .section-content>*{
+        width: 90%;
+        margin: 10px auto
     }
 
-    label,
-    input {
+    .visuals{
         width: 100%;
+        min-height: auto;;
     }
-
-    .trial-vid {
-        width: 450px;
-        height: 300px
-    } */
 }
 
 @media screen and (max-width: 768px) {
-
     .mobile-toggle {
         width: 100%;
         height: 100%;
@@ -767,6 +774,47 @@ input[type="radio"] {
         transition: all 0.5s ease-in-out;
         transform: translateY(-10px) rotate(-45deg);
     }
+}
 
+@media screen and (max-width: 768px) {
+    .og-image{
+        width: 95%
+    }
 
+    .intro-sub-btns{
+        width: 100%;
+    }
+
+    .iframe, img{
+        width: 100%
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .map-holder{
+        width: 100%;
+    }
+
+    .map-holder>iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .venue-slides>img {
+
+        width: 100%;
+        height: auto;
+    }
+    .section-content{
+        padding: 20px 5px 20px 5px;
+    }
+    
+    .venue-slides>img:hover {
+        scale: 1.2
+    }
 }

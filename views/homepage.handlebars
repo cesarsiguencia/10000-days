@@ -1,6 +1,6 @@
 {{> navbar }}
 {{> alert}}
-{{!-- {{> trial-modal}} --}}
+{{> trial-modal}}
 
 <audio id="intro-audio">
     <source src="media/audio/Got To Be Real - Intro.mp3">
@@ -11,16 +11,16 @@
 
 </audio> --}}
 <main>
-    <section class="hero flex-row justify-center">
-   
-            <div class="welcome-box">
+    <div class="hero flex-row justify-center">
+        <div class="welcome-box">
             <div id="welcome-carousel">
-
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="introduction">
+    <section></section>
+
+    <section class="sec" id="introduction">
         <div class="section-content margin-center">
             <article>
                 <h2 class="sec-titles text-left">Welcome To My 10,000 Days Of Life!</h2>
@@ -34,7 +34,7 @@
                     <br />
 
                     <div class="intro-sub-btns-container">
-                        <div>
+                        <div class="justify-center">
                             <p class="p-strong"><strong>Save The Date!</strong></p>
                             <br />
                             <p>Click here to add this event to your default system calendar!</p>
@@ -43,12 +43,10 @@
                                 <a class="a-fix" target="_blank"
                                     href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20231022T010000Z%2F20231022T040000Z&location=305%20West%207th%20Avenue&text=Cezzie%27s%2010%2C000th%20Day%20B-Day%20Bash">Add
                                     to Calendar</a>
-
                             </div>
-
                         </div>
 
-                        <div>
+                        <div class="justify-center">
                             <p class="p-strong"><strong>RSVP already?</strong></p>
                             <br />
                             <p> Login in to change your info, RSVP status, or to interact with other invited guests</p>
@@ -83,27 +81,38 @@
 
             <aside>
                 <br />
-                <h2 style="color:black; font-size: 25px">Checkout posts from registered guests. Join the conversation
-                    when you RSVP!</h2>
+                <h4>Checkout posts from registered guests. Join the conversation
+                    when you RSVP!</h4>
                 <div>
                     <div class="visuals margin-center">
 
                         <div class="overflow-hid flex-row">
                             {{#each posts as |post|}}
                             <div class="post-slides">
-                                <div class="homepg-post-previews">
-                                    <div>
+                                <div class="homepg-post-previews ">
+                                    <div class="margin-center">
                                         {{> attendee-posts post}}
 
-
                                         {{#if post.openGraphMaterial}}
-                                        <a href={{post.openGraphMaterial.url}} target="_blank">
-                                            <p style="text-align: center">Click To See Link</p>
-                                            {{> og post.openGraphMaterial}}
+                                        <a class="homepg-post-link justify-center" href={{post.openGraphMaterial.url}}
+                                            target="_blank">
+                                            <div>
+                                                <p class="text-center">Click To See Link</p>
+                                                {{> og post.openGraphMaterial}}
+
+                                            </div>
+
                                         </a>
 
                                         {{else}}
-                                        <img src="/media/icons/peanuts-dancing.gif" class="og-style party-gif margin-center"></img>
+                                        <div class="party-gif-block justify-center">
+                                            <img src="/media/icons/peanuts-dancing.gif"
+                                                class="party-gif margin-center"></img>
+                                        </div>
+
+
+
+
                                         {{/if}}
                                     </div>
                                 </div>
@@ -112,9 +121,7 @@
                         </div>
 
                         <div class="timer-bar">
-                            <div class="timer-progress">
-
-                            </div>
+                            <div class="timer-progress"></div>
                         </div>
                     </div>
                 </div>
@@ -122,7 +129,7 @@
         </div>
     </section>
 
-    <section class="section-venue" id="venue">
+    <section class="sec section-venue" id="venue">
         <div class="section-content margin-center">
             <aside>
                 <div class="overflow-hid flex-row">
@@ -168,15 +175,13 @@
                                 referrerpolicy="no-referrer-when-downgrade" style="border:0;" allowfullscreen=""
                                 loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="skylark-img"></iframe>
                         </div>
-
                     </div>
                 </div>
             </article>
-
         </div>
     </section>
 
-    <section class="section-signup" id="ameneties">
+    <section class="sec section-signup" id="ameneties">
         <div class="section-content margin-center">
             <article>
                 <h2 class="sec-titles text-left">What to expect at this party of the year!</h2>
@@ -194,9 +199,7 @@
                     <div>
                         <p>And much more, including games, a photo booth, and raffles</p>
                     </div>
-
                 </div>
-
             </article>
 
             <aside>
@@ -209,13 +212,10 @@
                         </button>
                     </div>
                 </div>
-
             </aside>
-
-
         </div>
     </section>
 </main>
 
-<script src="/script/intro.js"></script>
+<script src="/script/hero.js"></script>
 <script src="/script/home.js"></script>
