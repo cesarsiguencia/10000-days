@@ -1,156 +1,160 @@
-{{>navbar}}
 {{#if loggedIn}}
 {{>alert}}
 {{>trial-modal}}
 
 
-<main class="db-body">
-    <h2 class="sec-titles" style="margin-bottom: 15px;">Welcome To Your Dashboard, {{loggedUsername}}!</h2>
-    <div class="section-content db-content margin-center">
+<main>
+    <section>
+        <h2 class="sec-titles" style="margin: 15px auto;">Welcome To Your Dashboard, {{loggedUsername}}!</h2>
 
-        <article>
-            <div>
-                <div id="posts-center">
-                    <h2 style="margin: 30px auto;">Add A Post!</h2>
+        <div class="section-content db-content margin-center">
 
-                    <form class="add-post" id="add-post">
-                        <div class="add-post-components">
-                            <input type="text" placeholder="Type Your Thoughts Here!" name="post-text" id="post-text"
-                                class="textbox" />
-                        </div>
+            <article>
+                <div>
+                    <div id="posts-center">
+                        <h2>Add A Post!</h2>
 
-                        <div class="add-post-components">
-                            <input type="text" placeholder="(* Include Optional Link *)" name="post-link" id="post-link"
-                                class="textbox" />
-                        </div>
-                        <br />
-                        <button type="submit" class="highlighted-options text-center margin-center">
-                            <h6>Add Post</h6>
-                        </button>
-                    </form>
-                    <h2 style="margin: 30px auto;">All Posts from RSVPs</h2>
-
-
-                    {{#each posts as |post|}}
-                    <div class="db-posts" post-id={{post.id}}>
-                        <div class="db-posts-display">
-                            <div>
-                                {{> dashboard-posts post}}
+                        <form class="add-post" id="add-post">
+                            <div class="add-post-components">
+                                <input type="text" placeholder="Type Your Thoughts Here!" name="post-text"
+                                    id="post-text" class="textbox" />
                             </div>
 
-                            <div class="posts-logos">
-                                {{!-- <img src="/media/icons/love.png" /> --}}
-                                <img class="comment" post-id={{post.id}} src="/media/icons/comment.png" />
-
-
-                                {{#if (checkUserId post.user_id ../loggedUserId)}}
-
-                                <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
-                                <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
-                                {{>edit-post post}}
-                                {{/if}}
+                            <div class="add-post-components">
+                                <input type="text" placeholder="(* Include Optional Link *)" name="post-link"
+                                    id="post-link" class="textbox" />
                             </div>
-                        </div>
+                            <br />
+                            <button type="submit" class="highlighted-options text-center margin-center">
+                                <h6>Add Post</h6>
+                            </button>
 
-                        <div class="db-post-link-scale">
-                            {{#if post.post_link}}
+                        </form>
+                        <h2 style="margin: 30px auto;">All Posts from RSVPs</h2>
+
+
+                        {{#each posts as |post|}}
+                        <div class="db-posts" post-id={{post.id}}>
+                            <div class="db-posts-display">
+                                <div>
+                                    {{> dashboard-posts post}}
+                                </div>
+
+                                <div class="posts-logos">
+                                    {{!-- <img src="/media/icons/love.png" /> --}}
+                                    <img class="comment" post-id={{post.id}} src="/media/icons/comment.png" />
+
+
+                                    {{#if (checkUserId post.user_id ../loggedUserId)}}
+
+                                    <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
+                                    <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
+                                    {{>edit-post post}}
+                                    {{/if}}
+                                </div>
+                            </div>
+
+                            <div class="db-post-link-scale">
+                                {{#if post.post_link}}
 
                                 {{#if post.openGraphMaterial}}
-                                    <a class="og-style" href={{post.post_link}} post-link-id={{post.id}} target="_blank">
+                                <a class="og-style" href={{post.post_link}} post-link-id={{post.id}} target="_blank">
                                     {{>og post.openGraphMaterial}}
-                                    </a>
+                                </a>
 
-                            {{else}}
+                                {{else}}
                                 <a class="post-link" href={{post.post_link}} post-link-id={{post.id}} target="_blank">
                                     <p style="color:#FF9033;">No info displayed, CLICK LINK HERE!</p>
                                 </a>
 
-                            {{/if}}
-                            {{/if}}
+                                {{/if}}
+                                {{/if}}
 
-                        </div>
-
-                        <div>
-                            {{#each post.comments}}
-                            <div class="comment-section">
-                                <div style="comment-blocks">
-                                    <p>{{comment_text}} </p>
-                                    <p>By - {{user.username}}</p>
-                                </div>
-
-                                <div class="posts-logos comment-blocks">
-                                    {{#if (checkUserId user.id ../../loggedUserId)}}
-                                    <img class="comment-trash" comment-trash-id={{id}} src="/media/icons/trash.png" />
-                                    {{/if}}
-                                </div>
                             </div>
-                            {{/each}}
+
+                            <div>
+                                {{#each post.comments}}
+                                <div class="comment-section">
+                                    <div style="comment-blocks">
+                                        <p>{{comment_text}} </p>
+                                        <p>By - {{user.username}}</p>
+                                    </div>
+
+                                    <div class="posts-logos comment-blocks">
+                                        {{#if (checkUserId user.id ../../loggedUserId)}}
+                                        <img class="comment-trash" comment-trash-id={{id}}
+                                            src="/media/icons/trash.png" />
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+
+                            <form comment-form-id={{post.id}} post-comment-input-block={{post.id}}
+                                class="comments-block">
+
+                                <input type="text" placeholder="Reply Here!" name="comment-text"
+                                    post-comment-belongs-to={{post.id}} class="comment-textbox" />
+
+                            </form>
                         </div>
-
-                        <form comment-form-id={{post.id}} post-comment-input-block={{post.id}} class="comments-block">
-
-                            <input type="text" placeholder="Reply Here!" name="comment-text"
-                                post-comment-belongs-to={{post.id}} class="comment-textbox" />
-
-                        </form>
+                        {{/each}}
                     </div>
-                    {{/each}}
                 </div>
-            </div>
-        </article>
+            </article>
 
-        <aside>
-            <div class="rules">
-                <h4>Change Credentials</h4>
-                <br/>
-                <form id="change-credentials">
-                    <div class="edit-email-components">
-                        <input type="text" placeholder="Change registered email" name="email-text" id="email-text"
-                            class="textbox" />
-                    </div>
-                    <div class="edit-username-components">
-                        <input type="text" placeholder="Change Username" name="username-text" id="username-text"
-                            class="textbox" />
-                    </div>
-                    <div class="edit-password-components">
-                        <input type="password" placeholder="Change Password" name="password-text" id="password-text"
-                            class="textbox" />
-                    </div>
+            <aside>
+                <div class="aside-content">
+                    <h4>Change Credentials</h4>
                     <br />
-                    <button type="submit" class="highlighted-options text-center margin-center">
-                        <h6>Submit New Credentials</h6>
-                    </button>
-                </form>
-
-                <br/>
-                <h2> - - - - -</h2>
-                <br/>
-                <form id="change-attendance">
-                    <h4>Change Your RSVP</h4>
-                    <br/>
-                    <div>
-                        <div class="attendance">
-                            <input type="radio" name="form-attend" value="true" />
-                            <label for="attend-yes"> I will NOW attend event </label>
-                        </div class="attendance">
-                        <br />
-                        <div class="attendance">
-                            <input type="radio" name="form-attend" value="false" />
-                            <label for="attend-no"> I will NO LONGER attend event</label>
+                    <form id="change-credentials">
+                        <div class="edit-email-components">
+                            <input type="text" placeholder="Change registered email" name="email-text" id="email-text"
+                                class="textbox" />
                         </div>
-                    </div>
+                        <div class="edit-username-components">
+                            <input type="text" placeholder="Change Username" name="username-text" id="username-text"
+                                class="textbox" />
+                        </div>
+                        <div class="edit-password-components">
+                            <input type="password" placeholder="Change Password" name="password-text" id="password-text"
+                                class="textbox" />
+                        </div>
+                        <button type="submit" class="sub-btns text-center">
+                            <p class="p-strong">Submit New Credentials</p>
+                        </button>
+                    </form>
+                    <h2> - - - - -</h2>
                     <br />
-                    <p>Decide carefully! You will not be able to change your RSVP two weeks before date. </p>
-                    <br />
-                    <button type="submit" class="highlighted-options text-center margin-center">
-                        <h6>Change RSVP</h6>
-                    </button>
-                </form>
-            </div>
+                    <form id="change-attendance">
+                        <h4>Change Your RSVP</h4>
+                        <br />
+                        <div>
+                            <div class="attendance">
+                                <input type="radio" name="form-attend" value="true" />
+                                <label for="attend-yes"> I will NOW attend event </label>
+                            </div class="attendance">
+                            <br />
+                            <div class="attendance">
+                                <input type="radio" name="form-attend" value="false" />
+                                <label for="attend-no"> I will NO LONGER attend event</label>
+                            </div>
+                        </div>
+                        <br />
+                        <p>Decide carefully! You will not be able to change your RSVP two weeks before date. </p>
 
-        </aside>
+                        <button type="submit" class="sub-btns text-center">
+                            <p class="p-strong">Change RSVP</p>
+                        </button>
+                    </form>
+                </div>
 
-    </div>
+            </aside>
+
+        </div>
+
+    </section>
+
 </main>
 
 <script src="/script/alert.js"></script>
