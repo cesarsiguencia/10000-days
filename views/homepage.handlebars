@@ -68,7 +68,7 @@
 
                     <div class="content-divs">
                         <div class="primary-btn margin-center">
-                            <button type="submit" class="highlighted-options orange-btn text-center margin-center animated-btns">
+                            <button type="submit" class="highlighted-options text-center margin-center animated-btns">
                                 <a type="submit" href="/register">
                                     <h6>Reserve Your Spot TODAY!</h6>
                                 </a>
@@ -161,7 +161,7 @@
                             <p>A 5 minute walk from New York Penn Station and a 12 minute walk from Port Authority Bus
                                 Terminal. One could even come to town for the party and leave on the same day!</p>
                             <br />
-                            <p>Want to see the venue, <strong class="p-color">click on the images!</strong></p>
+                            <p>Want to see the venue? <strong class="p-color">click on the images!</strong></p>
                         </div>
 
                     </div>
@@ -187,18 +187,41 @@
 
                 <div class="content-divs">
                     <div>
-                        <p>Fine food and complemetary wine</p>
-                    </div>
 
-                    <div>
-                        <p>A handpicked selection of my favorite jams to dance. So get ready to show off your dance
-                            moves</p>
+                        <p>A handpicked selection of my favorite jams to dance. Get ready to show off your dance moves!</p>
+                        <br />
+                        <div class="logos">
+                            <div class="logos-slide">
+                                <img src="/media/albums/Culture II.avif" alt="a pop album cover">
+                                <img src="/media/albums/Thriller.avif" alt="a pop album cover">
+                                <img src="/media/albums/Pink Friday.avif" alt="a pop album cover">
+                                <img src="/media/albums/Prince-Royce.avif" alt="a pop album cover">
+                                <img src="/media/albums/The Blueprint 3.avif" alt="a pop album cover">
+                                <img src="/media/albums/Year Of The Gentleman.avif" alt="a pop album cover">
+                                <img src="/media/albums/Party In The USA.avif" alt="a pop album cover">
+                            </div>
+                        </div>
                     </div>
-
+                    <p>Fine food and complemetary wine from top catering partners.</p>
+                    <br />
+                    {{!-- <div class="logos">
+                        <div class="logos-slide">
+                            <img src="/media/albums/Culture II.avif" alt="a pop album cover">
+                            <img src="/media/albums/Thriller.avif" alt="a pop album cover">
+                            <img src="/media/albums/Pink Friday.avif" alt="a pop album cover">
+                            <img src="/media/albums/Prince-Royce.avif" alt="a pop album cover">
+                            <img src="/media/albums/The Blueprint 3.avif" alt="a pop album cover">
+                            <img src="/media/albums/Year Of The Gentleman.avif" alt="a pop album cover">
+                            <img src="/media/albums/Party In The USA.avif" alt="a pop album cover">
+                        </div>
+                    </div> --}}
                     <div>
-                        <p>And much more, including games, a photo booth, and raffles</p>
+                        <p>And much more, including <strong class="p-color">games, a photo booth, and raffles!</strong></p>
                     </div>
                 </div>
+
+
+
             </article>
 
             <aside>
@@ -215,6 +238,13 @@
         </div>
     </section>
 </main>
+
+{{!-- this was switched to it's own inline script because the appendChild action is massively delayed in home.js which has a lot of functions already, causing a huge noticable gap in the carousel, resulting in a cut off an uneven slide of images.  --}}
+<script>
+    var copy = document.querySelector(".logos-slide").cloneNode(true);
+    document.querySelector('.logos').appendChild(copy)
+</script>
+{{!-- ------------------ --}}
 
 <script src="/script/hero.js"></script>
 <script src="/script/home.js"></script>

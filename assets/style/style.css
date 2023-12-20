@@ -2,7 +2,7 @@
     --primary-color: white;
     --secondary-color: #9c4e16;
     --third-color: rgba(40, 40, 40);
-    --fourth-color: #e07a26;
+    --fourth-color: #eb812b;
     --fifth-color: rgb(104, 155, 172);
     --sixth-color: #1e8339;
     --linear: linear-gradient(#9c4e16, #b86d38);
@@ -12,8 +12,9 @@
     background-color: var(--secondary-color);
 }
 
-html
-{overflow-x: hidden;}
+html{
+    overflow-x: hidden;
+}
 
 * {
     box-sizing: border-box;
@@ -217,7 +218,7 @@ button:hover {
     left: 0;
     overflow: auto;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     height: 0px;
 }
 
@@ -656,6 +657,59 @@ input[type="radio"] {
     max-height: 750px;
 }
 
+@keyframes slide {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+.logos{
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 30px 0;
+    background-color: var(--fourth-color);
+    white-space: nowrap;
+    position: relative;
+}
+
+.logos:before,
+.logos:after{
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index:2;
+}
+
+.logos:before{
+    left: 0;
+    background: linear-gradient(to right, var(--fourth-color), rgba(255,255,255,0) 40%);
+}
+
+.logos:after{
+    right: 0;
+    background: linear-gradient(to left,  var(--fourth-color) , rgba(255,255,255,0) 40%);
+}
+
+.logos:hover .logos-slide{
+    animation-play-state: paused;
+}
+
+.logos-slide{
+    display: inline-block;
+    margin: 0 0;
+    animation: 15s slide infinite linear;
+}
+
+.logos-slide > img{
+    height: 200px;
+    margin: 0 40px;
+}
+
 /* Media Queries ------------------------- */
 
 @media screen and (max-width: 1600px) {
@@ -786,6 +840,10 @@ input[type="radio"] {
         width: 100%
     }
 
+    .logos-slide >img{
+        width: 200px;
+    }
+
     .container{
         width: 90%
     }
@@ -794,10 +852,6 @@ input[type="radio"] {
 @media screen and (max-width: 650px) {
     .og-style{
         display: block;
-    }
-
-    .og-image{
-        padding: 0 0;
     }
 
     .map-holder{

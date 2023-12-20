@@ -217,6 +217,7 @@ function venueCarousel() {
         }
 }
 
+
 // function trialModal(){
 //     var trial = document.querySelector('.trial-modal')
 // }
