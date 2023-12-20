@@ -187,10 +187,10 @@
 
                 <div class="content-divs">
                     <div>
-
-                        <p>A handpicked selection of my favorite jams to dance. Get ready to show off your dance moves!</p>
+                        <p>A handpicked selection of my favorite jams to dance. Get ready to show off your dance moves!
+                        </p>
                         <br />
-                        <div class="logos">
+                        <div class="logos transparent">
                             <div class="logos-slide">
                                 <img src="/media/albums/Culture II.avif" alt="a pop album cover">
                                 <img src="/media/albums/Thriller.avif" alt="a pop album cover">
@@ -204,29 +204,58 @@
                     </div>
                     <p>Fine food and complemetary wine from top catering partners.</p>
                     <br />
-                    {{!-- <div class="logos">
-                        <div class="logos-slide">
-                            <img src="/media/albums/Culture II.avif" alt="a pop album cover">
-                            <img src="/media/albums/Thriller.avif" alt="a pop album cover">
-                            <img src="/media/albums/Pink Friday.avif" alt="a pop album cover">
-                            <img src="/media/albums/Prince-Royce.avif" alt="a pop album cover">
-                            <img src="/media/albums/The Blueprint 3.avif" alt="a pop album cover">
-                            <img src="/media/albums/Year Of The Gentleman.avif" alt="a pop album cover">
-                            <img src="/media/albums/Party In The USA.avif" alt="a pop album cover">
+                    <div class="logos">
+        
+                            <div class="slider-wrapper">
+                            <div class="slider">
+                                <div class="food-slides" id="slide-1">
+                                    
+                                    <img src="media/food/pasta.avif" alt="spaghetti with meatballs plate">
+                                    <img src="media/food/wine.avif" alt="wine with assorted bread and cheese">
+                                </div>
+
+                                <div class="food-slides" id="slide-2">
+                                    <img src="media/food/fish.avif"
+                                        alt="chilean sea bass dish with chimichurri sauce and salad bed underneath">
+                                    <img src="media/food/ice cream.avif"
+                                        alt="ice cream tiramisu on glass cups with oreos and sliced strawberry">
+
+                                </div>
+
+                                <div class="food-slides" id="slide-3">
+                                    <img src="media/food/dessert.avif"
+                                        alt="Frozen maple syrup souffle with almonds in cups">
+                                    <img src="media/food/meat.avif"
+                                        alt="Filet mignon on a cutting board">
+                                </div>
+
+                            </div>
+
+                            <div class="slider-nav">
+                                <a href="#slide-1"></a>
+                                <a href="#slide-2"></a>
+                                <a href="#slide-3"></a>
+                            </div>
+
+
+           
                         </div>
-                    </div> --}}
-                    <div>
-                        <p>And much more, including <strong class="p-color">games, a photo booth, and raffles!</strong></p>
+                        
+
                     </div>
                 </div>
-
 
 
             </article>
 
             <aside>
                 <div class="intro-div">
+                    <div>
+                        <p>And much more, including <strong class="p-color">games, a photo booth, and raffles!</strong>
+                        </p>
+                    </div>
                     <div class="visuals margin-center">
+
                         <button type="submit" class="highlighted-options text-center margin-center animated-btns">
                             <a type="submit" href="/register">
                                 <h6>What are you waiting for? Sign up RIGHT NOW!</h6>
@@ -239,7 +268,9 @@
     </section>
 </main>
 
-{{!-- this was switched to it's own inline script because the appendChild action is massively delayed in home.js which has a lot of functions already, causing a huge noticable gap in the carousel, resulting in a cut off an uneven slide of images.  --}}
+{{!-- this was switched to it's own inline script because the appendChild action is massively delayed in home.js which
+has a lot of functions already, causing a huge noticable gap in the carousel, resulting in a cut off an uneven slide of
+images. --}}
 <script>
     var copy = document.querySelector(".logos-slide").cloneNode(true);
     document.querySelector('.logos').appendChild(copy)

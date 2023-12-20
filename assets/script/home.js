@@ -192,7 +192,6 @@ function timeCarousel() {
             x = 1
             return
         }
-
     }
 }
 
