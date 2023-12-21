@@ -47,12 +47,11 @@
     {{>navbar}}
 
     {{#if loggedIn}}
-        {{>dashboard}}
+        {{!-- {{>dashboard}} --}}
+                {{>logout-modal}}
     {{else}}
         {{>login-modal}}
     {{/if}}
-
-        {{>logout-modal}}
 
     {{{body}}}
     
