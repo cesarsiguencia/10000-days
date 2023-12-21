@@ -1,17 +1,18 @@
-<br />
-<p class="post-text center" post-text-id={{id}}>"{{post_text}}"</p>
+<div>
+    <br />
+    <p class="post-text center" post-text-id={{id}}>"{{post_text}}"</p>
 
-<p class="post-user">- Says {{user.username}} | | Posted at {{format_date updatedAt}},
-    
-    {{format_time updatedAt}}
-    
+    <p class="post-user">- Says {{user.username}} | | Posted at {{format_date updatedAt}},
+
+        {{format_time updatedAt}}
+
     </p>
 
-{{#if user.rsvp}}
-<p style="color: lightgreen">Vertified Attending</p>
-{{else}}
-<p class="p-color">Not Attending</p>
-{{/if}}
-<br />
+    {{#if user.rsvp}}
+    <p style="color: lightgreen">Vertified Attending</p>
+    {{else}}
+    <p class="p-color">Not Attending</p>
+    {{/if}}
+    <br />
 
-
+</div>

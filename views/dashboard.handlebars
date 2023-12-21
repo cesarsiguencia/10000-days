@@ -27,18 +27,18 @@
                             <br />
                             <button type="submit" class="highlighted-options text-center margin-center">
                                 <h6>Add Post</h6>
+                                 {{!-- <h1>{{loggedUserId}}</h1> --}}
                             </button>
 
                         </form>
                         <h2 style="margin: 30px auto;">All Posts from RSVPs</h2>
 
-
                         {{#each posts as |post|}}
                         <div class="db-posts" post-id={{post.id}}>
                             <div class="db-posts-display">
-                                <div>
-                                    {{> dashboard-posts post}}
-                                </div>
+
+
+                                {{> dashboard-posts post}}
 
                                 <div class="posts-logos">
                                     {{!-- <img src="/media/icons/love.png" /> --}}
@@ -49,17 +49,29 @@
 
                                     <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
                                     <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
-                                    {{>edit-post post}}
+
+                                    {{!-- <h1>{{../loggedUserId}}</h1> --}}
+                                    {{>edit-post-modal post}}
                                     {{/if}}
                                 </div>
                             </div>
 
-                            <div class="db-post-link-scale">
+                            {{>dashboard-links post}}
+
+                            {{!-- <div class="db-post-link-scale">
                                 {{#if post.post_link}}
 
                                 {{#if post.openGraphMaterial}}
-                                <a class="og-style" href={{post.post_link}} post-link-id={{post.id}} target="_blank">
-                                    {{>open-graph post.openGraphMaterial}}
+                                <a class="og-style" href={{post.post_link}} post-link-id={{post.id}} target="_blank"> --}}
+                                    {{!-- {{>dashboard-links post.openGraphMaterial}} --}}
+
+                                    {{!-- <div class="og-image">
+                                        <img src={{images}}>
+                                    </div>
+
+                                    <div class="og-image">
+                                        <p>{{description}}</p>
+                                    </div>
                                 </a>
 
                                 {{else}}
@@ -70,7 +82,7 @@
                                 {{/if}}
                                 {{/if}}
 
-                            </div>
+                            </div> --}}
 
                             <div>
                                 {{#each post.comments}}

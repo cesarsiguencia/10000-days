@@ -1,0 +1,18 @@
+<div class="post-slides">
+    <div class="homepg-post-previews ">
+        <div class="margin-center">
+            <br />
+            <p class="post-text center">"<strong>{{post_text}}</strong>"</p>
+            <p class="post-user p-strong">- Says {{user.username}}</p>
+            <br />
+            {{#if openGraphMaterial}}
+                {{> homepg-links openGraphMaterial}}
+
+            {{else}}
+            <div class="party-gif-block justify-center">
+                <img src="/media/icons/peanuts-dancing.gif" class="party-gif margin-center"></img>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

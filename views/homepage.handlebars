@@ -86,36 +86,10 @@
                     <div class="visuals margin-center">
 
                         <div class="overflow-hid flex-row">
-                            {{#each posts as |post|}} 
-                            <div class="post-slides">
-                                <div class="homepg-post-previews ">
-                                    <div class="margin-center">
-                                        {{> homepage-posts post}}
+                            {{#each posts as |post|}}
 
-                                        {{#if post.openGraphMaterial}}
-                                        <a class="homepg-post-link justify-center" href={{post.openGraphMaterial.url}}
-                                            target="_blank">
-                                            <div>
-                                                <p class="text-center"><strong class="p-strong">Click To See Link</strong></p>
-                                                {{> open-graph post.openGraphMaterial}}
-
-                                            </div>
-
-                                        </a>
-
-                                        {{else}}
-                                        <div class="party-gif-block justify-center">
-                                            <img src="/media/icons/peanuts-dancing.gif"
-                                                class="party-gif margin-center"></img>
-                                        </div>
-
-
-
-
-                                        {{/if}}
-                                    </div>
-                                </div>
-                            </div>
+                            {{>homepg-posts post}}
+                            
                             {{/each}}
                         </div>
 
@@ -205,11 +179,11 @@
                     <p>Fine food and complemetary wine from top catering partners.</p>
                     <br />
                     <div class="logos">
-        
-                            <div class="slider-wrapper">
+
+                        <div class="slider-wrapper">
                             <div class="slider">
                                 <div class="food-slides" id="slide-1">
-                                    
+
                                     <img src="media/food/pasta.avif" alt="spaghetti with meatballs plate">
                                     <img src="media/food/wine.avif" alt="wine with assorted bread and cheese">
                                 </div>
@@ -225,8 +199,7 @@
                                 <div class="food-slides" id="slide-3">
                                     <img src="media/food/dessert.avif"
                                         alt="Frozen maple syrup souffle with almonds in cups">
-                                    <img src="media/food/meat.avif"
-                                        alt="Filet mignon on a cutting board">
+                                    <img src="media/food/meat.avif" alt="Filet mignon on a cutting board">
                                 </div>
 
                             </div>

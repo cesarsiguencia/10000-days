@@ -1,0 +1,34 @@
+{{!-- <div class="og-image">
+    <img src={{images}}>
+</div>
+
+<div class="og-image">
+    <p>{{description}}</p>
+</div> --}}
+
+
+<div class="db-post-link-scale">
+    {{#if post_link}}
+
+    {{#if openGraphMaterial}}
+    <a class="og-style" href={{post_link}} post-link-id={{id}} target="_blank">
+        {{!-- {{>dashboard-links post.openGraphMaterial}} --}}
+
+        <div class="og-image">
+            <img src={{openGraphMaterial.images}}>
+        </div>
+
+        <div class="og-image">
+            <p>{{openGraphMaterial.description}}</p>
+        </div>
+    </a>
+
+    {{else}}
+    <a class="post-link" href={{post_link}} post-link-id={{id}} target="_blank">
+        <p style="color:#FF9033;">No info displayed, CLICK LINK HERE!</p>
+    </a>
+
+    {{/if}}
+    {{/if}}
+
+</div>
