@@ -216,6 +216,18 @@ function venueCarousel() {
         }
 }
 
+var sliderNav = document.querySelector('.slider-nav')
+function foodCarousel(e){
+    var foodBtns = document.querySelectorAll('.slider-btn')
+
+    foodBtns.forEach((btn)=>{
+        btn.style.opacity = 0.6;
+    })
+
+    var selectedBtn = document.getElementById(e.target.id)
+    selectedBtn.style.opacity = 1 
+}
+
 
 // function trialModal(){
 //     var trial = document.querySelector('.trial-modal')
@@ -230,6 +242,7 @@ document.addEventListener("scroll", welcomeTitlesParallax)
 // document.addEventListener("scroll", venueImgsParallax)
 setInterval(venueCarousel, 4000)
 setInterval(timeCarousel, 40)
+sliderNav.addEventListener("click", foodCarousel)
 // closeTrial.addEventListener("click", function(){
 //     trialModal.style.height="100vh"
 // })
