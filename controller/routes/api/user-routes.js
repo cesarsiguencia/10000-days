@@ -39,11 +39,18 @@ router.put('/email', (req,res) => {
                 id: req.session.user_id
             }
         }
+
     ).then(userFromDb => {
+        console.log(userFromDb, 'hi cez')
         if(!userFromDb){
             res.status(404).json({ message: 'User does not exist'})
             return;
         }
+        // if(userFromDb == [0]){
+        //     console.log('New email input is equal to previous email. No changes')
+        //     res.json({ message:'New email input is equal to previous email. No changes'})
+        //     return;
+        // }
         res.json(userFromDb)
     }).catch(err => {
         res.status(500).json(err)

@@ -20,9 +20,10 @@ function alertFunction(message, failedItems){
 
     if(failedItems){
         if(failedItems.length > 1){
-            failedItems = failed.join(" || ")
+            console.log(failedItems)
+            failedItems = failedItems.join("<br/><br/>")
         }
-        alertModal.querySelector('#alert-modal-text-2').textContent = 
+        alertModal.querySelector('#alert-modal-text-2').innerHTML = 
         failedItems
     }
     pluraity = ""

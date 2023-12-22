@@ -238,9 +238,18 @@ async function changeCredentials(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if (!responseEmail.ok) {
-            failedItems.push("Please enter an email.")
+            failedItems.push("EMAIL is already taken. Try a different email.")
         } else {
-            changedItems.push("email")
+            const res = await responseEmail.json()
+            console.log(res)
+
+            if(res[0] === 0){
+                failedItems.push('Your new EMAIL is the same as current! No changes.')
+            }
+
+            if(res[0] === 1){
+                changedItems.push("EMAIL")
+            }
         }
     }
 
@@ -253,9 +262,20 @@ async function changeCredentials(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if (!responseUsername.ok) {
-            failedItems.push("Username already taken. Please enter a different username.")
+            failedItems.push("USERNAME already taken. Try a different username.")
         } else {
-            changedItems.push("username")
+
+            const res = await responseUsername.json()
+            console.log(res)
+
+            if(res[0] === 0){
+                failedItems.push('Your new USERNAME is the same as current! No changes.')
+            }
+
+            if(res[0] === 1){
+                changedItems.push("USERNAME")
+            }
+            
         }
     }
 
@@ -268,11 +288,23 @@ async function changeCredentials(event) {
             headers: { 'Content-Type': 'application/json' }
         })
         if (!responsePassword.ok) {
-            failedItems.push(`Password returns an ${responsePassword.statusText}`)
+            failedItems.push(`PASSWORD returns an ${responsePassword.statusText}. Make sure it contains both letters and numbers and is at least 8 characters long.`)
         } else {
-            changedItems.push("password")
+            const res = await responsePassword.json()
+            console.log(res)
+
+            if(res[0] === 0){
+                failedItems.push('Your new PASSWORD is the same as current! No changes.')
+            }
+
+            if(res[0] === 1){
+                changedItems.push("PASSWORD")
+            }
         }
     } 
+    if(changedItems.length === 0 && failedItems.length === 0){
+        changedItems = 'No changes submitted'
+    }
     alertModalAppear(changedItems, failedItems)
 }
 
