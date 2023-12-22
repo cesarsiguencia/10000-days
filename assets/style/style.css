@@ -782,7 +782,7 @@ input[type="radio"] {
     }
 
     .food-slides img{
-        height: 200px;
+        height: 250px;
     }
 }
 
@@ -816,6 +816,10 @@ input[type="radio"] {
 
     .map-holder{
         margin: 10px auto
+    }
+
+    .food-slides img{
+        height: 200px;
     }
 
 }
