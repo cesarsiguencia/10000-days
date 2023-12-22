@@ -27,7 +27,6 @@
                             <br />
                             <button type="submit" class="highlighted-options text-center margin-center">
                                 <h6>Add Post</h6>
-                                 {{!-- <h1>{{loggedUserId}}</h1> --}}
                             </button>
 
                         </form>
@@ -35,10 +34,11 @@
 
                         {{#each posts as |post|}}
                         <div class="db-posts" post-id={{post.id}}>
+
+                            {{!-- post content --}}
                             <div class="db-posts-display">
 
-
-                                {{> dashboard-posts post}}
+                                {{>dashboard-posts post}}
 
                                 <div class="posts-logos">
                                     {{!-- <img src="/media/icons/love.png" /> --}}
@@ -50,40 +50,15 @@
                                     <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
                                     <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
 
-                                    {{!-- <h1>{{../loggedUserId}}</h1> --}}
                                     {{>edit-post-modal post}}
                                     {{/if}}
                                 </div>
                             </div>
 
+                            {{!-- link content --}}
                             {{>dashboard-links post}}
 
-                            {{!-- <div class="db-post-link-scale">
-                                {{#if post.post_link}}
-
-                                {{#if post.openGraphMaterial}}
-                                <a class="og-style" href={{post.post_link}} post-link-id={{post.id}} target="_blank"> --}}
-                                    {{!-- {{>dashboard-links post.openGraphMaterial}} --}}
-
-                                    {{!-- <div class="og-image">
-                                        <img src={{images}}>
-                                    </div>
-
-                                    <div class="og-image">
-                                        <p>{{description}}</p>
-                                    </div>
-                                </a>
-
-                                {{else}}
-                                <a class="post-link" href={{post.post_link}} post-link-id={{post.id}} target="_blank">
-                                    <p style="color:#FF9033;">No info displayed, CLICK LINK HERE!</p>
-                                </a>
-
-                                {{/if}}
-                                {{/if}}
-
-                            </div> --}}
-
+                            {{!-- comments content --}}
                             <div>
                                 {{#each post.comments}}
                                 <div class="comment-section">
@@ -102,6 +77,7 @@
                                 {{/each}}
                             </div>
 
+                            {{!-- create a commment --}}
                             <form comment-form-id={{post.id}} post-comment-input-block={{post.id}}
                                 class="comments-block">
 

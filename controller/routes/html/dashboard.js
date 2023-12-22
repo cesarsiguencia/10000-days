@@ -34,10 +34,14 @@ router.get('/', (req, res) => {
                 const posts = await creatingOGPosts(uneditedPosts)
                 setTimeout(()=>{
                     res.render('dashboard', {
-                        posts,
-                        loggedUserId: req.session.user_id,
-                        loggedIn: req.session.loggedIn,
-                        loggedUsername: req.session.username
+
+                
+                            posts,
+                            loggedUserId: req.session.user_id,
+                            loggedIn: req.session.loggedIn,
+                            loggedUsername: req.session.username
+                        
+
                     })
                 },500)
 
