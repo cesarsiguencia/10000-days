@@ -3,6 +3,7 @@ var pluraity = ""
 
 function alertFunction(message, failedItems){
     alertModal.style.height = "100vh"
+    console.log(message)
     if(message.length > 0){
         if(Array.isArray(message)){
             if(message.length > 1){

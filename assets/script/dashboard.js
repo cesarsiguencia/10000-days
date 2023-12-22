@@ -22,6 +22,7 @@ async function submitPost(event) {
                 method: 'post',
                 body: JSON.stringify({
                     postText,
+                    postLink: null
                 }),
                 headers: { 'Content-Type': 'application/json' }
             })
@@ -87,14 +88,16 @@ async function deletePost(postId) {
     }
 }
 
+let selectedPostText
+let selectedPostLink
+
 function loadEditPostModal(postId){
     //Grab Element Texts to Edit
     var editModal = document.querySelector(`[modal-id="${postId}"]`)
     var editForm = document.querySelector(`[form-id="${postId}"]`)
     var closeModalButton = document.querySelector(`[close-id="${postId}"]`)
-    var selectedPostText = document.querySelector(`[post-text-id="${postId}"]`).textContent;
-    let selectedPostLink
-
+    selectedPostText = document.querySelector(`[post-text-id="${postId}"]`).textContent;
+    
     if (!document.querySelector(`[post-link-id="${postId}"]`)) {
         selectedPostLink = null
     } else {
@@ -122,7 +125,7 @@ async function submitEditedPost(event) {
     var updatedLink = document.querySelector(`[modal-link-id="${postId}"]`).value.trim()
 
     if (postId) {
-        if (updatedText) {
+        if (updatedText !== selectedPostText) {
             const responseText = await fetch(`api/posts/update/text/${postId}`, {
                 method: 'put',
                 body: JSON.stringify({
@@ -135,8 +138,8 @@ async function submitEditedPost(event) {
             } else {
                 changedItems.push("post text")
             }
-        }
-        if (updatedLink) {
+        } 
+        if (updatedLink !== selectedPostLink) {
             const responseLink = await fetch(`api/posts/update/link/${postId}`, {
                 method: 'put',
                 body: JSON.stringify({
@@ -150,7 +153,12 @@ async function submitEditedPost(event) {
                 changedItems.push("post link")
             }
         }
+
+        if(changedItems.length === 0){
+            changedItems = 'No changes submitted'
+        }
         alertModalAppear(changedItems, failedItems)
+
     }
 }
 
