@@ -134,12 +134,24 @@ async function submitEditedPost(event) {
                 headers: { 'Content-Type': 'application/json' }
             })
             if(!responseText.ok) {
-                failedItems.push(responseText.statusText)
+                const res = await responseText.json()
+                if (res.name === 'SequelizeDatabaseError' ){
+                    failedItems.push('Post text must be under 250 characters!')
+                } else if (res.name === 'SequelizeValidationError'){
+                    failedItems.push('Cannot leave post text blank!')
+                } else {
+                    failedItems.push(`${responseText.statusText}. There is a problem with the data server.`)
+                }
             } else {
                 changedItems.push("post text")
             }
         } 
+ 
         if (updatedLink !== selectedPostLink) {
+            if(updatedLink === ""){
+                console.log('yes')
+                updatedLink === null
+            }
             const responseLink = await fetch(`api/posts/update/link/${postId}`, {
                 method: 'put',
                 body: JSON.stringify({
@@ -147,12 +159,26 @@ async function submitEditedPost(event) {
                 }),
                 headers: { 'Content-Type': 'application/json' }
             })
-            if (!responseLink.ok) {
-                failedItems(responseLink.statusText)
+            if(!responseLink.ok) {
+                const res = await responseLink.json()
+                console.log(res)
+                if (res.name === 'SequelizeDatabaseError' ){
+                    failedItems.push('Post link must be under 250 characters!')
+                } else if (res.name === 'SequelizeValidationError'){
+                    if(updatedLink == ""){
+                        failedItems.push("URL links cannot be removed from posts once they are included. You can either change the link to a new URL or remove the post as a whole.")
+                    } else {
+                        failedItems.push('Your updated link MUST be a URL link!')
+                    }
+                } else {
+                    failedItems.push(`${responseLink.statusText}. There is a problem with the data server.`)
+                }
             } else {
                 changedItems.push("post link")
             }
         }
+    
+        
 
         if(changedItems.length === 0){
             changedItems = 'No changes submitted'

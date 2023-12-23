@@ -25,6 +25,8 @@ router.put('/update/text/:selectedPost', (req, res) => {
             }
         }
     ).then(newText => {
+
+        console.log(newText)
         if(!newText){
             res.status(404).json('Post does not exist')
             return
