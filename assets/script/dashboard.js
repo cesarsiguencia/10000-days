@@ -18,18 +18,23 @@ async function submitPost(event) {
     const postLink = addPostForm.querySelector('#post-link').value.trim()
     if (postText) {
         if (!postLink) {
+
             const response = await fetch('api/posts', {
                 method: 'post',
                 body: JSON.stringify({
                     postText,
-                    postLink: null
                 }),
                 headers: { 'Content-Type': 'application/json' }
             })
             if (response.ok) {
                 document.location.reload()
             } else {
-                alertModalAppear(response.statusText)
+                const res = await response.json()
+                if (res.name === 'SequelizeDatabaseError' ){
+                    failedItems.push('Post text must be under 250 characters!')
+                } else {
+                    failedItems.push(`${response.statusText}. There is a problem with the data server.`)
+                } 
             }
         } else {
             const response = await fetch('api/posts', {
@@ -44,9 +49,24 @@ async function submitPost(event) {
             if (response.ok) {
                 document.location.reload()
             } else {
-                alertModalAppear(response.statusText)
+                const res = await response.json()
+                console.log(res)
+     
+                    if (res.name === 'SequelizeDatabaseError'){
+                        failedItems.push('All fields must be under 250 characters!')
+                        console.log('too long')
+                    }
+
+                    else if (res.name === 'SequelizeValidationError'){
+                        failedItems.push('Post link MUST be a URL link.')
+                        console.log('not a link')
+                    } else {
+                        
+                    failedItems.push(`${response.statusText}. There is a problem with the data server. Try again later.`)
+                } 
             }
         }
+        alertModalAppear(changedItems, failedItems)
     }
 }
 
