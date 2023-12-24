@@ -2,20 +2,25 @@ var alertModal = document.querySelector('#alert-modal')
 var pluraity = ""
 
 function alertFunction(message, failedItems){
+    console.log(message)
+    console.log(failedItems)
     alertModal.style.height = "100vh"
-    if(message.length > 0){
-        if(Array.isArray(message)){
-            if(message.length > 1){
-                pluraity = "have"
-                message = message.join(" & ")
+    if(message){
+        if(message.length > 0){
+            if(Array.isArray(message)){
+                if(message.length > 1){
+                    pluraity = "have"
+                    message = message.join(" & ")
+                } else {
+                    pluraity = "has"
+                }
+                alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been updated!`
             } else {
-                pluraity = "has"
+                alertModal.querySelector('#alert-modal-text').textContent = message
             }
-            alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been updated!`
-        } else {
-            alertModal.querySelector('#alert-modal-text').textContent = message
         }
     }
+    
 
     if(failedItems){
         if(failedItems.length > 1){
@@ -28,7 +33,14 @@ function alertFunction(message, failedItems){
     pluraity = ""
 
     var alertModalClose = alertModal.querySelector('#alert-modal-close')
+
     alertModalClose.addEventListener("click", function(){
-        window.location.reload()
+        if(!message){
+            alertModal.style.height = "0px";
+          
+        } else {
+            window.location.reload()
+        }
+        
     })
 }

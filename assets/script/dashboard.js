@@ -8,8 +8,8 @@ var failedItems = []
 
 function alertModalAppear(message, failedItems){
     alertFunction(message, failedItems)
-    changedItems = []
-    failedItems = []
+    changedItems.length = 0
+    failedItems.length = 0
 }
 
 async function submitPost(event) {
@@ -61,12 +61,15 @@ async function submitPost(event) {
                         failedItems.push('Post link MUST be a URL link.')
                         console.log('not a link')
                     } else {
-                        
+
                     failedItems.push(`${response.statusText}. There is a problem with the data server. Try again later.`)
                 } 
             }
         }
-        alertModalAppear(changedItems, failedItems)
+        if(failedItems.length > 0){
+            alertModalAppear(null, failedItems)
+        }
+        
     }
 }
 
