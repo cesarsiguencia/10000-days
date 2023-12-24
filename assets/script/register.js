@@ -1,15 +1,27 @@
 var signUpForm = document.querySelector('#form-registration')
 var alertModal = document.querySelector('#alert-modal')
 
-function alertModalAppear(message){
-    alertModal.style.height = "100vh"
-    alertModal.querySelector('#alert-modal-text').textContent = message
+var changedItems = []
+var failedItems = []
 
-    var alertModalClose = alertModal.querySelector('#alert-modal-close')
-    alertModalClose.addEventListener("click", function(){
-        alertModal.style.height = "0px"
-    })
+function alertAppear(message, failed){
+    // alertModal.style.height = "100vh"
+    // alertModal.querySelector('#alert-modal-text').textContent = message
+
+    // var alertModalClose = alertModal.querySelector('#alert-modal-close')
+    // alertModalClose.addEventListener("click", function(){
+    //     alertModal.style.height = "0px"
+    // })
+
+    console.log('going with alert')
+    console.log(failed)
+    alertFunction(message, failed)
+ 
+    changedItems.length = 0
+    failedItems.length = 0 
 }
+
+
 
 async function signUpFormHandler(event){
     event.preventDefault()
@@ -42,14 +54,21 @@ async function signUpFormHandler(event){
         })
 
         if(!response.ok){
-            alertModalAppear(response.statusText, "failed sign up")
+            const res = await response.json()
+            console.log(res)
+
+            failedItems.push(res.name)
+            console.log(failedItems)
+            alertAppear(null, failedItems)
             
         } else {
             document.location.replace('/dashboard')
         }
     } else {
-        alertModalAppear('Please fill out all form fields!')
+        failedItems.push('Please fill out all form fields!')
+        alertModalAppear(null, failedItems)
     }
 }
+
 
 signUpForm.addEventListener("submit", signUpFormHandler)

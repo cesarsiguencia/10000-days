@@ -51,6 +51,8 @@ closeModalButton.addEventListener('click',function(){
     loginModal.style.height = "0px"
 })
 
-loginBtnHome.addEventListener('click', function(){
-    loginModal.style.height = "100vh"
-})
+if(loginBtnHome){
+    loginBtnHome.addEventListener('click', function(){
+        loginModal.style.height = "100vh"
+    })
+}

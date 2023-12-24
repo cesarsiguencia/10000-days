@@ -6,10 +6,10 @@ var dashboardClick = document.querySelector('#posts-center')
 var changedItems = []
 var failedItems = []
 
-function alertModalAppear(message, failedItems){
-    alertFunction(message, failedItems)
+function alertModalAppear(message, failed){
+    alertFunction(message, failed)
     changedItems.length = 0
-    failedItems.length = 0
+    failedItems.length = 0 
 }
 
 async function submitPost(event) {

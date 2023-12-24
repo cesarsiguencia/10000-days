@@ -2,9 +2,9 @@ const router = require("express").Router();
 
 const { User } = require("../../../models/index")
 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
     User.findAll({
-        attributes: {exclude: ['password']}
+        attributes: { exclude: ['password'] }
     })
         .then(usersFromDb => res.json(usersFromDb))
         .catch(err => {
@@ -12,15 +12,15 @@ router.get('/', (req,res) => {
         })
 });
 
-router.get('/:id', (req,res) => {
+router.get('/:id', (req, res) => {
     User.findOne({
-        attributes: { exclude: ['password']},
+        attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         }
     }).then(userFromDb => {
-        if(!userFromDb){
-            res.status(404).json({ message: 'User does not exist'})
+        if (!userFromDb) {
+            res.status(404).json({ message: 'User does not exist' })
             return;
         }
         res.json(userFromDb)
@@ -29,7 +29,7 @@ router.get('/:id', (req,res) => {
     })
 })
 
-router.put('/email', (req,res) => {
+router.put('/email', (req, res) => {
     User.update(
         {
             email: req.body.newEmail
@@ -42,8 +42,8 @@ router.put('/email', (req,res) => {
 
     ).then(userFromDb => {
         console.log(userFromDb, 'hi cez')
-        if(!userFromDb){
-            res.status(404).json({ message: 'User does not exist'})
+        if (!userFromDb) {
+            res.status(404).json({ message: 'User does not exist' })
             return;
         }
         // if(userFromDb == [0]){
@@ -57,7 +57,7 @@ router.put('/email', (req,res) => {
     })
 })
 
-router.put('/username', (req,res) => {
+router.put('/username', (req, res) => {
     User.update(
         {
             username: req.body.newUsername
@@ -68,8 +68,8 @@ router.put('/username', (req,res) => {
             }
         }
     ).then(userFromDb => {
-        if(!userFromDb){
-            res.status(404).json({ message: 'User does not exist'})
+        if (!userFromDb) {
+            res.status(404).json({ message: 'User does not exist' })
             return;
         }
         res.json(userFromDb)
@@ -78,7 +78,7 @@ router.put('/username', (req,res) => {
     })
 })
 
-router.put('/password', (req,res) => {
+router.put('/password', (req, res) => {
     User.update(
         {
             password: req.body.newPassword
@@ -89,8 +89,8 @@ router.put('/password', (req,res) => {
             }
         }
     ).then(userFromDb => {
-        if(!userFromDb){
-            res.status(404).json({ message: 'User does not exist'})
+        if (!userFromDb) {
+            res.status(404).json({ message: 'User does not exist' })
             return;
         }
         res.json(userFromDb)
@@ -99,7 +99,7 @@ router.put('/password', (req,res) => {
     })
 })
 
-router.put('/rsvp', (req,res) => {
+router.put('/rsvp', (req, res) => {
     User.update(
         {
             rsvp: req.body.newRSVP
@@ -110,8 +110,8 @@ router.put('/rsvp', (req,res) => {
             }
         }
     ).then(userFromDb => {
-        if(!userFromDb){
-            res.status(404).json({ message: 'User does not exist'})
+        if (!userFromDb) {
+            res.status(404).json({ message: 'User does not exist' })
             return;
         }
         res.json(userFromDb)
@@ -130,25 +130,29 @@ router.post('/', (req, res) => {
         rsvp: req.body.attendance
     })
         .then((newUser => {
-            req.session.save(()=>{
+            req.session.save(() => {
                 req.session.user_id = newUser.id;
                 req.session.username = newUser.username;
-                req.session.loggedIn = true 
-                res.json(newUser)
-            })
+                req.session.loggedIn = true
 
-        }))
+            })
+            res.json(newUser)
+
+
+        })).catch(err => {
+            res.status(500).json(err)
+        })
 })
 
-router.post('/login', (req,res) => {
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
             email: req.body.loginEmail
         }
-            
+
     }).then(loggedUser => {
-        if(!loggedUser){
-            res.status(400).json({ message: 'No user found with this email'});
+        if (!loggedUser) {
+            res.status(400).json({ message: 'No user found with this email' });
             return;
         }
 
@@ -158,19 +162,19 @@ router.post('/login', (req,res) => {
         //     res.status(400).json({ message: 'Incorrect password'})
         // }
 
-        req.session.save(()=>{
+        req.session.save(() => {
             req.session.user_id = loggedUser.id,
-            req.session.username = loggedUser.username,
-            req.session.loggedIn = true
-            res.json({ user: loggedUser, message: 'Logged In'})
+                req.session.username = loggedUser.username,
+                req.session.loggedIn = true
+            res.json({ user: loggedUser, message: 'Logged In' })
         })
-    }).catch(err =>{
+    }).catch(err => {
         res.status(500).json(err)
     })
 })
 
-router.post('/logout', (req,res) => {
-    if(req.session.loggedIn){
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end()
         })
