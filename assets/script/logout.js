@@ -13,7 +13,7 @@ async function logout(){
     if(response.ok){
         logoutModal.style.height = "100vh"
     } else {
-        alertModalAppear(response.statusText)
+        alertModalAppear(null, response.statusText)
     }
 }
 

@@ -128,20 +128,18 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password,
         rsvp: req.body.attendance
-    })
-        .then((newUser => {
-            req.session.save(() => {
-                req.session.user_id = newUser.id;
-                req.session.username = newUser.username;
-                req.session.loggedIn = true
-
-            })
-            res.json(newUser)
-
-
-        })).catch(err => {
-            res.status(500).json(err)
+    }).then((newUser => {
+        req.session.save(() => {
+            req.session.user_id = newUser.id;
+            req.session.username = newUser.username;
+            req.session.loggedIn = true
+            res.json({ user: newUser, message: 'New user created' })
         })
+        
+
+    })).catch(err => {
+        res.status(500).json(err)
+    })
 })
 
 router.post('/login', (req, res) => {
@@ -164,8 +162,8 @@ router.post('/login', (req, res) => {
 
         req.session.save(() => {
             req.session.user_id = loggedUser.id,
-                req.session.username = loggedUser.username,
-                req.session.loggedIn = true
+            req.session.username = loggedUser.username,
+            req.session.loggedIn = true
             res.json({ user: loggedUser, message: 'Logged In' })
         })
     }).catch(err => {

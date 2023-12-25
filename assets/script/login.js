@@ -5,15 +5,15 @@ var loginForm = document.querySelector('#login-container')
 var closeModalButton = document.querySelector('#modal-close')
 var alertModal = document.querySelector('#alert-modal')
 
-function alertModalAppear(message){
-    alertModal.style.height = "100vh"
-    alertModal.querySelector('#alert-modal-text').textContent = message
+// function alertModalAppear(message){
+//     alertModal.style.height = "100vh"
+//     alertModal.querySelector('#alert-modal-text').textContent = message
 
-    var alertModalClose = alertModal.querySelector('#alert-modal-close')
-    alertModalClose.addEventListener("click", function(){
-        alertModal.style.height = "0px"
-    })
-}
+//     var alertModalClose = alertModal.querySelector('#alert-modal-close')
+//     alertModalClose.addEventListener("click", function(){
+//         alertModal.style.height = "0px"
+//     })
+// }
 
 async function login(event){
     event.preventDefault()
@@ -34,10 +34,12 @@ async function login(event){
         if(response.ok){
             document.location.replace('/dashboard')
         } else {
-            alertModalAppear("Incorrect credentials")
+            failedItems.push("Incorrect credentials")
+            alertModalAppear(null, failedItems)
         }
     } else {
-        alertModalAppear("Please fill out all credentials")
+        failedItems.push("Please fill out all credentials")
+        alertModalAppear(null, failedItems)
     }
 }
 

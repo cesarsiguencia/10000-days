@@ -3,14 +3,14 @@ var credentialsForm = document.querySelector("#change-credentials")
 var rsvpForm = document.querySelector("#change-attendance")
 var dashboardClick = document.querySelector('#posts-center')
 
-var changedItems = []
-var failedItems = []
+// var changedItems = []
+// var failedItems = []
 
-function alertModalAppear(message, failed){
-    alertFunction(message, failed)
-    changedItems.length = 0
-    failedItems.length = 0 
-}
+// function alertModalAppear(message, failed){
+//     alertFunction(message, failed)
+//     changedItems.length = 0
+//     failedItems.length = 0 
+// }
 
 async function submitPost(event) {
     event.preventDefault()
@@ -31,6 +31,7 @@ async function submitPost(event) {
             } else {
                 const res = await response.json()
                 if (res.name === 'SequelizeDatabaseError' ){
+                    console.log(res)
                     failedItems.push('Post text must be under 250 characters!')
                 } else {
                     failedItems.push(`${response.statusText}. There is a problem with the data server.`)
@@ -71,6 +72,13 @@ async function submitPost(event) {
         }
         
     }
+
+    if(postLink && !postText){
+        console.log(postLink)
+        console.log(postText)
+        failedItems.push('You need some text to go along with your link.')
+        alertModalAppear(null, failedItems)
+    }
 }
 
 let currentEditPostId
@@ -106,7 +114,7 @@ async function deletePost(postId) {
         if (responseDelete.ok) {
             alertModalAppear("Your post was deleted")
         } else {
-            alertModalAppear(responseDelete.statusText)
+            alertModalAppear(null, responseDelete.statusText)
         }
     }
 }
@@ -147,6 +155,10 @@ async function submitEditedPost(event) {
     var updatedText = document.querySelector(`[modal-text-id="${postId}"]`).value.trim()
     var updatedLink = document.querySelector(`[modal-link-id="${postId}"]`).value.trim()
 
+    if(updatedLink === ""){
+        updatedLink = null
+    }
+
     if (postId) {
         if (updatedText !== selectedPostText) {
             const responseText = await fetch(`api/posts/update/text/${postId}`, {
@@ -171,10 +183,9 @@ async function submitEditedPost(event) {
         } 
  
         if (updatedLink !== selectedPostLink) {
-            if(updatedLink === ""){
-                console.log('yes')
-                updatedLink === null
-            }
+            console.log(updatedLink)
+            console.log(selectedPostLink)
+
             const responseLink = await fetch(`api/posts/update/link/${postId}`, {
                 method: 'put',
                 body: JSON.stringify({
@@ -188,6 +199,7 @@ async function submitEditedPost(event) {
                 if (res.name === 'SequelizeDatabaseError' ){
                     failedItems.push('Post link must be under 250 characters!')
                 } else if (res.name === 'SequelizeValidationError'){
+
                     if(updatedLink == ""){
                         failedItems.push("URL links cannot be removed from posts once they are included. You can either change the link to a new URL or remove the post as a whole.")
                     } else {
@@ -203,7 +215,7 @@ async function submitEditedPost(event) {
     
         
 
-        if(changedItems.length === 0){
+        if(changedItems.length === 0 && failedItems.length === 0){
             changedItems = 'No changes submitted'
         }
         alertModalAppear(changedItems, failedItems)
@@ -251,7 +263,7 @@ async function submitComment(event) {
         if (responseComment.ok) {
             document.location.reload()
         } else {
-            alertModalAppear(responseComment.statusText)
+            alertModalAppear(null, responseComment.statusText)
         }
     }
 }
@@ -262,10 +274,11 @@ async function deleteComment(commentId) {
             method: 'delete',
         })
         if (responseDeleteComment.ok) {
-            alertModalAppear('Comment deleted!')
+            alertModalAppear('Comment deleted')
         } else {
-            alertModalAppear('You are not allowed to delete posts with comments')
+            failedItems.push('You are not allowed to delete posts with comments')
         }
+        // alertModalAppear(changedItems, failedItems)
     }
 }
 
