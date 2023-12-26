@@ -49,7 +49,6 @@ hero.style.height = "120vh";
 function homeParallax(event) {
     const hero = document.querySelector(".hero")
     const scrollPosition = event.target.scrollingElement.scrollTop;
-
     if (scrollPosition > 20) {
         hero.style.height = "100vh";
     } else {
@@ -216,7 +215,8 @@ function venueCarousel() {
         }
 }
 
-var sliderNav = document.querySelector('.slider-nav')
+var sliderNav = document.querySelector('#slider-nav')
+
 function foodCarousel(e){
     var foodBtns = document.querySelectorAll('.slider-btn')
 
@@ -229,11 +229,14 @@ function foodCarousel(e){
 }
 
 
-// function trialModal(){
-//     var trial = document.querySelector('.trial-modal')
-// }
+function trialModal(){
+    var trial = document.querySelector('.trial-modal')
+}
 
 // Home Page Function calls
+
+
+
 
 window.onload = loadParallax
 window.onload = buttonScale
@@ -243,6 +246,7 @@ document.addEventListener("scroll", welcomeTitlesParallax)
 setInterval(venueCarousel, 4000)
 setInterval(timeCarousel, 40)
 sliderNav.addEventListener("click", foodCarousel)
+
 // closeTrial.addEventListener("click", function(){
 //     trialModal.style.height="100vh"
 // })

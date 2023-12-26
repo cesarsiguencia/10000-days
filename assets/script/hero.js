@@ -3,7 +3,7 @@ var welcomeCarousel = document.querySelector("#welcome-carousel")
 var welcomeTitleHolder = ''
 
 function changeWords(currentIndex) {
-    var welcomeWords = ["You're Invited!", "On my 10,000th day of life", "Saturday, October 21st, 2023"]
+    var welcomeWords = ["You're Invited!", "On my 10,000th day of life", "Saturday, January 1st, 2023"]
 
     if (welcomeTitleHolder) {
         welcomeTitleHolder.remove()
@@ -44,6 +44,20 @@ function appearButton() {
         button.style.opacity = 0
         introAudio.play()
         introAudio.volume = 0.8
+
+        setTimeout(function(){
+
+            var selectedElement = document.querySelector('#introduction')
+            selectedElement.style.opacity = 0
+            selectedElement.scrollIntoView({
+                block: 'start',
+                behavior: 'smooth',
+        
+            });
+            selectedElement.style.transition = "5s"
+            selectedElement.style.opacity = 1
+
+        }, 5000)
     })
 }
 
