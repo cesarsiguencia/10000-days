@@ -218,7 +218,7 @@ button:hover {
     left: 0;
     overflow: auto;
     position: fixed;
-    z-index: 3;
+    z-index: 10;
     height: 0px;
 }
 
@@ -307,6 +307,24 @@ main{
     width: 100%;
 }
 
+.sec{
+    position: relative;
+    z-index: -1;
+}
+
+.city-bg{
+    width: 100%;
+    background-image: url('../media/bg-png/city2.avif');
+    background-repeat: repeat-x;
+    background-size: auto 105%;
+    height: 1000px;
+    position: absolute;
+    bottom: -290px;
+    z-index: 0
+}
+
+
+
 .sec:nth-child(even) {
     background-color: var(--fourth-color)
 }
@@ -324,6 +342,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 2;
 }
 
 article {
@@ -683,7 +702,7 @@ input[type="radio"] {
     width: 250px;
     height: 100%;
     content: "";
-    z-index:2;
+    z-index:4;
 }
 
 .transparent:before{
@@ -747,7 +766,7 @@ input[type="radio"] {
     bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: 3;
 }
 
 
