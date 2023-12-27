@@ -76,113 +76,52 @@ function welcomeTitlesParallax(event) {
     }
 }
 
-
-// function venueImgsParallax() {
-//     const skylark1 = document.querySelector(".skylark-img")
-//     const skylark2 = document.querySelector(".skylark-img-2")
-//     const skylark3 = document.querySelector(".skylark-img-3")
-//     const venueBox = document.querySelector(".venue-split")
-
-//     const imgsArray = [skylark1, skylark2, skylark3] 
-//     const position = venueBox.getBoundingClientRect()
-
-//     if (position.top >= window.innerHeight ) {
-
-//         imgsArray.forEach((image)=>{
-//             image.style.backgroundSize = "140%"
-//         })
-//     } else {
-//         imgsArray.forEach((image)=>{
-//             image.style.backgroundSize = "115%"
-//         })
-//     }
-// }
-
-
-// function equationParallax() {
-//     const equationDiv = document.querySelector(".equation")
-//     const position = equationDiv.getBoundingClientRect()
-//     if (position.top >= 0 && position.bottom <= window.innerHeight) {
-//         equationDiv.style.scale = 1
-//     } else {
-//         equationDiv.style.scale = 0.75
-//     }
-// }
-
 var playerOn = true
 let currentSong
 
-var audioButton = document.querySelector('#audio-trigger')
+const playPause = document.querySelector('#audio-trigger')
+const nextButton = document.querySelector('#next-button')
 
+const mj = document.querySelector('#mj')
+const princeRoyce = document.querySelector('#prince-royce')
+const neyo = document.querySelector('#ne-yo')
+const jayz = document.querySelector('#jay-z')
 
-const beReal = document.querySelector('#intro-audio')
-const audioSinCara = document.querySelector('#bottom-audio')
-var musicCollection = [beReal, audioSinCara]
+var musicCollection = [mj, princeRoyce, neyo, jayz]
+var songInfoDisplay = document.querySelector('#song-info')
 
-
-
-var songInfo = document.querySelector('#song-info')
-
-function playSinCara(){
-
-    console.log(currentSong)
+function playSongs(){
     if(currentSong === undefined){
         currentSong = musicCollection[0]
     }
-    console.log(currentSong)
-    console.log('I should be playying')
+
     if (playerOn === true){
-        console.log('prepping to play')
         currentSong.play()
         currentSong.volume = 0.1
         var info = currentSong.getAttribute("name")
-        songInfo.innerHTML = info
+        songInfoDisplay.innerHTML = info
         playerOn = false
-        currentSong.addEventListener('ended', function(){
-            currentIndex = musicCollection.indexOf(currentSong)
-            console.log(currentIndex)
-            currentSong = musicCollection[currentIndex + 1]
-            playerOn = true
-            playSinCara()
-        })
-        console.log(playerOn)
-        return;
-    } 
-    if(playerOn === false) {
+    } else {
         currentSong.pause()
         currentSong.volume = 0
         playerOn = true
         return;
     }
-
-    if(currentSong){
-
-    }
-
-
-    // currentSong.addEventListener('ended', function(){
-    //     currentIndex = musicCollection.indexOf(currentSong)
-    //     console.log(currentIndex)
-    //     currentSong = musicCollection[currentIndex + 1]
-    //     playSinCara()
-    // })
-
-
-
-
 }
 
-// if(currentSong){
-//     currentSong.onended = function(){
-//         currentIndex = musicCollection.indexOf(currentSong)
-//         console.log(currentIndex)
-//         currentSong = musicCollection[currentIndex + 1]
-//         playSinCara()
-//     }
-// }
-
-
-
+function nextSong(){
+    currentSong.pause()
+    currentSong.currentTime = 0
+    var currentIndex = musicCollection.indexOf(currentSong)
+    if(currentIndex === 3){
+        currentSong = undefined
+    } else {
+        currentSong = null
+        currentSong = musicCollection[currentIndex + 1]
+    }
+    playerOn = true
+    playSongs()
+}
 
 // function storyParallax() {
 //     const storyDiv = document.querySelector(".about-story")
@@ -300,16 +239,14 @@ window.onload = loadParallax
 window.onload = buttonScale
 document.addEventListener("scroll", homeParallax);
 document.addEventListener("scroll", welcomeTitlesParallax)
-// document.addEventListener("scroll", venueImgsParallax)
 setInterval(venueCarousel, 4000)
 setInterval(timeCarousel, 40)
 sliderNav.addEventListener("click", foodCarousel)
-audioButton.addEventListener("click", playSinCara)
-
+playPause.addEventListener("click", playSongs)
+nextButton.addEventListener("click", nextSong)
 
 // closeTrial.addEventListener("click", function(){
 //     trialModal.style.height="100vh"
 // })
 
-// document.addEventListener("scroll", equationParallax)
 // document.addEventListener("scroll", storyParallax)
