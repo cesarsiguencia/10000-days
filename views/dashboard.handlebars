@@ -41,14 +41,14 @@
                                 {{>dashboard-posts post}}
 
                                 <div class="posts-logos">
-                                    {{!-- <img src="/media/icons/love.png" /> --}}
-                                    <img class="comment" post-id={{post.id}} src="/media/icons/comment.png" />
+                                    {{!-- <img src="/media/icons/love.avif" /> --}}
+                                    <img class="comment" post-id={{post.id}} src="/media/icons/comment.avif" />
 
 
                                     {{#if (checkUserId post.user_id ../loggedUserId)}}
 
-                                    <img class="edit" post-id={{post.id}} src="/media/icons/edit.png" />
-                                    <img class="trash" post-id={{post.id}} src="/media/icons/trash.png" />
+                                    <img class="edit" post-id={{post.id}} src="/media/icons/edit.avif" />
+                                    <img class="trash" post-id={{post.id}} src="/media/icons/trash.avif" />
 
                                     {{>edit-post-modal post}}
                                     {{/if}}
