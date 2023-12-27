@@ -110,21 +110,79 @@ function welcomeTitlesParallax(event) {
 // }
 
 var playerOn = true
-const audioButton = document.querySelector('#audio-trigger')
+let currentSong
+
+var audioButton = document.querySelector('#audio-trigger')
+
+
+const beReal = document.querySelector('#intro-audio')
 const audioSinCara = document.querySelector('#bottom-audio')
+var musicCollection = [beReal, audioSinCara]
+
+
+
+var songInfo = document.querySelector('#song-info')
+
 function playSinCara(){
 
-    if (playerOn === true){
-        audioSinCara.play()
-        audioSinCara.volume = 0.1
-        playerOn === false
-    } 
-    if (playerOn === false){
-        audioSinCara.pause()
-        audioSinCara.volume = 0
-        playerOn === true
+    console.log(currentSong)
+    if(currentSong === undefined){
+        currentSong = musicCollection[0]
     }
+    console.log(currentSong)
+    console.log('I should be playying')
+    if (playerOn === true){
+        console.log('prepping to play')
+        currentSong.play()
+        currentSong.volume = 0.1
+        var info = currentSong.getAttribute("name")
+        songInfo.innerHTML = info
+        playerOn = false
+        currentSong.addEventListener('ended', function(){
+            currentIndex = musicCollection.indexOf(currentSong)
+            console.log(currentIndex)
+            currentSong = musicCollection[currentIndex + 1]
+            playerOn = true
+            playSinCara()
+        })
+        console.log(playerOn)
+        return;
+    } 
+    if(playerOn === false) {
+        currentSong.pause()
+        currentSong.volume = 0
+        playerOn = true
+        return;
+    }
+
+    if(currentSong){
+
+    }
+
+
+    // currentSong.addEventListener('ended', function(){
+    //     currentIndex = musicCollection.indexOf(currentSong)
+    //     console.log(currentIndex)
+    //     currentSong = musicCollection[currentIndex + 1]
+    //     playSinCara()
+    // })
+
+
+
+
 }
+
+// if(currentSong){
+//     currentSong.onended = function(){
+//         currentIndex = musicCollection.indexOf(currentSong)
+//         console.log(currentIndex)
+//         currentSong = musicCollection[currentIndex + 1]
+//         playSinCara()
+//     }
+// }
+
+
+
 
 // function storyParallax() {
 //     const storyDiv = document.querySelector(".about-story")
@@ -229,9 +287,9 @@ function foodCarousel(e){
 }
 
 
-function trialModal(){
-    var trial = document.querySelector('.trial-modal')
-}
+// function trialModal(){
+//     var trial = document.querySelector('.trial-modal')
+// }
 
 // Home Page Function calls
 
@@ -246,10 +304,12 @@ document.addEventListener("scroll", welcomeTitlesParallax)
 setInterval(venueCarousel, 4000)
 setInterval(timeCarousel, 40)
 sliderNav.addEventListener("click", foodCarousel)
+audioButton.addEventListener("click", playSinCara)
+
 
 // closeTrial.addEventListener("click", function(){
 //     trialModal.style.height="100vh"
 // })
-// audioButton.addEventListener("click", playSinCara)
+
 // document.addEventListener("scroll", equationParallax)
 // document.addEventListener("scroll", storyParallax)

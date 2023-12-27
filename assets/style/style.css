@@ -236,10 +236,10 @@ button:hover {
     margin: 15px auto
 }
 
-#audio-trigger {
+/* #audio-trigger {
     display: block;
     border: 3px white dotted;
-}
+} */
 
 .videoWrapper {
     position: relative;
@@ -309,6 +309,7 @@ main{
 
 .sec{
     position: relative;
+    /* relative parent must be at 0 index for background images to function and for JS features to continue to work on top of the parent. Child background imgs can remain as a negative index */
     z-index: 0;
 }
 
@@ -316,7 +317,7 @@ main{
     min-width: 100%;
     background-image: url('../media/bg-png/fireworks.gif');
     filter: invert(1);
-    opacity: 0.8;
+    opacity: 0.9;
     min-height: 100vh;
     position: absolute;
     z-index: -1
@@ -330,7 +331,7 @@ main{
     height: 1000px;
     position: absolute;
     bottom: -490px;
-    z-index: 0
+    z-index: -1
 }
 
 .balloons-bg{
@@ -341,7 +342,7 @@ main{
     min-height: 100vh;
     opacity: 0.15;
     position: absolute;
-    z-index: 0
+    z-index: -1
 }
 
 .sec:nth-child(even) {
@@ -802,6 +803,23 @@ input[type="radio"] {
 #food-1{
     opacity: 1
 }
+
+.media-player{
+    display: flex;
+    background-color: black;
+}
+
+.media-controls > img{
+    display: inline-block;
+    box-sizing:unset;
+    height: 50px;
+    border-radius: 100px;
+    border: 5px solid black;
+    background-color: white;
+    margin: 0 5px;
+
+}
+
 
 /* Media Queries ------------------------- */
 

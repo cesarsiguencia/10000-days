@@ -1,14 +1,13 @@
 {{> alert}}
 {{> trial-modal}}
 
-<audio id="intro-audio">
+<audio id="intro-audio" name="Got To Be Real - Cheryl Lynn">
     <source src="media/audio/Got To Be Real - Intro.mp3">
-
 </audio>
-{{!-- <audio id="bottom-audio">
+<audio id="bottom-audio" name="Corazon Sin Cara - Prince Royce">
     <source src="media/audio/Corazon Sin Cara.mp3">
 
-</audio> --}}
+</audio>
 <main>
     <div class="hero flex-row justify-center">
         <div class="welcome-box">
@@ -53,6 +52,8 @@
                             <button class="sub-btns text-center" id="login-button-body">
                                 <p>Login In</p>
                             </button>
+                        
+              
                         </div>
                     </div>
 
@@ -159,11 +160,16 @@
 
     <section class="sec section-signup" id="ameneties">
         <div class="balloons-bg"></div>
+
         <div class="section-content margin-center">
+            
             <article>
                 <h2 class="sec-titles text-left">What to expect at this party of the year!</h2>
 
+                    
+
                 <div class="content-divs">
+                
                     <div>
                         <p>A handpicked selection of my favorite jams to dance. Get ready to show off your dance moves!
                         </p>
@@ -179,7 +185,23 @@
                                 <img src="/media/albums/Party In The USA.avif" alt="a pop album cover">
                             </div>
                         </div>
+                        <div class="media-player"> 
+                            <div class="media-controls">
+                            <img src="media/icons/play-pause.svg" alt="play/pause button for songs" class="music-btns" id="audio-trigger">
+                               <img src="media/icons/fast-forward.svg" alt="skip button for next song" class="music-btns" >
+
+                               
+                            </div>
+                            <div class="flex justify-center">
+                                <h4 id="song-info"></h4>
+                            </div>
+
+                        </div>
+                        
                     </div>
+
+                    
+
                     <div>
                         <p>Fine food and complemetary wine from top catering partners.</p>
                         <br />
