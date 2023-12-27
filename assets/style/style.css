@@ -808,6 +808,13 @@ input[type="radio"] {
 .media-player{
     display: flex;
     background-color: black;
+    border-radius: 10px;
+    position: relative;
+}
+
+.media-fixed{
+    display: flex;
+    z-index: 1
 }
 
 .media-controls{
@@ -823,6 +830,28 @@ input[type="radio"] {
     margin: 0 10px;
 }
 
+/* .media-controls{
+    z-index: 1
+}
+
+.media-info{
+    background-color: #1e8339;
+    z-index: 1
+} */
+
+
+.playing-gif{
+    width: 100%;
+    border-radius: 10px;
+    background-repeat: repeat-x;
+    background-image: url('../media/bg-png/playing.gif');
+    background-size: auto 120%;
+    opacity: 0.6;
+    height: 30px;
+    bottom: 0px;
+    position: absolute;
+    z-index: -1;
+}
 
 /* Media Queries ------------------------- */
 
@@ -982,12 +1011,13 @@ input[type="radio"] {
         width: 90%
     }
 
-    .media-player {
-        display: block;
+    .media-info{
+        width: 100%
     }
 
-    #song-info{
-        padding-bottom: 0 10px;
+    .media-fixed {
+        display: block;
+        margin: 0 auto;
     }
 
     .media-controls{
@@ -996,9 +1026,12 @@ input[type="radio"] {
         margin: 0 auto;
         justify-content: space-evenly;
     }
+
     .media-controls >img{
         width: auto;
     }
+
+
 }
 
 @media screen and (max-width: 650px) {

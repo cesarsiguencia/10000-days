@@ -81,6 +81,7 @@ let currentSong
 
 const playPause = document.querySelector('#audio-trigger')
 const nextButton = document.querySelector('#next-button')
+const mediaInfo = document.querySelector('.media-info')
 
 const mj = document.querySelector('#mj')
 const princeRoyce = document.querySelector('#prince-royce')
@@ -89,8 +90,10 @@ const jayz = document.querySelector('#jay-z')
 
 var musicCollection = [mj, princeRoyce, neyo, jayz]
 var songInfoDisplay = document.querySelector('#song-info')
+const playGif = document.querySelector('.playing-gif')
 
 function playSongs(){
+    mediaInfo.style = "padding: 10px;"
     if(currentSong === undefined){
         currentSong = musicCollection[0]
     }
@@ -100,10 +103,12 @@ function playSongs(){
         currentSong.volume = 0.1
         var info = currentSong.getAttribute("name")
         songInfoDisplay.innerHTML = info
+        playGif.style = "z-index: 0"
         playerOn = false
     } else {
         currentSong.pause()
         currentSong.volume = 0
+        playGif.style = "z-index: -1"
         playerOn = true
         return;
     }
