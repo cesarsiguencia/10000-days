@@ -72,6 +72,7 @@ router.put('/username', (req, res) => {
             res.status(404).json({ message: 'User does not exist' })
             return;
         }
+        req.session.username = req.body.newUsername
         res.json(userFromDb)
     }).catch(err => {
         res.status(500).json(err)
@@ -153,7 +154,7 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'No user found with this email' });
             return;
         }
-
+        
         // const passwordCheck = loggedUser.checkPassword(req.body.loginPassword)
 
         // if(!passwordCheck){
