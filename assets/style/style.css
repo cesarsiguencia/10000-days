@@ -850,14 +850,26 @@ input[type="radio"] {
 .demo-button{
     position: fixed;
     right: 0px;
-    bottom: 300px;;
+    bottom: 5%;
     width: 200px;
     height: auto;
+    scale: 1;
+    opacity: 0;
+    z-index: 1
+}
+
+.demo-open{
     background-color: var(--third-color);
     padding: 10px 10px;
     border-radius: 10px;;
-    border: 3px solid var(--primary-color)
+    border: 3px solid var(--primary-color);
+    transition: ease-in-out 0.5s
 }
+
+.demo-open:hover{
+    background-color: var(--fifth-color);
+}
+
 
 /* Media Queries ------------------------- */
 

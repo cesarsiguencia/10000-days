@@ -211,6 +211,13 @@ nextButton.addEventListener("click", nextSong)
 const demoModal = document.querySelector('#demo-modal')
 const demoClose = document.querySelector('#demo-close')
 const demoTrigger = document.querySelector('#demo-trigger')
+const demoAlertRemove = document.querySelector('#demo-btn-remove')
+const demoAlert = document.querySelector('.demo-button')
+
+setTimeout(function(){
+    demoAlert.style.opacity = 1
+}, 5000)
+
 
 demoTrigger.addEventListener("click", function(){
     demoModal.style.height = "100vh"
@@ -218,6 +225,11 @@ demoTrigger.addEventListener("click", function(){
 
 demoClose.addEventListener("click", function(){
     demoModal.style.height="0px"
+    demoAlert.style.display = "none"
+})
+
+demoAlertRemove.addEventListener("click", function(){
+    demoAlert.style.display = "none"
 })
 
 // document.addEventListener("scroll", storyParallax)
