@@ -172,8 +172,12 @@ button:hover {
     padding: 15px 30px;
     margin-top: 25px;
     text-decoration: none;
-
 }
+
+#demo-close{
+    background-color: var(--fifth-color);
+}
+
 
 .sub-btns:hover {
     background-color: var(--sixth-color);
@@ -830,16 +834,6 @@ input[type="radio"] {
     margin: 0 10px;
 }
 
-/* .media-controls{
-    z-index: 1
-}
-
-.media-info{
-    background-color: #1e8339;
-    z-index: 1
-} */
-
-
 .playing-gif{
     width: 100%;
     border-radius: 10px;
@@ -851,6 +845,18 @@ input[type="radio"] {
     bottom: 0px;
     position: absolute;
     z-index: -1;
+}
+
+.demo-button{
+    position: fixed;
+    right: 0px;
+    bottom: 300px;;
+    width: 200px;
+    height: auto;
+    background-color: var(--third-color);
+    padding: 10px 10px;
+    border-radius: 10px;;
+    border: 3px solid var(--primary-color)
 }
 
 /* Media Queries ------------------------- */

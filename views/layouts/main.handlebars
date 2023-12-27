@@ -46,14 +46,12 @@
 <body>
     {{>navbar}}
     {{#if loggedIn}}
-        {{!-- {{>dashboard}} --}}
-                {{>logout-modal}}
+    {{>logout-modal}}
     {{else}}
         {{>login-modal}}
     {{/if}}
 
     {{{body}}}
-    {{!-- <script src="/script/alert.js"></script> --}}
     {{>footer}}
 
     {{#if loggedIn}}
@@ -61,7 +59,6 @@
     {{else}}
     <script src="script/login.js"></script>
     {{/if}}
-    {{!-- <script src="script/trial.js"></script> --}}
     <script src="script/global.js"></script>
 
     

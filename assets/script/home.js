@@ -10,42 +10,6 @@ var dummyForm = document.querySelector('.registration')
 const hero = document.querySelector(".hero")
 hero.style.height = "120vh";
 
-// var alertModal = document.querySelector('#alert-modal')
-// var changedItems = []
-// var failedItems = []
-// var pluraity = ""
-
-// function alertModalAppear(message, failedItems){
-//     alertModal.style.height = "100vh"
-//     if(Array.isArray(message)){
-//         if(message.length > 1){
-//             pluraity = "have"
-//             message = message.join(" & ")
-//         } else {
-//             pluraity = "has"
-//         }
-//         alertModal.querySelector('#alert-modal-text').textContent = `Your ${message} ${pluraity} been updated!`
-//     } else {
-//         alertModal.querySelector('#alert-modal-text').textContent = message
-//     }
-
-//     if(failedItems){
-//         if(failedItems.length > 1){
-//             failedItems = failed.join(" || ")
-//         }
-//         alertModal.querySelector('#alert-modal-text-2').textContent = failedItems
-//     }
-
-//     changedItems = []
-//     pluraity = ""
-//     failedItems = []
-
-//     var alertModalClose = alertModal.querySelector('#alert-modal-close')
-//     alertModalClose.addEventListener("click", function(){
-//         alertModal.style.height = "0px"
-//     })
-// }
-
 function homeParallax(event) {
     const hero = document.querySelector(".hero")
     const scrollPosition = event.target.scrollingElement.scrollTop;
@@ -231,13 +195,7 @@ function foodCarousel(e){
 }
 
 
-// function trialModal(){
-//     var trial = document.querySelector('.trial-modal')
-// }
-
 // Home Page Function calls
-
-
 
 
 window.onload = loadParallax
@@ -250,8 +208,16 @@ sliderNav.addEventListener("click", foodCarousel)
 playPause.addEventListener("click", playSongs)
 nextButton.addEventListener("click", nextSong)
 
-// closeTrial.addEventListener("click", function(){
-//     trialModal.style.height="100vh"
-// })
+const demoModal = document.querySelector('#demo-modal')
+const demoClose = document.querySelector('#demo-close')
+const demoTrigger = document.querySelector('#demo-trigger')
+
+demoTrigger.addEventListener("click", function(){
+    demoModal.style.height = "100vh"
+})
+
+demoClose.addEventListener("click", function(){
+    demoModal.style.height="0px"
+})
 
 // document.addEventListener("scroll", storyParallax)
