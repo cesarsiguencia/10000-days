@@ -305,6 +305,7 @@ main{
     position: relative;
     /* relative parent must be at 0 index for background images to function and for JS features to continue to work on top of the parent. Child background imgs can remain as a negative index */
     z-index: 0;
+    transition: ease-in-out 2s;
 }
 
 .fireworks-bg{
