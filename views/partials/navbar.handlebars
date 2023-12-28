@@ -5,34 +5,33 @@
         <div class="mobile-options"></div>
     </div>
     <nav id="nav">
-        <a class="nav-links" id="#introduction" href="/#introduction">
-            <div class="nav-links-selected margin-center"  id="#introduction">Introduction</div>
+        <a class="nav-links" id="#introduction" href="/#introduction" aria-label="Visit the introduction section.">
+            <div class="nav-links-selected margin-center"  >Introduction</div>
         </a>
 
-        <a class="nav-links" id="#venue" href="/#venue">
-            <div class="nav-links-selected margin-center" id="#venue" >The Venue</div>
+        <a class="nav-links" id="#venue" href="/#venue" aria-label="Visit the venue section.">
+            <div class="nav-links-selected margin-center">The Venue</div>
         </a>
 
-        <a class="nav-links" id="#ameneties" href="/#ameneties">
-            <div class="nav-links-selected margin-center" id="#ameneties">Ameneties</div>
+        <a class="nav-links" id="#ameneties" href="/#ameneties" aria-label="Visit the ameneties section">
+            <div class="nav-links-selected margin-center" >Ameneties</div>
         </a>
 
         {{#if loggedIn}}
-        <a class="nav-links" id="dashboard-button" href="/dashboard">
+        <a class="nav-links" id="dashboard-button" href="/dashboard" aria-label="Visit the dashboard section.">
             <div class="nav-links-selected margin-center">My Stuff</div>
         </a>
 
-
-        <a class="nav-links highlighted-options" id="logout-button">
+        <div class="nav-links highlighted-options" id="logout-button">
             <div class="nav-links-selected margin-center">Log Out</div>
-        </a>
+        </div>
 
         {{else}}
 
-        <a class="nav-links" id="login-button">
+        <div class="nav-links" id="login-button">
             <div class="nav-links-selected margin-center">Login In</div>
-        </a>
-        <a class="nav-links highlighted-options" href="/register">
+        </div>
+        <a class="nav-links highlighted-options" href="/register" aria-label="Visit the registration section.">
             <div class="nav-links-selected margin-center" id="#signUp">Reserve Your Slot</div>
         </a>
         {{/if}}

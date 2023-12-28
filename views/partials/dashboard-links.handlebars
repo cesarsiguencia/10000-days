@@ -1,17 +1,8 @@
-{{!-- <div class="og-image">
-    <img src={{images}}>
-</div>
-
-<div class="og-image">
-    <p>{{description}}</p>
-</div> --}}
-
-
 <div class="db-post-link-scale">
     {{#if post_link}}
 
     {{#if openGraphMaterial}}
-    <a class="og-style" href={{post_link}} post-link-id={{id}} target="_blank">
+    <a class="og-style" href={{post_link}} aria-label="User shared a link with a post they created." post-link-id={{id}} target="_blank">
         {{!-- {{>dashboard-links post.openGraphMaterial}} --}}
 
         <div class="og-image">
@@ -24,7 +15,7 @@
     </a>
 
     {{else}}
-    <a class="post-link" href={{post_link}} post-link-id={{id}} target="_blank">
+    <a class="post-link" href={{post_link}} aria-label="User shared a link with a post they created." post-link-id={{id}} target="_blank">
         <p class="text-center p-color">No info displayed, CLICK LINK HERE!</p>
     </a>
 

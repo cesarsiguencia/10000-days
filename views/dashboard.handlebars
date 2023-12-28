@@ -3,14 +3,14 @@
 
 <main>
     <section>
-        <h2 class="sec-titles" style="margin: 15px auto;">Welcome To Your Dashboard, {{loggedUsername}}!</h2>
+        <p class="h2 sec-titles" style="margin: 15px auto;">Welcome To Your Dashboard, {{loggedUsername}}!</p>
 
         <div class="section-content db-content margin-center">
 
             <article>
                 <div>
                     <div id="posts-center">
-                        <h2>Add A Post!</h2>
+                        <p class="h2">Add A Post!</p>
 
                         <form class="add-post" id="add-post">
                             <div class="add-post-components">
@@ -24,11 +24,11 @@
                             </div>
                             <br />
                             <button type="submit" class="highlighted-options text-center margin-center">
-                                <h6>Add Post</h6>
+                                <p class="h6">Add Post</p>
                             </button>
 
                         </form>
-                        <h2 style="margin: 30px auto;">All Posts from RSVPs</h2>
+                        <p class="h2" style="margin: 30px auto;">All Posts from RSVPs</p>
 
                         {{#each posts as |post|}}
                         <div class="db-posts" post-id={{post.id}}>
@@ -39,14 +39,14 @@
                                 {{>dashboard-posts post}}
 
                                 <div class="posts-logos">
-                                    {{!-- <img src="/media/icons/love.avif" /> --}}
-                                    <img class="comment" post-id={{post.id}} src="/media/icons/comment.avif" />
+                                    {{!-- <img src="/media/icons/love.avif" alt="A heart icon for liking user posts."/> --}}
+                                    <img class="comment" post-id={{post.id}} src="/media/icons/comment.avif" alt="A conversation bubble icon to comment on user posts."/>
 
 
                                     {{#if (checkUserId post.user_id ../loggedUserId)}}
 
-                                    <img class="edit" post-id={{post.id}} src="/media/icons/edit.avif" />
-                                    <img class="trash" post-id={{post.id}} src="/media/icons/trash.avif" />
+                                    <img class="edit" post-id={{post.id}} src="/media/icons/edit.avif" alt="A post it note icon for users to edit their selected post."/>
+                                    <img class="trash" post-id={{post.id}} src="/media/icons/trash.avif" alt="A trash bin icon for users to delete their post."/>
 
                                     {{>edit-post-modal post}}
                                     {{/if}}
@@ -68,7 +68,7 @@
                                     <div class="posts-logos comment-blocks">
                                         {{#if (checkUserId user.id ../../loggedUserId)}}
                                         <img class="comment-trash" comment-trash-id={{id}}
-                                            src="/media/icons/trash.avif" />
+                                            src="/media/icons/trash.avif" alt="A trash bin icon for users to delete their comment."/>
                                         {{/if}}
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
 
             <aside>
                 <div class="aside-content">
-                    <h2>Change Credentials</h2>
+                    <p class="h2">Change Credentials</p>
                     <br />
                     <form id="change-credentials">
                         <div class="edit-email-components">
@@ -110,10 +110,10 @@
                             <p class="p-strong">Submit New Credentials</p>
                         </button>
                     </form>
-                    <h2> - - - - -</h2>
+                    <p class="h2"> - - - - -</p>
                     <br />
                     <form id="change-attendance">
-                        <h2>Change Your RSVP</h2>
+                        <p class="h2">Change Your RSVP</p>
                         <br />
                         <div>
                             <div class="attendance">

@@ -1,8 +1,8 @@
 :root {
     --primary-color: white;
-    --secondary-color: #b95d1c;
+    --secondary-color: #a75418;
     --third-color: rgba(40, 40, 40);
-    --fourth-color: #eb812b;
+    --fourth-color: #f4882f;
     --fifth-color: rgb(104, 155, 172);
     --sixth-color: #1e8339;
     --linear: linear-gradient(#9c4e16, #b86d38);
@@ -33,16 +33,7 @@ p {
     font-family: "Euclid Circular A", "Poppins";
 }
 
-.p-strong {
-    font-size: 18px;
-}
-
-.p-color {
-    color: rgb(242, 255, 0)
-}
-
-
-h2 {
+.h2 {
     color: var(--primary-color);
     font-size: 25px;
     font-family: 'Raleway', sans-serif;
@@ -50,16 +41,7 @@ h2 {
     font-weight: 100;
 }
 
-h3 {
-    display: block;
-    font-family: copperplate;
-    font-size: 35px;
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-h4{
+.h4{
     color: var(--primary-color);
     font-size: 20px;
     font-family: 'Raleway', sans-serif;
@@ -67,7 +49,7 @@ h4{
     font-weight: 100;
 }
 
-h6 {
+.h6 {
     font-family: copperplate;
     text-align: center;
     font-size: 22px;
@@ -101,6 +83,13 @@ a {
     font-size: 60px;
 }
 
+.p-strong {
+    font-size: 18px;
+}
+
+.p-color {
+    color: rgb(242, 255, 0)
+}
 
 /* ------------ Flex & Container Props ------------- */
 
@@ -529,6 +518,7 @@ footer {
     margin: 0 auto;
     height: 550px;
     width: 550px;
+    object-fit: cover;
     background-size: 100%;
     transition: ease-in-out 1s;
     scale: 1
@@ -700,6 +690,7 @@ input[type="radio"] {
     width: 100%;
     margin: 0 auto;
     max-height: 750px;
+    object-fit: cover;
 }
 
 @keyframes slide {
@@ -753,6 +744,7 @@ input[type="radio"] {
 .logos-slide > img{
     height: 200px;
     margin: 0 40px;
+    object-fit: cover;
 }
 
 .slider-wrapper{
@@ -782,6 +774,7 @@ input[type="radio"] {
 .food-slides img{
     height: 350px;
     margin: 0 10px;
+    object-fit: cover;
 }
 
 .slider-nav{
