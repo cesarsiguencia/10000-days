@@ -26,7 +26,7 @@ function changeWords(currentIndex) {
 
 function insertHomeBtn() {
     welcomeBox.style = 'backdrop-filter: blur(2px)'
-    var buttonItem = document.createElement("a")
+    var buttonItem = document.createElement("div")
     buttonItem.className = 'welcome-button'
     buttonItem.innerHTML = '<p class="welcome-button-font text-center copperplate-font h6">Click here for audio and awesomeness</p> '
     welcomeBox.appendChild(buttonItem)
