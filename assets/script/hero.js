@@ -66,15 +66,18 @@ function introParallax(event) {
     const scrollPosition = event.target.scrollingElement.scrollTop;
 
     if (scrollPosition > 20) {
-        hero.style.height = "100vh";
+        // hero.style.height = "100vh";
+        hero.style.scale = 1
     } else {
-        hero.style.height = "120vh";
+        // hero.style.height = "120vh";
+        hero.style.scale = 1.05
     }
 }
 
 function loadParallax(event) {
     const hero = document.querySelector(".hero")
-    hero.style.height = "120vh";
+    hero.style.scale = 1.05
+    // hero.style.height = "120vh";
     event.target.scrollingElement.scrollTop = 0
 }
 

@@ -43,24 +43,26 @@ function bringBarBack() {
     }
 }
 
-function smoothScroll(event) {
-    var section = event.target.getAttribute("data");
-    console.log(section)
-    let selectedElement
-    selectedElement = document.querySelector(`${section}`)
-    console.log(selectedElement)
-    selectedElement.style.opacity = 0.0
-    selectedElement.scrollIntoView({
-        block: 'start',
-        behavior: 'smooth',
+// function smoothScroll(event) {
+//     console.log(document.location.href)
+//     var section = event.target.getAttribute("data");
+//     console.log(section)
+//     let selectedElement
+//     selectedElement = document.querySelector(`${section}`)
+//     console.log(selectedElement)
+//     selectedElement.style.opacity = 0.0
+//     selectedElement.scrollIntoView({
+//         block: 'start',
+//         behavior: 'smooth',
+//         inline: 'start'
 
-    });
-    console.log('should go through')
-    // selectedElement.style.transition = "ease-in-out 2s"
-    selectedElement.style.opacity = 1
-    // selectedElement = ""
-}
+//     });
+//     console.log('should go through')
+//     selectedElement.style.transition = "ease-in-out 5s"
+//     selectedElement.style.opacity = 1
+//     selectedElement = ""
+// }
 
 mobileMenu.addEventListener("click", hamburgerMenu)
 window.addEventListener("resize", bringBarBack)
-navBar.addEventListener("click", smoothScroll)
+// navBar.addEventListener("click", smoothScroll)

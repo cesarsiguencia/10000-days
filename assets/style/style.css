@@ -392,15 +392,20 @@ footer {
 /* ======================= Intro PG ======================= */
 
 /* --------- Hero -------- */
+.hero-holder{
+    overflow: hidden;
+}
 
 .hero {
     height: 100vh;
+    scale: 1;
     background-image: url('../media/empire.avif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
     transition: ease-in-out 2s;
+    z-index: -1
 }
 
 .welcome-box {
